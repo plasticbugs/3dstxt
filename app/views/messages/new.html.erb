@@ -1,0 +1,12 @@
+FUCK YOU
+
+<% form_for @message do |f| -%>
+
+	<p><%= f.label :contents %><br />
+	<%= f.text_field :contents %></p>
+
+  <%= f.submit "Create" %>
+
+<% end -%>
+
+<!-->, :url => "#{@message.pickUpCode}", :html => {:method => :post}<!-->
