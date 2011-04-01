@@ -1,0 +1,110 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+	background-color: #000;
+	font-family: Helvetica, Arial, "sans-serif";
+	color: #0a1304;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+#container {
+	width: 600px;
+	background-image: url('/images/bg.png');
+	margin: auto;
+}
+
+.logo {
+	padding: 15px 0 8px 20px;
+}
+
+#form {
+	padding: 0 0 50px 30px;
+}
+
+label {
+	float: left;
+	padding: 3px 4px 0 0;
+	margin-top: 4px;
+}
+
+.submit {
+	float: right;
+	margin: 0 110px 0px 0;
+}
+
+.notice {
+	width: 300px;
+	color: #2f6109;
+	background-color: #aad990;
+	padding: 3px 3px 3px 22px;
+	margin-left: 30px;
+	margin-bottom: 10px;
+	border: solid;
+	border-width: 2px;
+	border-color: #2a5608;
+	font-size: 12px;
+	background-image: url('/images/accept.png');
+	background-repeat: no-repeat;
+	background-position: 1px 1px;
+}
+
+.content {
+	font-size: 14px;
+	width: 500px;
+	padding: 0 0 20px 30px;
+}
+
+.message {
+	background-color: #eef;
+	margin-bottom: 30px;
+	padding: 10px;
+	
+}
+
+.share {
+	font-size: 20px;
+	padding-bottom: 40px;
+}

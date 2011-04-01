@@ -18,7 +18,7 @@ class MessagesController < ApplicationController
     @message = Message.new(params[:message])
         
     if @message.save
-      flash[:notice] = 'Message was successfully created.'
+      flash[:notice] = 'Your message was created!'
       redirect_to :action => "show", :pickUpCode => @message.pickUpCode
     else
       render :action => "new"

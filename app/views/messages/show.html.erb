@@ -1,5 +1,13 @@
-<h1>Messages#show</h1>
-<p>Find me in app/views/messages/show.html.erb</p>
+<% if flash[:notice] %>
+<div class="notice"><%= flash[:notice] %></div>
+<% end %>
+<div class="content"><div class="message"><%= @message.contents %></div>
 
-<%= @message.contents %>
-<%= @message.pickUpCode %>
+<div class="share">Share this link as a 3DS message:<br/>
+<%= link_to "3dstxt.com/#{@message.pickUpCode}" %><br/>
+</div>
+
+
+<%= link_to "Make your own 3DS TXT!", new_message_path %>
+
+</div>

@@ -1,12 +1,11 @@
-FUCK YOU
+<div id="form">
 
 <% form_for @message do |f| -%>
 
-	<p><%= f.label :contents %><br />
-	<%= f.text_field :contents %></p>
+	<p><%= f.label "Enter your message here:" %><%= f.text_area :contents, :rows => "10", :cols => "40" %></p>
 
-  <%= f.submit "Create" %>
+  <%= f.submit "Create", :class => "submit" %>
 
 <% end -%>
 
-<!-->, :url => "#{@message.pickUpCode}", :html => {:method => :post}<!-->
+</div>

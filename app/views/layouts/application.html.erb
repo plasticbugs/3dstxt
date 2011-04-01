@@ -7,8 +7,14 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
+<div id="container">
+	<header>
+		<%= image_tag "3dtxtlogo.png", :alt => '3DSTXT Logo', :class => 'logo' %>
+	</header>
+
+	
 
 <%= yield %>
-
+</div>
 </body>
 </html>
