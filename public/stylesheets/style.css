@@ -98,10 +98,19 @@ label {
 }
 
 .message {
+	line-height: 120%;
 	background-color: #eef;
 	margin-bottom: 30px;
 	padding: 10px;
 	
+}
+
+.message p {
+	padding-bottom: 10px;
+}
+
+.message p:last-child {
+	padding-bottom: 0px;
 }
 
 .share {

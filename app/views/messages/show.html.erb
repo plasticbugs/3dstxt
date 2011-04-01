@@ -1,7 +1,7 @@
 <% if flash[:notice] %>
 <div class="notice"><%= flash[:notice] %></div>
 <% end %>
-<div class="content"><div class="message"><%= @message.contents %></div>
+<div class="content"><div class="message"><%= simple_format(@message.contents) %></div>
 
 <div class="share">Share this link as a 3DS message:<br/>
 <%= link_to "3dstxt.com/#{@message.pickUpCode}" %><br/>
