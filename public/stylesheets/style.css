@@ -54,6 +54,8 @@ table {
 	width: 600px;
 	background-image: url('/images/bg.png');
 	margin: auto;
+	border-bottom-right-radius: 8px;
+	border-bottom-left-radius: 8px;
 }
 
 .logo {
@@ -72,7 +74,7 @@ label {
 
 .submit {
 	float: right;
-	margin: 0 110px 0px 0;
+	margin: 0 90px 0px 0;
 }
 
 .notice {
@@ -102,7 +104,9 @@ label {
 	background-color: #eef;
 	margin-bottom: 30px;
 	padding: 10px;
-	
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
 }
 
 .message p {
