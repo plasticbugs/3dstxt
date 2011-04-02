@@ -58,8 +58,13 @@ table {
 	border-bottom-left-radius: 8px;
 }
 
+header {
+	background-image: url('/images/headerbg.png');
+	margin-bottom: 8px;
+}
+
 .logo {
-	padding: 15px 0 8px 20px;
+	padding: 15px 0 0px 20px;
 }
 
 #form {
@@ -101,7 +106,7 @@ label {
 
 .message {
 	line-height: 120%;
-	background-color: #eef;
+	background-color: #fafaff;
 	margin-bottom: 30px;
 	padding: 10px;
 	-webkit-border-radius: 8px;
