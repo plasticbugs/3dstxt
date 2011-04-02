@@ -30,7 +30,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
-	background-color: #000;
+	background-image: url('/images/bodybg.jpg');
 	font-family: Helvetica, Arial, "sans-serif";
 	color: #0a1304;
 }
@@ -52,15 +52,20 @@ table {
 
 #container {
 	width: 600px;
-	background-image: url('/images/bg.png');
+	background-color: #dfe0df;
 	margin: auto;
 	border-bottom-right-radius: 8px;
 	border-bottom-left-radius: 8px;
+	border-style: solid;
+	border-color: #a59233;
+	border-width: 1px;
+	border-top: none;
 }
 
 header {
 	background-image: url('/images/headerbg.png');
 	margin-bottom: 8px;
+	border-bottom: solid 1px #b3b4b3;
 }
 
 .logo {
