@@ -78,16 +78,20 @@ header {
 }
 
 #form {
-	padding: 0 0 50px 30px;
+	padding: 0 0 0 30px;
 }
 
 #form label {
 	font-size: 16px;
+	line-height: 22px;
+}
+
+.create {
+	width: 26.5em;
 }
 
 .submit {
 	float: right;
-	margin: 0 160px 0px 0;
 }
 
 .notice {
@@ -148,9 +152,9 @@ header {
 	color: #080808;
 	background-color: #fefefe;
 	padding: 7px;
-	-webkit-border-radius: 4px;
-	-moz-border-radius: 4px;
-	border-radius: 4px;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
 }
 
 #howto ul {
@@ -184,6 +188,7 @@ header {
 .tips {
 	width: 490px;
 	padding: 10px;
+	margin: 15px 0 25px 30px;
 	color: #f3fefe;
 	background-color: #292929;
 	-webkit-border-radius: 10px;
