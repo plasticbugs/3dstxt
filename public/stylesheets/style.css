@@ -157,13 +157,14 @@ header {
 
 #howto ul {
 	font-size: 12px;
-	line-height: 9px;
 	list-style: none;
+	line-height: 16px;
 	margin-top: 10px;
 }
 
 #howto li{
 	background-image: url('/images/bullet.png');
+	background-position: 0 3px;	
 	background-repeat: no-repeat;
 	padding: 0 0 10px 11px;
 }
