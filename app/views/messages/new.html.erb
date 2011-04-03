@@ -1,3 +1,9 @@
+<div id="howto">
+	<h1>How it works:</h1><ul><li>Enter a message.</li>
+	<li>Press create.</li>
+	<li>Share your new 3DStxt link as a greeting or personal message on your 3DS.</li>
+	<li>Come back to your message and read your replies!</li></ul>
+</div>
 <div id="form">
 
 <% form_for @message do |f| -%>
@@ -7,5 +13,19 @@
   <%= f.submit "Create", :class => "submit" %>
 
 <% end -%>
+
+<div class="tips"><h1>Tips:</h1>
+<h2>You may want to include:</h2>
+<ul>
+	<li>Your first name or your Mii's nickname</li>
+	<li>Your Friend Code</li>
+	<li>Your home state and/or city</li>
+	<li>A list of your favorite 3DS games</li>
+</ul>
+<h2>You should NOT include:</h2>
+<ul><li>Your full name</li>
+<li>Your address</li>
+<li>Any other personally identifiable information</li></ul>
+</div>
 
 </div>

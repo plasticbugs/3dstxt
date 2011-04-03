@@ -57,7 +57,7 @@ table {
 	border-bottom-right-radius: 8px;
 	border-bottom-left-radius: 8px;
 	border-style: solid;
-	border-color: #a59233;
+	border-color: #727272;
 	border-width: 1px;
 	border-top: none;
 }
@@ -72,19 +72,24 @@ header {
 	padding: 15px 0 0px 20px;
 }
 
+.ribbon {
+	float: right;
+	margin: 65px -24px 0 0;
+}
+
 #form {
 	padding: 0 0 50px 30px;
 }
 
-label {
+#form label {
 	float: left;
-	padding: 3px 4px 0 0;
+	padding: 3px 4px 5px 0;
 	margin-top: 4px;
 }
 
 .submit {
 	float: right;
-	margin: 0 90px 0px 0;
+	margin: 0 160px 0px 0;
 }
 
 .notice {
@@ -114,7 +119,7 @@ label {
 	background-color: #fcfcfc;
 	margin-top: 20px;
 	margin-bottom: 30px;
-	padding: 10px;
+	padding: 15px;
 	-webkit-border-radius: 8px;
 	-moz-border-radius: 8px;
 	border-radius: 8px;
@@ -131,9 +136,95 @@ label {
 	padding-bottom: 0px;
 }
 
+#form textarea {
+	font-size: 16px;
+}
+
+#form form {
+	margin-bottom: 45px;
+}
+
+#howto {
+	width: 500px;
+	margin: 15px 0 15px 30px;
+	color: #080808;
+	background-color: #fefefe;
+	padding: 7px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+
+#howto ul {
+	font-size: 12px;
+	line-height: 9px;
+	list-style: none;
+	margin-top: 10px;
+}
+
+#howto li{
+	background-image: url('/images/bullet.png');
+	background-repeat: no-repeat;
+	padding: 0 0 10px 11px;
+}
+
+#howto h1 {
+	font-family: 'Chewy';
+	font-size: 30px;
+}
+
 .share {
 	font-size: 20px;
 	padding-bottom: 40px;
 }
+
+.make_your_own {
+	padding: 20px 0 0 0;
+}
+
+.tips {
+	width: 490px;
+	padding: 10px;
+	color: #f3fefe;
+	background-color: #292929;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	border-style: dashed;
+	border-color: #dadada;
+	border-width: 1px;
+}
+
+.tips ul {
+	background-color: #fff;
+	color: #090909;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	margin-top: 7px;
+	padding: 8px;
+}
+
+.tips li {
+	font-size: 13px;
+	padding-bottom: 10px;
+}
+
+.tips ul li:last-child {
+	padding-bottom: 0px;
+}
+
+.tips h1 {
+	color: #2cc82a;
+	font-size: 30px;
+	font-family: 'Chewy', Helvetica, Arial, 'sans-serif';
+	letter-spacing: 3px;
+}
+
+.tips h2 {
+	margin-top: 15px;
+	letter-spacing: 3px;
+}
+
 
 html,body { height:100%; }
