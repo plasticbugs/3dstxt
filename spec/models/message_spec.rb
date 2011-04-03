@@ -24,7 +24,17 @@ describe Message do
     
   end
   
-  it 'should create a new message and load' do
+  it 'should not be blank' do
+    x = Message.create(:contents => "", :pickUpCode => "X"*5)
+    
+    x.should_not be_valid
   end
+  
+  it 'should not be longer than 5000 characters' do
+    x = Message.create(:contents => "abcde"*1001, :pickUpCode => "X"*5)
+    
+    x.should_not be_valid
+  end
+  
   
 end

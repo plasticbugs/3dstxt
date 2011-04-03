@@ -4,6 +4,16 @@
 	<li>Share your new 3DStxt link as a greeting or personal message on your 3DS.</li>
 	<li>Come back to your message and read your replies!</li></ul>
 </div>
+<% if @message.errors.any? %>
+	<div class="errors">
+	<ul>
+    <% @message.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+</div>
+<% end %>
+
 <div id="form">
 
 <% form_for @message do |f| -%>

@@ -68,6 +68,22 @@ header {
 	border-bottom: solid 1px #b3b4b3;
 }
 
+.errors {
+	width: 300px;
+	color: #ebebeb;
+	background-color: #e23535;
+	padding: 3px 3px 3px 22px;
+	margin-left: 30px;
+	margin-bottom: 10px;
+	border: solid;
+	border-width: 2px;
+	border-color: #6f1c1c;
+	font-size: 12px;
+	background-image: url('/images/error.png');
+	background-repeat: no-repeat;
+	background-position: 1px 1px;
+}
+
 .logo {
 	padding: 15px 0 0px 20px;
 }
