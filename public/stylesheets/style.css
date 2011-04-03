@@ -82,9 +82,7 @@ header {
 }
 
 #form label {
-	float: left;
-	padding: 3px 4px 5px 0;
-	margin-top: 4px;
+	font-size: 16px;
 }
 
 .submit {
@@ -146,7 +144,7 @@ header {
 
 #howto {
 	width: 500px;
-	margin: 15px 0 15px 30px;
+	margin: 15px 0 25px 30px;
 	color: #080808;
 	background-color: #fefefe;
 	padding: 7px;
