@@ -1,5 +1,6 @@
 class MessagesController < ApplicationController
   def index
+    redirect_to :root
     #@message = Message.search(params[:search])
   end
 
@@ -11,8 +12,6 @@ class MessagesController < ApplicationController
    @message = Message.new
   end
 
-  def edit
-  end
   
   def create
     @message = Message.new(params[:message])
@@ -23,6 +22,7 @@ class MessagesController < ApplicationController
     else
       render :action => "new"
     end
+  end
     
   #  @message.pickUpCode = Message.generateCode
    
@@ -31,15 +31,15 @@ class MessagesController < ApplicationController
   # else
   #   render :action => 'new'
   # end
-  end
+
   
-  def self.search(search)
+#  def self.search(search)
 #  if search
 #    find(:all, :conditions => ['name = ?', "%#{search}%"])
 #  else
 #    redirect_to()
 #  end
-  end
+#  end
   
 
 end

@@ -3,7 +3,7 @@ Txtapp::Application.routes.draw do
  resources :messages, :only => [:new, :create]
  
  match '/:pickUpCode' => 'messages#show'
- 
+ match '/messages' => 'messages#new' 
  
  #match '/messages/new' => 'messages#new'
 
