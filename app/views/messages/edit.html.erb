@@ -1,0 +1,10 @@
+<div id="form">
+
+<%= form_for @message do |f| -%>
+
+	<%= f.label "Edit your message here:" %><br/><%= f.text_area :contents, :rows => "10", :cols => "40" %>
+
+  <div class="create"><%= f.submit "Update", :class => "submit" %></div>
+
+<% end -%>
+</div>

@@ -11,7 +11,22 @@ class MessagesController < ApplicationController
   def new
    @message = Message.new
   end
-
+  
+  def edit
+    @message = Message.find_by_pickUpCode(params[:pickUpCode])
+  end
+  
+  def update
+    @message = Message.find_by_pickUpCode(params[:pickUpCode])
+    
+    if @message.update_attributes(params[:message])
+      flash[:notice] = 'Your 3DS txt message was successfully updated!'
+      redirect_to :action => "show", :pickUpCode => @message.pickUpCode
+    else
+      render :action => 'edit'
+    end
+  end
+  
   
   def create
     @message = Message.new(params[:message])

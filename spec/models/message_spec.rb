@@ -36,5 +36,19 @@ describe Message do
     x.should_not be_valid
   end
   
+  it 'should allow me to enter a password' do
+    x = Factory(:message)
+    
+    x.password.should_not be_nil
+  end
+  
+  it 'should allow me to change the pickUpCode if a password has been entered' do
+    x = Factory(:message)
+    
+    x.pickUpCode = "scott"
+    x.save
+    x.pickUpCode.should == "scott"
+  end
+  
   
 end

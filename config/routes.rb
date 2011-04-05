@@ -1,6 +1,6 @@
 Txtapp::Application.routes.draw do
  
- resources :messages, :only => [:new, :create]
+ resources :messages, :only => [:new, :create, :edit, :update]
  
  match '/:pickUpCode' => 'messages#show'
  match '/messages' => 'messages#new' 

@@ -10,13 +10,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110330034928) do
+ActiveRecord::Schema.define(:version => 20110405052631) do
 
   create_table "messages", :force => true do |t|
     t.string   "pickUpCode"
     t.text     "contents"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "password"
   end
 
 end

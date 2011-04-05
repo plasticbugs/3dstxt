@@ -177,7 +177,7 @@ header {
 	font-size: 12px;
 	list-style: none;
 	line-height: 16px;
-	margin-top: 10px;
+	margin-top: 5px;
 }
 
 #howto li{
@@ -185,6 +185,13 @@ header {
 	background-position: 0 3px;	
 	background-repeat: no-repeat;
 	padding: 0 0 10px 11px;
+}
+
+#howto li:last-child{
+	background-image: url('/images/bullet.png');
+	background-position: 0 3px;	
+	background-repeat: no-repeat;
+	padding: 0 0 5px 11px;
 }
 
 #howto h1 {
@@ -221,7 +228,7 @@ header {
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
-	margin-top: 7px;
+	margin-top: 3px;
 	padding: 8px;
 }
 
@@ -242,7 +249,7 @@ header {
 }
 
 .tips h2 {
-	margin-top: 15px;
+	margin-top: 10px;
 	letter-spacing: 3px;
 }
 
