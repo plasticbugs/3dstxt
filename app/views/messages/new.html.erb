@@ -5,6 +5,7 @@
 	<li>Come back to your message and read your replies!</li>
 	</ul>
 </div>
+
 <% if @message.errors.any? %>
 	<div class="errors">
 	<ul>
@@ -19,7 +20,11 @@
 
 <%= form_for @message do |f| -%>
 
-	<%= f.label "Enter your message here:" %><br/><%= f.text_area :contents, :rows => "10", :cols => "40" %>
+	<p><%= f.label "Enter your message here:" %><br/><%= f.text_area :contents, :rows => "10", :cols => "40" %></p>
+	
+<div class="custom">	If you would like a custom URL like 3dstxt.com/scott, please enter a password and choose a custom URL (5 letters maximum):
+	<table><tr><td align="right"><%= f.label "Password" %></td><td><%= f.text_field :password, :rows => "8"%></td></tr>
+	<tr><td align="right"><%= f.label "Optional custom URL" %></td><td><%= f.text_field :pickUpCode, :rows => "5", :maxlength => "5"%></td></tr></table></div>
 
   <div class="create"><%= f.submit "Create", :class => "submit" %></div>
 

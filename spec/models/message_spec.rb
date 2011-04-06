@@ -16,13 +16,16 @@ describe Message do
   end
   
   
-  it 'should regenerate a new key if the pick up code is not unique' do
+  it 'should regenerate a new five digit key if the pick up code is not unique' do
     x = Message.create(:contents => "this is some sample text", :pickUpCode => "X"*5)
     y = Message.create(:contents => "this is some sample text", :pickUpCode => "X"*5)
     
     y.pickUpCode.should_not == x.pickUpCode
+    y.pickUpCode.length.should == 5
     
   end
+
+    
   
   it 'should not be blank' do
     x = Message.create(:contents => "", :pickUpCode => "X"*5)
@@ -49,6 +52,17 @@ describe Message do
     x.save
     x.pickUpCode.should == "scott"
   end
+  
+  it 'should not allow me to create a pickUpCode that is in use' do
+    x = Factory(:message)
+    
+    x.pickUpCode = 'scott'
+    x.save
+    
+    y = Message.create(:contents => "23423523", :pickUpCode => "scott", :password => "padss")
+    y.should_not be_valid
+  end
+  
   
   
 end

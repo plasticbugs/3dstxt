@@ -98,7 +98,7 @@ header {
 }
 
 #form label {
-	font-size: 16px;
+	font-size: 14px;
 	line-height: 22px;
 }
 
@@ -251,6 +251,14 @@ header {
 .tips h2 {
 	margin-top: 10px;
 	letter-spacing: 3px;
+}
+
+.custom {
+	font-size: 14px;
+}
+
+.custom p {
+	font-size: 10px;
 }
 
 

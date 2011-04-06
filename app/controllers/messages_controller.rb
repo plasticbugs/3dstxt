@@ -21,11 +21,27 @@ class MessagesController < ApplicationController
     
     if @message.update_attributes(params[:message])
       flash[:notice] = 'Your 3DS txt message was successfully updated!'
-      redirect_to :action => "show", :pickUpCode => @message.pickUpCode
+      redirect_to :action => 'show', :pickUpCode => @message.pickUpCode
     else
       render :action => 'edit'
     end
   end
+  
+#  def validate
+#    color = 'red'
+#    pickUpCode = params[:pickUpCode]
+#    
+#      message = Message.find_by_pickUpCode(pickUpCode)      
+#      if message.size > 0        
+#        warning = 'Taken'     
+#      else
+#        message = 'Available'
+#        color = 'green'
+#      end
+#  
+#    @warning = "<b style='color:#{color}'>#{warning}</b>"
+#    render :partial=>'warning'
+#  end
   
   
   def create

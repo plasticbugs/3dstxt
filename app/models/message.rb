@@ -1,10 +1,14 @@
 class Message < ActiveRecord::Base
-  before_validation(:create_code_until_valid, :on => :create)
-    
+   
+#  after_validation(:my_method)
+  
   validates :pickUpCode, :uniqueness => true
+  validates_length_of :pickUpCode, :maximum => 5
   validates_length_of :contents,
                       :minimum => 1,
                       :maximum => 5000
+                      
+  after_validation(:create_code_until_valid)
 
 private
   def create_code_until_valid(size = 5)
