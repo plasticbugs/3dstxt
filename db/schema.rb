@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110406024842) do
+ActiveRecord::Schema.define(:version => 20110407054656) do
 
   create_table "messages", :force => true do |t|
     t.string   "pickUpCode"
@@ -21,5 +21,14 @@ ActiveRecord::Schema.define(:version => 20110406024842) do
   end
 
   add_index "messages", ["pickUpCode"], :name => "index_messages_on_pickUpCode"
+
+  create_table "users", :force => true do |t|
+    t.string   "name"
+    t.string   "friend_code"
+    t.string   "email"
+    t.string   "encrypted_password"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
