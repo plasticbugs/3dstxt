@@ -24,7 +24,7 @@
 	
 <div class="custom">	If you would like a custom URL like 3dstxt.com/scott, please enter a password and choose a custom URL (5 letters maximum):
 	<table><tr><td align="right"><%= f.label "Password" %></td><td><%= f.text_field :password, :rows => "8"%></td></tr>
-	<tr><td align="right"><%= f.label "Optional custom URL" %></td><td><%= f.text_field :pickUpCode, :rows => "5", :maxlength => "5"%></td></tr></table></div>
+	<tr><td align="right"><%= f.label "Optional custom URL" %></td><td>3dstxt.com/<%= f.text_field :pickUpCode, :rows => "5", :maxlength => "5"%></td></tr></table></div>
 
   <div class="create"><%= f.submit "Create", :class => "submit" %></div>
 
