@@ -1,6 +1,7 @@
 Txtapp::Application.routes.draw do
   
  resources :users
+ match '/users/:id' => 'users#show', :via => :get
  
  match '/signup' => 'users#new'
  

@@ -261,5 +261,18 @@ header {
 	font-size: 10px;
 }
 
+div.field {
+	margin: 0 0 10px 30px;
+	font-size: 16px;
+}
+
+.field_with_errors input{
+	background-color: #ffb9b9;
+	border: 3px solid #e23535;
+}
+
+.sign_up_submit {
+	margin-left: 30px;
+}
 
 html,body { height:100%; }
