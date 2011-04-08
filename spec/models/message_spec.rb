@@ -59,8 +59,8 @@ describe Message do
     x.pickUpCode = 'scott'
     x.save
     
-    y = Message.create(:contents => "23423523", :pickUpCode => "scott", :password => "padss")
-    y.pickUpCode.should_not == "scott"
+    y = Message.new(:contents => "23423523", :pickUpCode => "scott", :password => "padss")
+    y.should_not be_valid
   end
   
   

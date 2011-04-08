@@ -1,4 +1,8 @@
 Txtapp::Application.routes.draw do
+  
+ resources :users
+ 
+ match '/signup' => 'users#new'
  
  resources :messages, :only => [:new, :create]
  
