@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      flash[:notice => "Thanks for creating an account!"]
+      flash[:notice] = "Thanks for creating an account!"
       redirect_to :action => 'show', :id => @user  
     else
       render 'new'
@@ -20,6 +20,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @title = @user.name
   end
+  
   
   
 end

@@ -70,18 +70,25 @@ header {
 
 .errors {
 	width: 300px;
-	color: #ebebeb;
-	background-color: #e23535;
-	padding: 3px 3px 3px 22px;
+	color: #040404;
+	letter-spacing: .2px;
+	background-color: #ffb9b9;
 	margin-left: 30px;
 	margin-bottom: 10px;
 	border: solid;
-	border-width: 2px;
-	border-color: #6f1c1c;
+	border-width: 3px;
+	border-color: #ff0021;
 	font-size: 12px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+}
+
+.errors li {
+	padding: 7px 3px 7px 26px;
 	background-image: url('/images/error.png');
 	background-repeat: no-repeat;
-	background-position: 1px 1px;
+	background-position: 6px 5px ;
 }
 
 .logo {
@@ -124,6 +131,9 @@ header {
 	background-image: url('/images/accept.png');
 	background-repeat: no-repeat;
 	background-position: 1px 1px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
 }
 
 .content {
@@ -156,6 +166,7 @@ header {
 
 #form textarea {
 	font-size: 16px;
+	resize: vertical;
 }
 
 #form form {
@@ -163,11 +174,14 @@ header {
 }
 
 #howto {
-	width: 500px;
+	width: 380px;
 	margin: 15px 0 25px 30px;
 	color: #080808;
 	background-color: #fefefe;
-	padding: 7px;
+	background-image: url('/images/hi.png');
+	background-repeat: no-repeat;
+	background-position: 20px 20px;
+	padding: 7px 7px 7px 150px;
 	-webkit-border-radius: 6px;
 	-moz-border-radius: 6px;
 	border-radius: 6px;
@@ -181,21 +195,21 @@ header {
 }
 
 #howto li{
-	background-image: url('/images/bullet.png');
-	background-position: 0 3px;	
+	/* background-image: url('/images/bullet.png');
+	background-position: 0px 0px;	
 	background-repeat: no-repeat;
-	padding: 0 0 10px 11px;
+	*/
+	padding: 1px 0 1px 19px;
+	margin-top: 5px;
 }
 
 #howto li:last-child{
-	background-image: url('/images/bullet.png');
-	background-position: 0 3px;	
-	background-repeat: no-repeat;
-	padding: 0 0 5px 11px;
 }
 
 #howto h1 {
-	font-family: 'Chewy';
+	margin: 12px 0 -8px 15px;
+	/* padding: 20px 0 -20px 15px; */
+	font-family: 'Maiden Orange', serif;
 	font-size: 30px;
 }
 
@@ -217,9 +231,6 @@ header {
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	border-radius: 10px;
-	border-style: dashed;
-	border-color: #dadada;
-	border-width: 1px;
 }
 
 .tips ul {
@@ -229,6 +240,7 @@ header {
 	-moz-border-radius: 4px;
 	border-radius: 4px;
 	margin-top: 3px;
+	margin-left: 10px;
 	padding: 8px;
 }
 
@@ -242,14 +254,16 @@ header {
 }
 
 .tips h1 {
-	color: #2cc82a;
+	color: #fefefe;
+	margin: 10px 0 0 10px;
 	font-size: 30px;
-	font-family: 'Chewy', Helvetica, Arial, 'sans-serif';
+	font-family: 'Maiden Orange', serif;
 	letter-spacing: 3px;
 }
 
 .tips h2 {
 	margin-top: 10px;
+	margin-left: 10px;
 	letter-spacing: 3px;
 }
 
