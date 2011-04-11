@@ -1,9 +1,15 @@
 Txtapp::Application.routes.draw do
   
+ get "sessions/new"
+
  resources :users
  match '/users/:id' => 'users#show', :via => :get
  
  match '/signup' => 'users#new'
+ 
+ resources :sessions, :only => [:new, :create, :destroy]
+ match '/signin' => 'sessions#new'
+ match '/signout' => 'sessions#destroy'
  
  resources :messages, :only => [:new, :create]
  

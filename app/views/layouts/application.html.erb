@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>3DSTXT.com - Breaking the 16 Character Limit</title>
+  
+<% if @title %>
+<title><%= "3DSTXT.com - #{@title}" %></title>
+<% else %>
+<title>3DSTXT.com - Breaking the 16 Character Limit</title>
+<% end %>
   <%= stylesheet_link_tag '/stylesheets/style.css' %>
 	<link href='http://fonts.googleapis.com/css?family=Chewy' rel='stylesheet' type='text/css'>
 	<link  href="http://fonts.googleapis.com/css?family=Maiden+Orange:regular" rel="stylesheet" type="text/css" >
@@ -13,6 +18,11 @@
 	<header>
 		<%= link_to image_tag("3dtxtlogo.png", :alt => '3DSTXT Logo', :class => 'logo'), root_path %>
 		<%= link_to image_tag("ribbon.png", :alt => 'Make your own 3DS txt!', :class => 'ribbon'), root_path %>
+		<% if signed_in? %>
+		<%= link_to "Sign out", signout_path, :method => :delete %>
+		<% else %>
+		<%= link_to "Sign in", signin_path %>
+		<% end %>
 		<%= debug(params) if Rails.env.development? %>
 	</header>
 
