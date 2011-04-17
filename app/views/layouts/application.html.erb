@@ -19,8 +19,9 @@
 		<%= link_to image_tag("3dtxtlogo.png", :alt => '3DSTXT Logo', :class => 'logo'), root_path %>
 		<%= link_to image_tag("ribbon.png", :alt => 'Make your own 3DS txt!', :class => 'ribbon'), root_path %>
 		<% if signed_in? %>
-		<%= link_to "Sign out", signout_path, :method => :delete %>
+		<%= link_to "Sign out", signout_path, :method => :delete %><%= link_to "User Home", user_path(current_user.id) %>
 		<% else %>
+		<%= link_to "Create new account", signup_path %>
 		<%= link_to "Sign in", signin_path %>
 		<% end %>
 		<%= debug(params) if Rails.env.development? %>

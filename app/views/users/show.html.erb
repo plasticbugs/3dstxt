@@ -2,5 +2,44 @@
 <div class="notice"><%= flash[:notice] %></div>
 <% end %>
 
+<div class="message_list">
+	<h1>Your Saved Messages</h1>
+<% @messages.each do |message|%>
+<ul class=<%= cycle('oddrow', 'evenrow') %>>
+	<li class="msg"><%= truncate message.contents, :length => 55 %></li><li class="link"><%= link_to "3dstxt.com/#{message.pickUpCode}", :controller => 'messages', :action => 'show', :pickUpCode => message.pickUpCode %></li>
+	<li><%= link_to (image_tag ("edit.png")), {:controller => 'messages', :action => 'edit', :pickUpCode => message.pickUpCode} %></li>
+	<li><%= link_to "Delete", message, :confirm => "Are you sure?", :method => :delete %></li>
+</ul>
+<% end %></div>
+
+<% if @message.errors.any? %>
+	<div class="errors">
+	<ul>
+    <% @message.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+</div>
+<% end %>
+
+<div id="form">
+
+<%= form_for @message do |f| -%>
+
+	<p><%= f.label "Enter your message here:" %><br/><%= f.text_area :contents, :rows => "10", :cols => "40" %></p>
+	
+<div class="custom">	If you would like a custom URL like 3dstxt.com/scott, please enter a password and choose a custom URL (5 letters maximum):
+	<table>
+	<tr><td align="right"><%= f.label "Optional custom URL" %></td>
+		<td>3dstxt.com/<%= f.text_field :pickUpCode, :rows => "5", :maxlength => "5"%></td>
+		</tr>
+	</table>
+</div>
+
+  <div class="create"><%= f.submit "Create", :class => "submit" %></div>
+
+<% end -%>
+</div>
+
 <%= @user.name %>
 <%= @user.email %>

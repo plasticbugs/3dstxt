@@ -63,6 +63,21 @@ describe Message do
     y.should_not be_valid
   end
   
+  it 'should have at least three characters' do
+    x = Factory(:message)
+    
+    x.pickUpCode = "sc"
+    x.save
+    
+    x.should_not be_valid
+  end
   
+  it 'should not allow me to create a blank pick up code' do
+    x = Factory(:message)
+    x.pickUpCode = ""
+    x.save
+    
+    x.pickUpCode.should_not be_blank
+  end
   
 end

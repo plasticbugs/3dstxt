@@ -2,9 +2,9 @@
 <div class="notice"><%= flash[:notice] %></div>
 <% end %>
 <div class="content"><div class="message"><%= simple_format(@message.contents) %></div><br/>
-<% unless @message.password.blank? %>
+<!-- <% if signed_in? %>
 <%= link_to "Edit this message", :controller => 'messages', :action => 'edit', :pickUpCode => @message.pickUpCode %>
-<% end %>
+<% end %> -->
 
 <div class="share">Share this link as a 3DS message:<br/>
 <%= link_to "3dstxt.com/#{@message.pickUpCode}" %><br/>
