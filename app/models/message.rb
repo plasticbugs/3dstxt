@@ -3,7 +3,7 @@ class Message < ActiveRecord::Base
 #  after_validation(:my_method)
   
   validates :pickUpCode, :uniqueness => {:case_sensitive => false}
-  #validates_length_of :pickUpCode, :minimum => 3, :maximum => 5
+  validates_length_of :pickUpCode, :minimum => 3, :maximum => 5, :if => :pickUpCode
   validates_length_of :contents,
                       :minimum => 1,
                       :maximum => 5000
@@ -20,18 +20,20 @@ class Message < ActiveRecord::Base
   #     end
   #   end
   # end
-                     
-  after_validation(:create_code_until_valid, :on => :create)
   
-  before_save(:downcase_pickUpCode)
+  before_validation(:if_blank)
+  #before_save(:create_code_until_valid, :downcase_pickUpCode)
+  
+  after_validation(:create_code_until_valid) #, :on => :create)
+  
 
 private
 
-  # def if_blank
-  #   if self.pickUpCode.blank?
-  #     :create_code_until_valid
-  #   end
-  # end
+  def if_blank
+     if self.pickUpCode.blank?
+       self.pickUpCode = nil
+     end
+  end
 
   def downcase_pickUpCode
     self.pickUpCode = self.pickUpCode.downcase

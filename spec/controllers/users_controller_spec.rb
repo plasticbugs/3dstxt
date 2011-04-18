@@ -1,24 +1,28 @@
 require 'spec_helper'
-
+include SessionsHelper
 
 describe UsersController do
   render_views
   
   describe "GET 'show'" do
     
-    before(:each) do
-      @user = Factory(:user)
-    end
-    
-    it "should be successful" do
-      get :show, :id => @user
-      response.should be_success
-    end
-    
-    it "should find the right user" do
-      get :show, :id => @user
-      assigns(:user).should == @user
-    end
+    # before(:each) do
+    #      @attr = { :name => "Scott Moschella", :email => "scottmosch@gmail.com", :password => "foobar", :password_confirmation => "foobar"}
+    #    end
+    #    
+    #    it "should be successful" do
+    #      @user = User.create(@attr)
+    #      sign_in @user
+    #      get :show, :id => @user
+    #      response.should be_success
+    #    end
+    #    
+    #    it "should find the right user" do
+    #      @user = User.new(@attr)
+    #      @user.save
+    #      get :show, :id => @user
+    #      assigns(:user).should == @user
+    #    end
   end
   
   

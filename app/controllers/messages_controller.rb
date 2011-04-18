@@ -50,18 +50,9 @@ class MessagesController < ApplicationController
   def create
     
     if signed_in?
-      @message = current_user.messages.build(params[:message])
-      if @message.pickUpCode.blank?
-        charset = %w{ 1 2 3 4 5 6 7 8 9 a b c d e f g h i j k l m n o p q r s t u v w x y z }
-        @message.pickUpCode = (0...5).map{ charset.to_a[rand(charset.size)] }.join
-
-        while Message.find_by_pickUpCode(@message.pickUpCode.downcase, size = 5)
-          @message.pickUpCode = (0...5).map{ charset.to_a[rand(charset.size)] }.join
-        end
-      end
-      @messages = current_user.messages
       @user = current_user
-      
+      @messages = @user.messages
+      @message = @user.messages.build(params[:message])
     else
       @message = Message.new(params[:message])
     end
@@ -70,7 +61,7 @@ class MessagesController < ApplicationController
       flash[:notice] = 'Your message was created!'
       redirect_to :action => "show", :pickUpCode => @message.pickUpCode
     elsif signed_in?
-      render :action => 'users/show'
+      render :action => 'users/show', :messages => current_user.messages
     else
       # flash[:notice] = ":("
       # redirect_to root_path, {:flash => "!"}

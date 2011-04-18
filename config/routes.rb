@@ -3,7 +3,7 @@ Txtapp::Application.routes.draw do
   get "sessions/new"
   
   resources :users, :only => [:new, :create, :destroy, :show, :edit]
-  match '/users/:id' => 'users#show', :via => :get
+  #match '/users/:id' => 'users#show', :via => :get
   
   
   match '/signup' => 'users#new'
@@ -14,7 +14,7 @@ Txtapp::Application.routes.draw do
   
   resources :messages, :only => [:new, :create, :destroy]
   
-  match '/messages' => 'messages#new'
+  match '/messages' => 'messages#new'  
   
   match '/:pickUpCode'      => 'messages#show', :via => :get
   match '/:pickUpCode/edit' => 'messages#edit', :via => :get

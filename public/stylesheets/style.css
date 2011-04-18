@@ -121,7 +121,7 @@ header {
 	width: 300px;
 	color: #2f6109;
 	background-color: #aad990;
-	padding: 3px 3px 3px 22px;
+	padding: 6px 3px 6px 28px;
 	margin-left: 30px;
 	margin-bottom: 10px;
 	border: solid;
@@ -130,7 +130,7 @@ header {
 	font-size: 12px;
 	background-image: url('/images/check.png');
 	background-repeat: no-repeat;
-	background-position: 1px 1px;
+	background-position: 4px 4px;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
@@ -138,14 +138,18 @@ header {
 
 .message_list{
 	width: 520px;
-	background-color: #f5ebed;
+	background-color: #bcbdbc;
 	margin-left: 30px;
 	font-size: 12px;
-	padding: 8px;
+	padding: 14px;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
 	border-style: none;
+}
+
+.message_list ul{
+	padding: 6px 0 0 8px;
 }
 
 .message_list ul.oddrow{
@@ -155,29 +159,44 @@ header {
 .message_list ul.evenrow{
 }
 
+.sign_in li{
+	display: inline;
+	padding: 0 10px 0 0;
+
+}
 
 .message_list h1{
 	font-size: 26px;
-	font-family: 'Maiden Orange', serif;
+	font-family: 'Copse', serif;
+	padding-bottom: 10px;
 }
 
 .message_list li{
 	display: inline;
 	padding-right: 8px;
-	line-height: 1.4em;
 }
 
 .message_list li.msg{
 	display: block;
 	float: left;
-	width: 310px;
+	width: 330px;
 }
 
 .message_list li.link{
 	display: block;
 	float: left;
-	width: 100px;
+	width: 110px;
 }
+
+.message_list img{
+	margin-top: -3px;
+	padding-bottom: 3px;
+}
+
+.message_list ul:hover {
+	background-color: #f3f2bb;
+}
+
 
 .content {
 	font-size: 14px;
@@ -221,7 +240,7 @@ header {
 	margin: 15px 0 25px 30px;
 	color: #080808;
 	background-color: #fefefe;
-	background-image: url('/images/hi.png');
+	background-image: url('/images/pencil.png');
 	background-repeat: no-repeat;
 	background-position: 20px 20px;
 	padding: 7px 7px 7px 150px;
@@ -247,12 +266,13 @@ header {
 }
 
 #howto li:last-child{
+	padding-bottom: 12px;
 }
 
 #howto h1 {
-	margin: 12px 0 -8px 15px;
+	margin: 12px 0 0 15px;
 	/* padding: 20px 0 -20px 15px; */
-	font-family: 'Maiden Orange', serif;
+	font-family: 'Copse', serif;
 	font-size: 30px;
 }
 
@@ -300,7 +320,7 @@ header {
 	color: #fefefe;
 	margin: 10px 0 0 10px;
 	font-size: 30px;
-	font-family: 'Maiden Orange', serif;
+	font-family: 'Copse', serif;
 	letter-spacing: 3px;
 }
 
@@ -311,11 +331,16 @@ header {
 }
 
 .custom {
-	font-size: 14px;
+  background-color: #fff;
+	margin-top: 20px;
+	padding: 8px;
+	font-size: 12px;
+	width: 400px;
 }
 
-.custom p {
-	font-size: 10px;
+.custom p{
+	margin-top: 10px;
+	font-size: 18px;
 }
 
 div.field {
