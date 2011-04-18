@@ -24,7 +24,7 @@ class Message < ActiveRecord::Base
   before_validation(:if_blank)
   #before_save(:create_code_until_valid, :downcase_pickUpCode)
   
-  after_validation(:create_code_until_valid) #, :on => :create)
+  after_validation(:create_code_until_valid, :on => :create)
   
 
 private

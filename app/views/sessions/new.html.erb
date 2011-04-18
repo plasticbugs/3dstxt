@@ -1,4 +1,4 @@
-<h1>Sign in</h1>
+
 
 <% if flash[:error] %>
 <div class="errors">
@@ -6,6 +6,8 @@
 <%= flash[:error] %></li></ul></div>
 <% end %>
 
+<div class="sign_in">
+	<h1>Sign in here</h1>
 <%= form_for(:session, :url => sessions_path) do |f| %>
 
 	<p><%= f.label "Email" %><br/>
@@ -19,3 +21,4 @@
 	<%= f.submit "Sign in" %>
 
 <% end %>
+</div>

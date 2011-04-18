@@ -338,9 +338,14 @@ header {
 	width: 400px;
 }
 
+.custom input{
+	font-size: 22px;
+	color: #084ac3;
+}
+
 .custom p{
 	margin-top: 10px;
-	font-size: 18px;
+	font-size: 22px;
 }
 
 div.field {
@@ -351,6 +356,19 @@ div.field {
 .field_with_errors input{
 	background-color: #ffb9b9;
 	border: 3px solid #e23535;
+}
+
+.sign_in{
+	margin-left: 30px;
+}
+
+.sign_in label{
+	font-size: 12px;
+}
+
+.sign_in input{
+	font-size: 18px;
+	margin-bottom: 16px;
 }
 
 .sign_up_submit {
