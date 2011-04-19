@@ -5,6 +5,7 @@ Txtapp::Application.routes.draw do
   resources :users, :only => [:new, :create, :destroy, :show, :edit]
   #match '/users/:id' => 'users#show', :via => :get
   
+  get "pages/about"
   
   match '/signup' => 'users#new'
   

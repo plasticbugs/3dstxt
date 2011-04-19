@@ -73,8 +73,7 @@ header {
 	color: #040404;
 	letter-spacing: .2px;
 	background-color: #ffb9b9;
-	margin-left: 30px;
-	margin-bottom: 10px;
+	margin: 15px 0 10px 30px;
 	border: solid;
 	border-width: 3px;
 	border-color: #ff0021;
@@ -214,6 +213,28 @@ header {
 	padding: 0 0 20px 30px;
 }
 
+#content{
+	margin: 0 20px 20px 30px;
+}
+
+#content h1{
+	margin-bottom: 15px;
+	font-family: 'Copse', serif;
+	font-size: 30px;
+}
+
+#content p{
+	margin-bottom: 15px;
+	line-height: 22px;
+	font-size: 15px;
+}
+
+#footer{
+	margin-left: 30px;
+	margin-bottom: 10px;
+	font-size: 12px;
+}
+
 .message {
 	line-height: 120%;
 	background-color: #fcfcfc;
@@ -250,9 +271,62 @@ header {
 	line-height: 40px;
 }
 
+
+#account {
+	width: 445px;
+	margin: 0px 0 0 30px;
+	color: #080808;
+	background-color: #fefefe;
+	background-image: url('/images/new.png');
+	background-repeat: no-repeat;
+	background-position: 20px 20px;
+	padding: 7px 7px 7px 85px;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+}
+
+#account ul {
+	font-size: 14px;
+	list-style: none;
+	line-height: 16px;
+	margin-top: 5px;
+}
+
+#account li{
+	background-image: url('/images/save.png');
+	background-repeat: no-repeat;
+	background-position: 14px 1px;
+	padding: 3px 0 0px 35px;
+	margin-top: 5px;
+}
+
+#account li:last-child{
+	background-image: url('/images/heart.png');
+	padding-bottom: 6px;
+}
+
+#account h1 {
+	margin: 12px 0 0 15px;
+	font-family: 'Copse', serif;
+	font-size: 20px;
+}
+
+#account span.link{
+	color: #f00;
+	font-size: 15px;
+	padding-left: 2px;
+}
+
+#form p label{
+	font-size: 20px;
+	line-height: 24px;
+	margin-left: 3px;
+}
+
 #howto {
 	width: 380px;
-	margin: 0 0 0 30px;
+	margin: 20px 0 0 30px;
 	color: #080808;
 	background-color: #fefefe;
 	background-image: url('/images/pencil.png');
@@ -272,10 +346,6 @@ header {
 }
 
 #howto li{
-	/* background-image: url('/images/bullet.png');
-	background-position: 0px 0px;	
-	background-repeat: no-repeat;
-	*/
 	padding: 1px 0 1px 19px;
 	margin-top: 5px;
 }
@@ -286,7 +356,6 @@ header {
 
 #howto h1 {
 	margin: 12px 0 0 15px;
-	/* padding: 20px 0 -20px 15px; */
 	font-family: 'Copse', serif;
 	font-size: 30px;
 }
@@ -376,6 +445,9 @@ div.field {
 
 .sign_in{
 	margin-left: 30px;
+	/*background-image: url('/images/account.png');
+		background-repeat: no-repeat;
+		background-position: 250px 20px;*/
 }
 
 .sign_in label{
