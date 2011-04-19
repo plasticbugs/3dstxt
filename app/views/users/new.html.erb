@@ -7,11 +7,9 @@
     </ul>
 </div>
 <% end %>
-Already have an account? <%= link_to "Sign in!", signin_path %>
-<div id="form"><%= form_for @user do |f| -%>
 
-<p><%= f.label "Name" %><br/>
-<%= f.text_field :name %></p>
+<div class="sign_in">
+<h1>Create a new account</h1><%= form_for @user do |f| -%>
 
 <p><%= f.label "Email" %><br/>
 <%= f.text_field :email %></p>
@@ -26,4 +24,5 @@ Already have an account? <%= link_to "Sign in!", signin_path %>
 
 
 <%= f.submit "Sign up" %>
-</div><% end -%>
+<% end -%>
+<span class="has_account">Already have one? <%= link_to "Sign in!", signin_path %></span></div>

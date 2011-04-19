@@ -4,8 +4,9 @@
 
 <%#= render :partial => 'message_list' %>
 
-<% if @messages.count > 0 %><div class="message_list">
+<div class="message_list">
 	<h1>Saved StreetPass Messages</h1>
+	<% if @messages.count > 0 %>
 <% @messages.each do |message|%>
 <% if message.errors.blank? %>
 <ul class=<%= cycle('oddrow', 'evenrow') %>>
@@ -15,8 +16,13 @@
 </ul>
 <% end %>
 <% end %>
-</div>
+<% else %>
+<ul class='oddrow'>
+	<li>You have no saved messages.</li>
+</ul>
 <% end %>
+</div>
+
 
 <% if @message.errors.any? %>
 	<div class="errors">
@@ -32,9 +38,9 @@
 
 <%= form_for @message do |f| -%>
 
-	<p><%= f.label "Enter your message here:" %><br/><%= f.text_area :contents, :rows => "10", :cols => "40" %></p>
+	<p><%= f.label "Create a new message:" %><br/><%= f.text_area :contents, :rows => "10", :cols => "40" %></p>
 	
-<div class="custom">Get a custom URL like <span style="color: #f00">3dstxt.com/scott</span> (5 letters max):
+<div class="custom">Own a custom URL like <span style="color: #f00">3dstxt.com/scott</span> (5 letters max):
 <p>3dstxt.com/<%= f.text_field :pickUpCode, :rows => "5", :maxlength => "5"%></p>
 </div>
 
@@ -42,6 +48,3 @@
 
 <% end -%>
 </div>
-
-<%= @user.name %>
-<%= @user.email %>

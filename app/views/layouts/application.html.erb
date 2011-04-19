@@ -19,10 +19,10 @@
 		<%= link_to image_tag("3dtxtlogo.png", :alt => '3DSTXT Logo', :class => 'logo'), root_path %>
 		<%= link_to image_tag("ribbon.png", :alt => 'Make your own 3DS txt!', :class => 'ribbon'), root_path %>
 			</header>
-<ul class="sign_in">
+<ul class="sign_in_nav">
 			<% if signed_in? %>
+			<li><%= link_to "Message List", user_path(current_user.id) %></li>
 			<li><%= link_to "Sign out", signout_path, :method => :delete %></li>
-			<li><%= link_to "User Home", user_path(current_user.id) %></li>
 			<% else %>
 			<li><%= link_to "Create new account", signup_path %></li>
 			<li><%= link_to "Sign in", signin_path %></li>
@@ -34,6 +34,7 @@
 	
 
 <%= yield %>
+<div id="footer">About</div>
 </div>
 </body>
 </html>
