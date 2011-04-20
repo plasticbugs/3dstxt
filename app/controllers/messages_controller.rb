@@ -53,7 +53,6 @@ class MessagesController < ApplicationController
       @user = current_user
       @messages = @user.messages
       @message = @user.messages.build(params[:message])
-      @user.message_count ++
     else
       @message = Message.new(params[:message])
     end
