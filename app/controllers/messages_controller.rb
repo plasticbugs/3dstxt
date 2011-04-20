@@ -52,11 +52,7 @@ class MessagesController < ApplicationController
     if signed_in?
       @user = current_user
       @messages = @user.messages
-      if @user.messages.count < 10
-        @message = @user.messages.build(params[:message])
-      else
-        redirect_to user_path(current_user.id), :messages => current_user.messages, :message => current_user.messages.new(params[:message])
-      end
+      @message = @user.messages.build(params[:message])
     else
       @message = Message.new(params[:message])
     end
