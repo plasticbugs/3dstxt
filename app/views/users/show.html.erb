@@ -1,0 +1,50 @@
+<% if flash[:notice] %>
+<div class="notice"><%= flash[:notice] %></div>
+<% end %>
+
+<%#= render :partial => 'message_list' %>
+
+<div class="message_list">
+	<h1>Saved StreetPass Messages</h1>
+	<% if @messages.count > 0 %>
+<% @messages.each do |message|%>
+<% if message.errors.blank? %>
+<ul class=<%= cycle('oddrow', 'evenrow') %>>
+	<li class="msg"><%= truncate message.contents, :length => 55 %></li><li class="link"><%= link_to "3dstxt.com/#{message.pickUpCode}", :controller => 'messages', :action => 'show', :pickUpCode => message.pickUpCode %></li>
+	<li><%= link_to (image_tag ("edit.png")), {:controller => 'messages', :action => 'edit', :pickUpCode => message.pickUpCode} %></li>
+	<li><%= link_to (image_tag ("delete.png")), message, :confirm => "Are you sure you want to delete this message?", :method => :delete, :alt => 'Delete' %></li>
+</ul>
+<% end %>
+<% end %>
+<% else %>
+<ul class='oddrow'>
+	<li>You have no saved messages.</li>
+</ul>
+<% end %>
+</div>
+
+
+<% if @message.errors.any? %>
+	<div class="errors">
+	<ul>
+    <% @message.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+</div>
+<% end %>
+
+<div id="form">
+
+<%= form_for @message do |f| -%>
+
+	<p><%= f.label "Create a new message:" %><br/><%= f.text_area :contents, :rows => "10", :cols => "40" %></p>
+	
+<div class="custom">Own a custom URL like <span style="color: #f00">3dstxt.com/scott</span> (5 letters max):
+<p>3dstxt.com/<%= f.text_field :pickUpCode, :rows => "5", :maxlength => "5"%></p>
+</div>
+
+  <div class="create"><%= f.submit "Create", :class => "submit" %></div>
+
+<% end -%>
+</div>

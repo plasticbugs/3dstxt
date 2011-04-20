@@ -1,0 +1,20 @@
+<% if @message.errors.any? %>
+	<div class="errors">
+	<ul>
+    <% @message.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+</div>
+<% end %>
+
+<div id="form">
+
+<%= form_for @message, :url => {:action => 'update'} do |f| -%>
+
+	<%= f.label "Edit your message here:" %><br/><%= f.text_area :contents, :rows => "10", :cols => "40" %>
+
+  <div class="create"><%= f.submit "Update" %></div>
+
+<% end -%>
+</div>

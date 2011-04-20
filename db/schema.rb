@@ -10,13 +10,30 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110330034928) do
+ActiveRecord::Schema.define(:version => 20110411061134) do
 
   create_table "messages", :force => true do |t|
     t.string   "pickUpCode"
     t.text     "contents"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "password"
+    t.integer  "user_id"
   end
+
+  add_index "messages", ["pickUpCode"], :name => "index_messages_on_pickUpCode"
+  add_index "messages", ["user_id"], :name => "index_messages_on_user_id"
+
+  create_table "users", :force => true do |t|
+    t.string   "name"
+    t.string   "friend_code"
+    t.string   "email"
+    t.string   "encrypted_password"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "salt"
+  end
+
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
 
 end

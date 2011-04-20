@@ -1,9 +1,26 @@
+<div id="account">
+	<h1><%= link_to "Create a free 3dstxt Account for these new features", signup_path %></h1>
+	<ul>
+		<li>Save, Edit and Delete your messages</li>
+		<li>Personalized links like this one: <span class="link">3dstxt.com/scott</span></li>
+	</ul>
+</div>
+
 <div id="howto">
-	<h1>How it works:</h1><ul><li>Enter a message.</li>
+	<h1>How it works</h1><ul><li>Enter a message.</li>
 	<li>Press create.</li>
 	<li>Share your new 3DStxt link as a greeting or personal message on your 3DS.</li>
-	<li>Come back to your message and read your replies!</li></ul>
+	<li>Come back to your message and read your replies!</li>
+	</ul>
 </div>
+
+<% if flash[:notice] %>
+
+<div class="errors">
+<%= flash[:notice] %>
+</div>
+<% end %>
+
 <% if @message.errors.any? %>
 	<div class="errors">
 	<ul>
@@ -18,14 +35,14 @@
 
 <%= form_for @message do |f| -%>
 
-	<%= f.label "Enter your message here:" %><br/><%= f.text_area :contents, :rows => "10", :cols => "40" %>
-
+	<p><%= f.label "Enter your message here:" %><br/><%= f.text_area :contents, :rows => "10", :cols => "40" %></p>
+	
   <div class="create"><%= f.submit "Create", :class => "submit" %></div>
 
 <% end -%>
 </div>
 
-<div class="tips"><h1>Tips:</h1>
+<div class="tips"><h1>Tips</h1>
 <h2>You may want to include:</h2>
 <ul>
 	<li>Your first name or your Mii's nickname</li>

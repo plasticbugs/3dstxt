@@ -1,29 +1,95 @@
 class MessagesController < ApplicationController
+  before_filter :authenticate, :only => [:edit]
+  before_filter :correct_user, :only => [:edit]
+  
   def index
     redirect_to :root
     #@message = Message.search(params[:search])
   end
 
   def show
-    @message = Message.find_by_pickUpCode(params[:pickUpCode])
+    @message = Message.find_by_pickUpCode(params[:pickUpCode].downcase)
   end
 
   def new
    @message = Message.new
   end
-
+  
+  def edit
+    @message = Message.find_by_pickUpCode(params[:pickUpCode].downcase)
+  end
+  
+  def update
+    @message = Message.find_by_pickUpCode(params[:pickUpCode].downcase)
+    
+    if @message.update_attributes(params[:message])
+      flash[:notice] = 'Your 3DS txt message was successfully updated!'
+      redirect_to :action => 'show', :pickUpCode => @message.pickUpCode
+    else
+      render :action => 'edit'
+    end
+  end
+  
+#  def validate
+#    color = 'red'
+#    pickUpCode = params[:pickUpCode]
+#    
+#      message = Message.find_by_pickUpCode(pickUpCode)      
+#      if message.size > 0        
+#        warning = 'Taken'     
+#      else
+#        message = 'Available'
+#        color = 'green'
+#      end
+#  
+#    @warning = "<b style='color:#{color}'>#{warning}</b>"
+#    render :partial=>'warning'
+#  end
+  
   
   def create
-    @message = Message.new(params[:message])
+    
+    if signed_in?
+      @user = current_user
+      @messages = @user.messages
+      @message = @user.messages.build(params[:message])
+    else
+      @message = Message.new(params[:message])
+    end
         
     if @message.save
       flash[:notice] = 'Your message was created!'
       redirect_to :action => "show", :pickUpCode => @message.pickUpCode
+    elsif signed_in?
+      render :action => 'users/show', :messages => current_user.messages
     else
-      render :action => "new"
+      # flash[:notice] = ":("
+      # redirect_to root_path, {:flash => "!"}
+      
+      redirect_to root_url, :notice => "<ul><li>Must be between 1 and 5000 characters</li></ul>".html_safe
     end
   end
     
+    
+ def destroy
+   @message = Message.find(params[:id])
+   @message.destroy
+   flash[:notice] = "Message was successfully deleted."
+   redirect_to user_path(current_user.id)
+ end
+ 
+ private
+ 
+ def authenticate
+   deny_access unless signed_in?
+ end
+ 
+ def correct_user
+   message = Message.find_by_pickUpCode(params[:pickUpCode].downcase)
+   @user = message.user
+   redirect_to root_path unless current_user?(@user)
+ end
+  
   #  @message.pickUpCode = Message.generateCode
    
   # if @message.save

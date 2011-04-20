@@ -1,29 +1,15 @@
 <% if flash[:notice] %>
 <div class="notice"><%= flash[:notice] %></div>
 <% end %>
-<div class="content"><div class="message"><%= simple_format(@message.contents) %></div>
+<div class="content"><div class="message"><%= simple_format(@message.contents) %></div><br/>
+<!-- <% if signed_in? %>
+<%= link_to "Edit this message", :controller => 'messages', :action => 'edit', :pickUpCode => @message.pickUpCode %>
+<% end %> -->
 
 <div class="share">Share this link as a 3DS message:<br/>
 <%= link_to "3dstxt.com/#{@message.pickUpCode}" %><br/>
 </div>
-<div id="disqus_thread"></div>
-<script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_shortname = '3dstxt'; // required: replace example with your forum shortname
-
-    // The following are highly recommended additional parameters. Remove the slashes in front to use.
-    <%= "var disqus_identifier = '#{@message.pickUpCode}';" %>
-    <%= "var disqus_url = 'http://3dstxt.com/#{@message.pickUpCode}';" %>
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
-
+<%= render "disqus" %>
 <div class="make_your_own"><%= link_to "Make your own 3DS TXT!", new_message_path %></div>
 
 </div>

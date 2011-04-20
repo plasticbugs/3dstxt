@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>3DSTXT.com - Breaking the 16 Character Limit</title>
+  
+<% if @title %>
+<title><%= "3DSTXT.com - #{@title}" %></title>
+<% else %>
+<title>3DSTXT.com - Breaking the 16 Character Limit</title>
+<% end %>
   <%= stylesheet_link_tag '/stylesheets/style.css' %>
 	<link href='http://fonts.googleapis.com/css?family=Chewy' rel='stylesheet' type='text/css'>
+	<link  href="http://fonts.googleapis.com/css?family=Copse" rel="stylesheet" type="text/css" >
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
 </head>
@@ -12,11 +18,23 @@
 	<header>
 		<%= link_to image_tag("3dtxtlogo.png", :alt => '3DSTXT Logo', :class => 'logo'), root_path %>
 		<%= link_to image_tag("ribbon.png", :alt => 'Make your own 3DS txt!', :class => 'ribbon'), root_path %>
-	</header>
+			</header>
+<ul class="sign_in_nav">
+			<% if signed_in? %>
+			<li><%= link_to "Message List", user_path(current_user.id) %></li>
+			<li><%= link_to "Sign out", signout_path, :method => :delete %></li>
+			<% else %>
+			<li><%= link_to "Create new account", signup_path %></li>
+			<li><%= link_to "Sign in", signin_path %></li>
+
+			<% end %>
+</ul>
+
 
 	
 
 <%= yield %>
+<div id="footer"><%= link_to "About this site", pages_about_path %></div>
 </div>
 </body>
 </html>
