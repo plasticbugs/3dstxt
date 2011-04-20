@@ -4,6 +4,8 @@
 
 <%#= render :partial => 'message_list' %>
 
+<div class="logged_in_as">Logged in as <%= @user.email %></div>
+
 <div class="message_list">
 	<h1>Saved StreetPass Messages</h1>
 	<% if @messages.count > 0 %>
@@ -40,7 +42,7 @@
 
 	<p><%= f.label "Create a new message:" %><br/><%= f.text_area :contents, :rows => "10", :cols => "40" %></p>
 	
-<div class="custom">Own a custom URL like <span style="color: #f00">3dstxt.com/scott</span> (5 letters max):
+<div class="custom">Optional:<br/>Give this message a custom URL like <span style="color: #f00">3dstxt.com/scott</span> (5 letters max)
 <p>3dstxt.com/<%= f.text_field :pickUpCode, :rows => "5", :maxlength => "5"%></p>
 </div>
 
