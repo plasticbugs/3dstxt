@@ -52,11 +52,8 @@ class MessagesController < ApplicationController
     if signed_in?
       @user = current_user
       @messages = @user.messages
-      @user.message_count = @user.message_count + 1
-      Message.transaction do
-        @message = @user.messages.build(params[:message])
-        @user.save!
-      end
+      @message = @user.messages.build(params[:message])
+      @user.message_count ++
     else
       @message = Message.new(params[:message])
     end
@@ -78,11 +75,6 @@ class MessagesController < ApplicationController
  def destroy
    @message = Message.find(params[:id])
    @message.destroy
-   if signed_in?
-     @user = current_user
-     @user.message_count += 1
-     @user.save
-   end
    flash[:notice] = "Message was successfully deleted."
    redirect_to user_path(current_user.id)
  end
