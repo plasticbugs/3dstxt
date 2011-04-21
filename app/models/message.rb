@@ -1,4 +1,5 @@
 class Message < ActiveRecord::Base
+
    belongs_to :user
 #  after_validation(:my_method)
   
@@ -7,6 +8,7 @@ class Message < ActiveRecord::Base
   validates_length_of :contents,
                       :minimum => 1,
                       :maximum => 5000
+   
   
   # before_validation do
   #   if signed_in?
@@ -21,13 +23,24 @@ class Message < ActiveRecord::Base
   #   end
   # end
   
-  before_validation(:if_blank)
+
+  
+  before_validation(:if_blank, :has_fewer_than_7_messages)
   #before_save(:create_code_until_valid, :downcase_pickUpCode)
   
   after_validation(:create_code_until_valid, :on => :create)
   
+  
 
 private
+
+  def has_fewer_than_7_messages
+    if self.user && self.user.messages.count > 5
+      self.errors[:base] << "You have reached the maximum limit of 6 messages. Please delete some messages to create more."
+    end
+      
+  end
+
 
   def if_blank
      if self.pickUpCode.blank?

@@ -29,6 +29,8 @@ class MessagesController < ApplicationController
       render :action => 'edit'
     end
   end
+
+  
   
 #  def validate
 #    color = 'red'
