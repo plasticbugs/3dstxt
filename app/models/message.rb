@@ -9,6 +9,7 @@ class Message < ActiveRecord::Base
                       :minimum => 1,
                       :maximum => 5000
    
+  validate :has_fewer_than_7_messages, :on => :create
   
   # before_validation do
   #   if signed_in?
@@ -25,7 +26,7 @@ class Message < ActiveRecord::Base
   
 
   
-  before_validation(:if_blank, :has_fewer_than_7_messages)
+  before_validation(:if_blank)
   #before_save(:create_code_until_valid, :downcase_pickUpCode)
   
   after_validation(:create_code_until_valid, :on => :create)
