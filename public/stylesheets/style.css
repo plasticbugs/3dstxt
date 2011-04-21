@@ -92,6 +92,7 @@ header {
 
 .logo {
 	padding: 15px 0 0px 20px;
+	margin-bottom: -4px;
 }
 
 .ribbon {
@@ -166,6 +167,7 @@ header {
 	text-align: right;
 	margin-right: 32px;
 	margin-bottom: 10px;
+	clear:right;
 }
 
 .sign_in_nav li{
