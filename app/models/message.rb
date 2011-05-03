@@ -2,7 +2,6 @@ class Message < ActiveRecord::Base
 
    belongs_to :user
 #  after_validation(:my_method)
-  
   validates :pickUpCode, :uniqueness => {:case_sensitive => false}
   validates_length_of :pickUpCode, :minimum => 3, :maximum => 5, :if => :pickUpCode
   validates_length_of :contents,
