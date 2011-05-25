@@ -216,10 +216,14 @@ header {
 
 .amazon {
 	float: right;
-	clear: none;
+	clear: left;
 	margin-right: -250px;
 }
 
+.amazon_user_page {
+	float: right;
+	margin-right: -180px;
+}
 
 .content {
 	font-size: 14px;
