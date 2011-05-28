@@ -1,3 +1,15 @@
+<% if @user.errors.any? %>
+	<div class="errors">
+	<ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+</div>
+<% end %>
+
+<div class="sign_in">
+	<h1>Change your password</h1>
 <% form_for @user do |f| -%>
   <p><%= f.label "Enter New Password" %><br/>
 	<%= f.password_field :password %></p>
@@ -7,4 +19,4 @@
 	<%= f.password_field :password_confirmation %> </p>
 	
 	<%= f.submit "Change Password" %>
-<% end -%>
+<% end -%></div>
