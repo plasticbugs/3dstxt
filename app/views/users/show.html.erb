@@ -3,7 +3,10 @@
 <% end %>
 
 <%#= render :partial => 'message_list' %>
-<div class="logged_in_as">Logged in as <%= @user.email %><br/><span style="font-size:12px;">Current Limit: 6 Messages</span></div>
+<div class="logged_in_as">Logged in as <%= @user.email %><br/><span style="font-size:12px;">Current Limit: 6 Messages</span>
+	<br />
+	<%= link_to 'Change Password', edit_user_path %>
+</div>
 
 <div class="amazon_user_page"><iframe src="http://rcm.amazon.com/e/cm?lt1=_blank&bc1=000000&IS2=1&nou=1&bg1=F1C202&fc1=E50202&lc1=3D13BB&t=plasticbugs-20&o=1&p=8&l=as1&m=amazon&f=ifr&ref=tf_til&asins=B003O6E800" style="width:120px;height:240px;" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe></div>
 

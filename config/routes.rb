@@ -2,7 +2,7 @@ Txtapp::Application.routes.draw do
   
   get "sessions/new"
   
-  resources :users, :only => [:new, :create, :destroy, :show, :edit]
+  resources :users, :only => [:new, :create, :destroy, :show, :edit, :update]
   #match '/users/:id' => 'users#show', :via => :get
   
   get "pages/about"

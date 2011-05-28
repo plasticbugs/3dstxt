@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_filter :authenticate, :only => [:show]
-  before_filter :correct_user, :only => [:show]
+  before_filter :authenticate, :only => [:show, :edit]
+  before_filter :correct_user, :only => [:show, :edit]
 
   def new
     @user = User.new
@@ -24,6 +24,21 @@ class UsersController < ApplicationController
     @messages = @user.messages
     @message = @user.messages.new
     @title = @user.name
+  end
+  
+  def edit
+    @user = User.find(params[:id])
+  end
+  
+  def update
+    @user = User.find(params[:id])
+    
+    if @user.update_attributes(params[:user])
+      flash[:notice] = 'Your password was successfully changed!'
+      redirect_to :action => 'show'
+    else
+      render :action => 'edit'
+    end
   end
   
   private
