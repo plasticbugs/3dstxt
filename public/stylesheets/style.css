@@ -217,12 +217,12 @@ header {
 .amazon {
 	float: right;
 	clear: left;
-	margin-right: -250px;
+	margin-right: -210px;
 }
 
 .amazon_user_page {
 	float: right;
-	margin-right: -180px;
+	margin-right: -140px;
 }
 
 .content {
