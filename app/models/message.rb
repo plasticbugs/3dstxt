@@ -8,7 +8,7 @@ class Message < ActiveRecord::Base
                       :minimum => 1,
                       :maximum => 5000
    
-  validate :has_fewer_than_7_messages, :on => :create
+  validate :has_fewer_than_7_messages #, :on => :create
   
   # before_validation do
   #   if signed_in?
@@ -24,7 +24,7 @@ class Message < ActiveRecord::Base
   # end
   
 
-  
+  #before_validation :strip_blanks
   before_validation(:if_blank)
   before_save(:downcase_pickUpCode)
   
@@ -40,7 +40,10 @@ private
     end
       
   end
-
+  
+  def strip_blanks
+    self.pickUpCode = self.pickUpCode.gsub(/ /,'')
+  end
 
   def if_blank
      if self.pickUpCode.blank?
