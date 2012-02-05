@@ -8,7 +8,7 @@ class Message < ActiveRecord::Base
                       :minimum => 1,
                       :maximum => 5000
    
-  validate :has_fewer_than_7_messages #, :on => :create
+  validate :has_fewer_than_7_messages , :on => :create
   
   # before_validation do
   #   if signed_in?
