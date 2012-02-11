@@ -25,11 +25,11 @@ ActiveRecord::Schema.define(:version => 20120211081213) do
   add_index "messages", ["user_id"], :name => "index_messages_on_user_id"
 
   create_table "profiles", :force => true do |t|
-    t.integer  "message_count"
-    t.string   "friend_code"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "user_id"
+    t.integer   "message_count"
+    t.string    "friend_code"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
+    t.integer   "user_id"
   end
 
   create_table "users", :force => true do |t|

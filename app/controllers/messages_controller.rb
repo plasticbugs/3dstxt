@@ -68,7 +68,8 @@ class MessagesController < ApplicationController
       # flash[:notice] = ":("
       # redirect_to root_path, {:flash => "!"}
       
-      redirect_to root_url, :notice => "<ul><li>Must be between 1 and 5000 characters</li></ul>".html_safe
+      flash[:error] = "Must be between 1 and 5000 characters"
+      redirect_to root_url
     end
   end
     

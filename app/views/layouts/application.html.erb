@@ -31,7 +31,12 @@
 	<header>
 		<%= link_to image_tag("3dtxtlogo.png", :alt => '3DSTXT Logo', :class => 'logo'), root_path %>
 		<%= link_to image_tag("ribbon.png", :alt => 'Make your own 3DS txt!', :class => 'ribbon'), root_path %>
-			</header>
+	</header>
+	<% if flash[:notice] %>
+  	<div class="notice">
+			<%= flash[:notice] %>
+		</div>
+	<% end %>
 <ul class="sign_in_nav">
 			<% if signed_in? %>
 			<li><%= link_to "Message List", user_path(current_user.id) %></li>

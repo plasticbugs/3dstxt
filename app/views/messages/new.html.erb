@@ -13,12 +13,10 @@
 	<li>Come back to your message and read your replies!</li>
 	</ul>
 </div>
-
-<% if flash[:notice] %>
-
+<% if flash[:error] %>
 <div class="errors">
-<%= flash[:notice] %>
-</div>
+<ul><li>
+<%= flash[:error] %></li></ul></div>
 <% end %>
 
 <% if @message.errors.any? %>
