@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   validates(:password, :presence => true,
                        :confirmation => true,
                        :length => {:within => 6..40},
-                       :if => :password_required?)
+                       :if => :password_present?)
 
   
   before_save :encrypt_password
@@ -24,8 +24,8 @@ class User < ActiveRecord::Base
     UserMailer.password_reset(self).deliver
   end
   
-  def password_required?
-    self.new_record? or self.password?
+  def password_present?
+    !password.nil?
   end
   
   def has_password?(submitted_password)
