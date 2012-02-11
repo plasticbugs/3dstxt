@@ -8,3 +8,5 @@ ActionMailer::Base.smtp_settings =
   :authentication       => 'plain',
   :enable_starttls_auto => true 
   }
+  
+ActionMailer::Base.default_url_options[:host] = "3dstxt.com"
