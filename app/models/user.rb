@@ -10,11 +10,19 @@ class User < ActiveRecord::Base
   validates(:email, :presence => true,
                     :uniqueness => {:case_sensitive => false})
   validates(:password, :presence => true,
-                      :confirmation => true,
-                      :length => {:within => 6..40})
+                       :confirmation => true,
+                       :length => {:within => 6..40},
+                       :on => :create)
 
   
   before_save :encrypt_password
+  
+  def send_password_reset
+    generate_token(:password_reset_token)
+    self.password_reset_sent_at = Time.zone.now
+    save!
+    UserMailer.password_reset(self).deliver
+  end
   
   def has_password?(submitted_password)
     encrypted_password == encrypt(submitted_password)
@@ -49,5 +57,12 @@ class User < ActiveRecord::Base
   def secure_hash(string)
     Digest::SHA2.hexdigest(string)
   end
+  
+  def generate_token(column)
+    begin
+      self[column] = SecureRandom.urlsafe_base64
+    end while User.exists?(column => self[column])
+  end
+
   
 end
