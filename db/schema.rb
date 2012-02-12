@@ -10,7 +10,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120211081213) do
+ActiveRecord::Schema.define(:version => 20120212220857) do
+
+  create_table "comments", :force => true do |t|
+    t.string   "code"
+    t.string   "author"
+    t.string   "author_email"
+    t.text     "content"
+    t.integer  "message_id"
+    t.integer  "user_id"
+    t.string   "permalink"
+    t.string   "user_ip"
+    t.string   "user_agent"
+    t.string   "referrer"
+    t.string   "comment_type"
+    t.string   "author_url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "messages", :force => true do |t|
     t.string    "pickUpCode"
