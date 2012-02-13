@@ -13,11 +13,13 @@ Txtapp::Application.routes.draw do
   match '/signin' => 'sessions#new'
   match '/signout' => 'sessions#destroy'
   
-  resources :messages, :only => [:new, :create, :destroy]
-  
-  resources :messages do
-    resources :comments
+  resources :messages, :only => [:new, :create, :destroy] do
+    resources :comments, :only => [:create, :destroy]
   end
+  
+  #resources :messages do
+  #  resources :comments
+  #end
   
   resources :password_resets
   
