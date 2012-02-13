@@ -1,6 +1,5 @@
 Txtapp::Application.routes.draw do
 
-
   get "sessions/new"
   
   resources :users, :only => [:new, :create, :destroy, :show, :edit, :update]
@@ -15,6 +14,10 @@ Txtapp::Application.routes.draw do
   match '/signout' => 'sessions#destroy'
   
   resources :messages, :only => [:new, :create, :destroy]
+  
+  resources :messages do
+    resources :comments
+  end
   
   resources :password_resets
   

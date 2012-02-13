@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation
     
   has_many :messages
+  has_many :comments
   
   validates(:name, :length => {:maximum => 50})
   validates(:email, :presence => true,
