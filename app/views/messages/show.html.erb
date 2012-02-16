@@ -14,20 +14,25 @@
 <div class="share">Share this link as a 3DS message:<br/>
 <%= link_to "3dstxt.com/#{@message.pickUpCode}" %><br/>
 </div>
-<% form_for ([@message, @message.comments.build]) do |f| %>
+<%= form_for ([@message, @message.comments.build]) do |f| %>
 <p><%= f.label "Enter your comment:" %><br/><%= f.text_area :content, :rows => "6", :cols => "40" %></p>
 
 <div class="create"><%= f.submit "Post", :class => "submit" %></div>
 <% end %>
 
-<div id="comments">
+<div class="comment_box">
+	<h1>Comments:</h1>
 	<% @comments.each do |comment| %>
-	<% unless comment.content.nil? %>
-	<%= comment.content.html_safe %> | 
-	<% if current_user.id == comment.message.user_id %>
-	<%= link_to (image_tag ("delete.png")), [comment.message, comment], :confirm => "Are you sure you want to delete this comment?", :method => :delete, :alt => 'Delete' %>
-	<% end %>
-		<hr/>
+	<% if current_user && current_user.id == comment.message.user_id %>
+		
+			<div class="comment"><p><span class="comment_author"><%= comment.author %></span> <%= comment.created_at.strftime("posted on %b %d @ %I:%M%p") %><%= link_to "Delete Comment", [comment.message, comment], :confirm => "Are you sure you want to delete this comment?", :method => :delete, :alt => 'Delete Comment', :class => 'delete'%></p>
+			<%= comment.content.html_safe %></div>
+
+	<% else %>
+	<%= comment.author %> | <%= comment.created_at.to_s(:long) %><br/>
+			<%= comment.content.html_safe %>
+
+
 	<% end %>
 	<% end %>
 </div>

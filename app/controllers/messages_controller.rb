@@ -9,7 +9,7 @@ class MessagesController < ApplicationController
 
   def show
     @message = Message.find_by_pickUpCode(params[:pickUpCode].downcase)
-    @comments = @message.comments
+    @comments = @message.comments.all
   end
 
   def new
