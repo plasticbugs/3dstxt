@@ -105,6 +105,12 @@ header {
 
 #form {
 	margin: 20px 0 50px 30px;
+	width: 475px;
+}
+
+#form textarea {
+	width: 450px;
+	height: 180px;
 }
 
 #form label {
@@ -116,11 +122,26 @@ header {
 	width: 26.5em;
 }
 
-.create input{
-	margin-right: 30px;
+#form input{
+	float:right;
+}
+
+textarea.comment_input {
+	width: 496px;
+	height: 80px;
+	font-size:13px;
+}
+
+p.comment_entry_text {
+	font-size: 16px;
+	margin-bottom: 5px;
 }
 
 .submit {
+	float: right;
+}
+
+.comment_submit {
 	float: right;
 }
 
@@ -257,7 +278,7 @@ header {
 	line-height: 120%;
 	background-color: #fcfcfc;
 	margin-top: 20px;
-	margin-bottom: 30px;
+	margin-bottom: 0px;
 	padding: 15px;
 	-webkit-border-radius: 8px;
 	-moz-border-radius: 8px;
@@ -333,7 +354,7 @@ header {
 
 #account h1 {
 	margin: 12px 0 0 15px;
-	font-family: 'Copse', serif;
+	font-family: 'Oswald', sans-serif;
 	font-size: 20px;
 }
 
@@ -384,13 +405,14 @@ header {
 
 #howto h1 {
 	margin: 12px 0 0 15px;
-	font-family: 'Copse', serif;
+	font-family: 'Oswald', sans-serif;
 	font-size: 30px;
 }
 
 .share {
 	font-size: 20px;
 	padding-bottom: 40px;
+	line-height: 25px;
 }
 
 .make_your_own {
@@ -431,8 +453,9 @@ header {
 .tips h1 {
 	color: #fefefe;
 	margin: 0 0 0 10px;
+	
 	font-size: 30px;
-	font-family: 'Copse', serif;
+	font-family: 'Oswald', sans-serif;
 	letter-spacing: 3px;
 }
 
@@ -497,9 +520,10 @@ div.field {
 }
 
 .comment_box {
-	margin-top: 30px;
+	margin-top: 45px;
 	padding:8px;
-	background-color:#c7c5a7;
+	background-color:#000;
+	background-image:url('../images/comment_bg.png');	
 	-webkit-border-radius: 8px;
 	-moz-border-radius: 8px;
 	border-radius: 8px;
@@ -510,6 +534,11 @@ div.field {
 
 .comment_box h1 {
 	font-size:25px;
+	font-family: 'Oswald', sans-serif;
+	margin-bottom: 4px;
+	letter-spacing: 1px;
+	text-shadow: #ccc 1px 1px 1px;
+	margin-left: 7px;
 }
 
 span.comment_author {
@@ -533,11 +562,13 @@ a.delete {
 }
 
 .comment_box p {
-
 	padding:3px;
-	background-color:#229396;
+	background-color:#7e7e7e;
 	color:#dedede;
 	margin-bottom:4px;
+	text-shadow: #000 0px -1px 0px;
+	border-bottom: 1px solid;
+	border-color:#232;	
 }
 
 .comment {

@@ -5,7 +5,7 @@
 <% end %>
 
 <div id="account">
-	<h1><%= link_to "Create a free 3DStxt Account for these new features", signup_path %></h1>
+	<h1><%= link_to "Create a free 3DStxt Account for these features", signup_path %></h1>
 	<ul>
 		<li>Save, Edit and Delete your messages</li>
 		<li>Personalized links like this one: <span class="link">3dstxt.com/scott</span></li>
@@ -39,9 +39,9 @@
 
 <%= form_for @message do |f| -%>
 
-	<p><%= f.label "Enter your message here:" %><br/><%= f.text_area :contents, :rows => "10", :cols => "40" %></p>
+	<p><%= f.label "Enter your message here:" %><br/><%= f.text_area :contents %></p>
 	
-  <div class="create"><%= f.submit "Create", :class => "submit" %></div>
+  <%= f.submit "Create", :class => "submit" %>
 
 <% end -%>
 </div>
