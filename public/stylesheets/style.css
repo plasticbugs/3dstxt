@@ -122,26 +122,53 @@ header {
 	width: 26.5em;
 }
 
+.create input{
+	margin-right: 30px;
+}
+
 #form input{
-	float:right;
+	/* float:right; */
 }
 
 textarea.comment_input {
-	width: 496px;
+	width: 462px;
 	height: 80px;
 	font-size:13px;
+	margin-top: 5px;
 }
 
-p.comment_entry_text {
+div.comment_entry {
+	background-color: #ddf1f3;
+	padding: 15px 15px 35px 15px;
+	
+	-webkit-box-shadow: 	0 0 5px #bbb;
+	  -moz-box-shadow: 		0 0 5px #bbb;
+	  box-shadow: 				0 0 5px #bbb;
+	
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+}
+
+.comment_entry p {
 	font-size: 16px;
 	margin-bottom: 5px;
+}
+
+.comment_entry label {
+	font-size: 12px;
+	line-height: 10px;
+}
+
+.comment_entry input {
+	margin-bottom: 10px;
 }
 
 .submit {
 	float: right;
 }
 
-.comment_submit {
+input.comment_submit {
 	float: right;
 }
 
@@ -553,7 +580,7 @@ a.delete {
 	outline: none;
 	width: 16px;
 	height: 16px;
-	background: url('../images/delete_2.png');
+	background: url('../images/delete_3.png');
 	float:right;
 }
 
@@ -575,9 +602,17 @@ a.delete {
 	background-color:#eee;
 	font-size:13px;
 	line-height: 16px;
-	margin-bottom:6px;
+	margin-top:6px;
 	padding:6px;
+	
+		-webkit-box-shadow: 0 8px 5px -6px #353;
+		   -moz-box-shadow: 0 8px 5px -6px #353;
+		        box-shadow: 0 8px 5px -6px #353;
 }
+
+.comment_box img {	
+	align:bottom;
+	}
 
 
 html,body { height:100%; }

@@ -18,7 +18,7 @@
 <ul class=<%= cycle('oddrow', 'evenrow') %>>
 	<li class="msg"><%= truncate message.contents, :length => 55 %></li><li class="link"><%= link_to "3dstxt.com/#{message.pickUpCode}", :controller => 'messages', :action => 'show', :pickUpCode => message.pickUpCode %></li>
 	<li><%= link_to (image_tag ("edit.png")), {:controller => 'messages', :action => 'edit', :pickUpCode => message.pickUpCode} %></li>
-	<li><%= link_to (image_tag ("delete.png")), message, :confirm => "Are you sure you want to delete this message? Your custom URL will also be deleted! Click the pencil icon to KEEP your URL and only edit the message.", :method => :delete, :alt => 'Delete' %></li>
+	<li><%= link_to (image_tag ("delete_3.png")), message, :confirm => "Are you sure you want to delete this message? Your custom URL will also be deleted! Click the pencil icon to KEEP your URL and only edit the message.", :method => :delete, :alt => 'Delete' %></li>
 </ul>
 <% end %>
 <% end %>

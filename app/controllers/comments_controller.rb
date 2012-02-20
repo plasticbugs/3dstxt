@@ -5,10 +5,22 @@ class CommentsController < ApplicationController
 
   def create
     @message = Message.find(params[:message_id])
-    @comment = @message.comments.create(params[:comment])
-    flash[:notice] = "Comment was successfully posted at the bottom of the page."
+    @comment = @message.comments.build(params[:comment])
+    @comment.user_agent = request.user_agent
+    @comment.referrer = request.referer
+    @comment.user_ip = request.remote_ip
+    @comment.permalink = request.url
     
-    redirect_to :action => 'show', :pickUpCode => @message.pickUpCode, :controller => 'messages'
+     if @comment.save
+        flash[:notice] = "Comment was successfully posted at the bottom of the page."
+        redirect_to :action => 'show', :pickUpCode => @message.pickUpCode, :controller => 'messages'
+      else
+        #@message = @comment.message
+        #redirect_to :action => 'show', :pickUpCode => @message.pickUpCode, :controller => 'messages'
+        flash[:errors] = @comment.errors.full_messages
+        redirect_to :back        
+      end
+      
   end
     
 
