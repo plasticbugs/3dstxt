@@ -108,7 +108,14 @@ header {
 	width: 475px;
 }
 
+#form h1 {
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size:20px;
+	text-transform:uppercase;
+}
+
 #form textarea {
+	margin-top: 10px;
 	width: 450px;
 	height: 180px;
 }
@@ -119,12 +126,48 @@ header {
 }
 
 .create {
-	width: 26.5em;
+	width: 450px;
 }
 
-.create input{
-	margin-right: 30px;
+
+.create_button{
+
+	margin-top: 10px;
+	
+	-moz-box-shadow:inset 0px 0px 2px 0px #97c4fe;
+	-webkit-box-shadow:inset 0px 0px 2px 0px #97c4fe;
+	box-shadow:inset 0px 0px 2px 0px #97c4fe;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #3d94f6), color-stop(1, #1e62d0) );
+	background:-moz-linear-gradient( center top, #3d94f6 5%, #1e62d0 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#3d94f6', endColorstr='#1e62d0');
+	background-color:#3d94f6;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	border:1px solid #337fed;
+	display:inline-block;
+	color:#ffffff;
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size:20px;
+	letter-spacing:1px;
+	font-weight:bold;
+	padding:3px 24px;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #1570cd;
 }
+.create_button:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #1e62d0), color-stop(1, #3d94f6) );
+	background:-moz-linear-gradient( center top, #1e62d0 5%, #3d94f6 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#1e62d0', endColorstr='#3d94f6');
+	background-color:#1e62d0;
+}
+.create_button:active {
+	position:relative;
+	top:1px;
+}
+
+
+
 
 #form input{
 	/* float:right; */
@@ -151,7 +194,9 @@ div.comment_entry {
 }
 
 .comment_entry p {
-	font-size: 16px;
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 18px;
+	text-transform:uppercase;
 	margin-bottom: 5px;
 }
 
@@ -232,7 +277,7 @@ input.comment_submit {
 
 .message_list h1{
 	font-size: 26px;
-	font-family: 'Copse', serif;
+	font-family: 'Open Sans Condensed', sans-serif;
 	padding-bottom: 10px;
 }
 
@@ -285,7 +330,8 @@ input.comment_submit {
 
 #content h1{
 	margin-bottom: 15px;
-	font-family: 'Copse', serif;
+	font-family: 'Open Sans Condensed', sans-serif;
+	text-transform:uppercase;
 	font-size: 30px;
 }
 
@@ -381,7 +427,7 @@ input.comment_submit {
 
 #account h1 {
 	margin: 12px 0 0 15px;
-	font-family: 'Oswald', sans-serif;
+	font-family: 'Open Sans Condensed', sans-serif;
 	font-size: 20px;
 }
 
@@ -432,12 +478,13 @@ input.comment_submit {
 
 #howto h1 {
 	margin: 12px 0 0 15px;
-	font-family: 'Oswald', sans-serif;
+	font-family: 'Open Sans Condensed', sans-serif;
 	font-size: 30px;
 }
 
 .share {
 	font-size: 20px;
+	font-family: 'Open Sans Condensed', sans-serif;
 	padding-bottom: 40px;
 	line-height: 25px;
 }
@@ -482,7 +529,7 @@ input.comment_submit {
 	margin: 0 0 0 10px;
 	
 	font-size: 30px;
-	font-family: 'Oswald', sans-serif;
+	font-family: 'Open Sans Condensed', sans-serif;
 	letter-spacing: 3px;
 }
 
@@ -493,12 +540,12 @@ input.comment_submit {
 }
 
 .custom {
-  background-color: #fff;
+  background-color: #efefef;
 	margin-top: 10px;
 	margin-left: 2px;
 	padding: 8px;
 	font-size: 12px;
-	width: 400px;
+	width: 438px;
 }
 
 .custom input{
@@ -509,6 +556,7 @@ input.comment_submit {
 .custom p{
 	margin-top: 10px;
 	font-size: 22px;
+	
 }
 
 div.field {
@@ -533,6 +581,8 @@ div.field {
 }
 
 .sign_in h1{
+	font-family: 'Open Sans Condensed', sans-serif;
+	text-transform:uppercase;
 	font-size: 25px;
 	margin-bottom: 10px;
 }
@@ -560,10 +610,11 @@ div.field {
 }
 
 .comment_box h1 {
-	font-size:25px;
-	font-family: 'Oswald', sans-serif;
+	font-size:18px;
+	text-transform:uppercase;
+	font-family: 'Open Sans Condensed', sans-serif;
 	margin-bottom: 4px;
-	letter-spacing: 1px;
+	letter-spacing: 0px;
 	text-shadow: #ccc 1px 1px 1px;
 	margin-left: 7px;
 }
