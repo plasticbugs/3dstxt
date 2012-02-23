@@ -6,6 +6,7 @@ class CommentsController < ApplicationController
   def create
     @message = Message.find(params[:message_id])
     @comment = @message.comments.build(params[:comment])
+    @comment.content = Sanitize.clean(@comment.content, Sanitize::Config::BASIC)
     @comment.user_agent = request.user_agent
     @comment.referrer = request.referer
     @comment.user_ip = request.remote_ip
@@ -18,7 +19,7 @@ class CommentsController < ApplicationController
         #@message = @comment.message
         #redirect_to :action => 'show', :pickUpCode => @message.pickUpCode, :controller => 'messages'
         flash[:errors] = @comment.errors.full_messages
-        redirect_to :back        
+        redirect_to :back
       end
       
   end
