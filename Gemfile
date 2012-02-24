@@ -8,6 +8,7 @@ gem 'mongrel', '>= 1.2.0.pre2'
 
 gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'sanitize'
+gem 'rake', '0.8.7'
 
 group :development do
   gem 'rspec-rails'
