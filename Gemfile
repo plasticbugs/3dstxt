@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.0.3'
-#gem 'mongrel', '>= 1.2.0.pre2'
+gem 'mongrel', '>= 1.2.0.pre2'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -15,7 +15,7 @@ end
 
 group :test do
   gem 'rspec-rails'
-  gem 'factory_girl_rails'
+  gem 'factory_girl'
   gem 'webrat', '0.7.1'
 end
 
