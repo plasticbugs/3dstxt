@@ -31,8 +31,6 @@ class Message < ActiveRecord::Base
   
   after_validation(:create_code_until_valid, :on => :create)
   
-  
-
 private
 
   def has_fewer_than_7_messages

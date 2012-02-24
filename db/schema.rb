@@ -30,35 +30,35 @@ ActiveRecord::Schema.define(:version => 20120212220857) do
   end
 
   create_table "messages", :force => true do |t|
-    t.string    "pickUpCode"
-    t.text      "contents"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-    t.string    "password"
-    t.integer   "user_id"
+    t.string   "pickUpCode"
+    t.text     "contents"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "password"
+    t.integer  "user_id"
   end
 
   add_index "messages", ["pickUpCode"], :name => "index_messages_on_pickUpCode"
   add_index "messages", ["user_id"], :name => "index_messages_on_user_id"
 
   create_table "profiles", :force => true do |t|
-    t.integer   "message_count"
-    t.string    "friend_code"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-    t.integer   "user_id"
+    t.integer  "message_count"
+    t.string   "friend_code"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "users", :force => true do |t|
-    t.string    "name"
-    t.string    "friend_code"
-    t.string    "email"
-    t.string    "encrypted_password"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-    t.string    "salt"
-    t.string    "password_reset_token"
-    t.datetime  "password_reset_sent_at"
+    t.string   "name"
+    t.string   "friend_code"
+    t.string   "email"
+    t.string   "encrypted_password"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "salt"
+    t.string   "password_reset_token"
+    t.datetime "password_reset_sent_at"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

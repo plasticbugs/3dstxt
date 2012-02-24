@@ -614,7 +614,7 @@ a.delete {
 	background-position:left bottom;
 }
 
-.comment_box p {
+.comment_box .comment_info {
 	padding:3px;
 	background-color:#7e7e7e;
 	color:#dedede;
