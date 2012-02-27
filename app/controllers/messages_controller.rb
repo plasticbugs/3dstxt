@@ -12,7 +12,7 @@ class MessagesController < ApplicationController
     @message = Message.find_by_pickUpCode(params[:pickUpCode].downcase)
     @comments = @message.comments.all
     @comment = Comment.new
-    impressionist(@message,message:"wtf is a widget?")
+    impressionist(@message)
   end
 
   def new
