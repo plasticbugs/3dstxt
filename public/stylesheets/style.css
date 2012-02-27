@@ -601,9 +601,13 @@ ul.message_list_header li{
 	margin-top: 5px;
 }
 
-#account li:last-child{
-	background-image: url('/images/heart.png');
+#account li.stats{
+	background-image: url('/images/stats.png');
 	padding-bottom: 6px;
+}
+
+#account li.heart{
+	background-image: url('/images/heart.png');
 }
 
 #account h1 {
