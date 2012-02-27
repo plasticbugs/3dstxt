@@ -238,6 +238,7 @@ input.comment_submit {
 .message_list{
 	width: 520px;
 	background-image:url('/images/message_area.png');
+	background-size:auto 100%;
 	margin-left: 30px;
 	font-size: 12px;
 	padding: 6px 14px 14px 14px;
@@ -260,33 +261,91 @@ input.comment_submit {
 	-moz-box-shadow: 0px 1px 2px #333;
 	-webkit-box-shadow: 0px 1px 2px #333;
 	box-shadow: 0px 1px 2px #333;
-	margin-bottom:8px;
+	margin-bottom:14px;
 }
 
-.message_details ul{
-	padding: 6px 0 6px 8px;
+.message_details ul.message_header{
+	padding: 6px 8px 10px 8px;
 	font-size:18px;
-	background-image:url('/images/message_details.png');
+/*	background-image:url('/images/message_details.png'); */
+	background-color:#ffc546;
 	-webkit-border-radius: 4px 4px 0 0;
 	-moz-border-radius: 4px 4px 0 0;
 	border-radius: 4px 4px 0 0;
 	border-style: none;
 	text-align:center;
-	-moz-box-shadow: 0px 1px 2px #fff;
-	-webkit-box-shadow: 0px 1px 2px #fff;
-	box-shadow: 0px 1px 2px #fff;
+	-moz-box-shadow:    inset 0 0 3px #797979;
+  -webkit-box-shadow: inset 0 0 3px #797979;
+  box-shadow:         inset 0 0 3px #797979;
+}
+
+ul.commands {
+	margin-bottom:5px;
+	
+}
+
+ul.commands li{
+	display:inline;
+	font-size:16px;
+}
+
+ul.commands li.edit:hover{
+	background-color:#3eb826;
+}
+
+li.edit:hover a{
+	color:#eee;
+}
+
+ul.commands li.delete:hover{
+	background-color:#b82626;
+}
+
+li.delete:hover a{
+	color:#eee;
+}
+
+
+
+ul.commands li a{
+	text-decoration:none;
+}
+
+li.edit{
+	background-color:#efefef;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	border-style: none;
+	padding:2px 5px 2px 5px;
+}
+
+li.delete{
+	float:right;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	border-style: none;
+	padding:2px 5px 2px 5px;
+}
+
+.message_details img{
+	vertical-align:bottom;
 }
 
 .message_contents{
 	font-size:14px;
-	line-height:16px;
-	padding:5px 0 5px 0;
+	line-height:18px;
+	padding:15px 0 20px 5px;
 }
 
 .message_details li{
+	font-family: 'Open Sans Condensed', sans-serif;
 	display:inline;
-	padding-right:8px;
-	
+}
+
+.message_details ul.message_header:hover {
+	background-color: #eee;
 }
 
 /*

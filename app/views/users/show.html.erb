@@ -27,9 +27,12 @@
 		
 		<div class="message_contents"><%= truncate message.contents, :length => 150 %></div>
 		
-	edit<%= link_to (image_tag ("edit.png")), {:controller => 'messages', :action => 'edit', :pickUpCode => message.pickUpCode} %>
-	delete<%= link_to (image_tag ("delete_3.png")), message, :confirm => "Are you sure you want to delete this message? Your custom URL will also be deleted! Click the pencil icon to KEEP your URL and only edit the message.", :method => :delete, :alt => 'Delete' %>
-</div>
+<ul class="commands">	<li class="edit"><%= link_to "EDIT", {:controller => 'messages', :action => 'edit', :pickUpCode => message.pickUpCode} %>
+	<%= link_to (image_tag ("edit.png")), {:controller => 'messages', :action => 'edit', :pickUpCode => message.pickUpCode} %></li>
+	
+	<li class="delete"><%= link_to "DELETE", message, :confirm => "Are you sure you want to delete this message? Your custom URL will also be deleted! Click the pencil icon to KEEP your URL and only edit the message.", :method => :delete, :alt => 'Delete' %>
+ <%= link_to (image_tag ("delete_3.png")), message, :confirm => "Are you sure you want to delete this message? Your custom URL will also be deleted! Click the pencil icon to KEEP your URL and only edit the message.", :method => :delete, :alt => 'Delete' %></li>
+</ul></div>
 <% end %>
 <% end %>
 <% else %>
