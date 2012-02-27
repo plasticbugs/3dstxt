@@ -11,31 +11,30 @@
 <div class="amazon_user_page"><OBJECT classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://fpdownload.macromedia.com/get/flashplayer/current/swflash.cab" id="Player_30111211-afb6-4562-b39a-ed032ee02be7"  WIDTH="120px" HEIGHT="400px"> <PARAM NAME="movie" VALUE="http://ws.amazon.com/widgets/q?ServiceVersion=20070822&MarketPlace=US&ID=V20070822%2FUS%2Fplasticbugs-20%2F8009%2F30111211-afb6-4562-b39a-ed032ee02be7&Operation=GetDisplayTemplate"><PARAM NAME="quality" VALUE="high"><PARAM NAME="bgcolor" VALUE="#FFFFFF"><PARAM NAME="allowscriptaccess" VALUE="always"><embed src="http://ws.amazon.com/widgets/q?ServiceVersion=20070822&MarketPlace=US&ID=V20070822%2FUS%2Fplasticbugs-20%2F8009%2F30111211-afb6-4562-b39a-ed032ee02be7&Operation=GetDisplayTemplate" id="Player_30111211-afb6-4562-b39a-ed032ee02be7" quality="high" bgcolor="#ffffff" name="Player_30111211-afb6-4562-b39a-ed032ee02be7" allowscriptaccess="always"  type="application/x-shockwave-flash" align="middle" height="400px" width="120px"></embed></OBJECT> <NOSCRIPT><A HREF="http://ws.amazon.com/widgets/q?ServiceVersion=20070822&MarketPlace=US&ID=V20070822%2FUS%2Fplasticbugs-20%2F8009%2F30111211-afb6-4562-b39a-ed032ee02be7&Operation=NoScript">Amazon.com Widgets</A></NOSCRIPT></div>
 
 	<div class="message_list">
-	<h1>Saved StreetPass Messages</h1>
-	<ul class="message_list_header">
-		<li class="link">Message link</li>
-		<li class="msg">Message contents</li>
-		<li>Edit</li>
-		<li>Delete</li>
-		<li class="hitcount">View count</li>
-	</ul>
+
+<h1>Saved StreetPass Messages</h1>
+		
 	
 	<% if @messages.count > 0 %>
 <% @messages.each do |message|%>
 <% if message.errors.blank? %>
-<ul class=<%= cycle('oddrow', 'evenrow') %>>
-	<li class="link"><%= link_to "3dstxt.com/#{message.pickUpCode}", :controller => 'messages', :action => 'show', :pickUpCode => message.pickUpCode %></li>
-	<li class="msg"><%= truncate message.contents, :length => 28 %></li>
-	<li><%= link_to (image_tag ("edit.png")), {:controller => 'messages', :action => 'edit', :pickUpCode => message.pickUpCode} %></li>
-	<li><%= link_to (image_tag ("delete_3.png")), message, :confirm => "Are you sure you want to delete this message? Your custom URL will also be deleted! Click the pencil icon to KEEP your URL and only edit the message.", :method => :delete, :alt => 'Delete' %></li>
-	<li class="hitcount"><%= message.impressionist_count(:filter=>:ip_address) %></li>
-</ul>
+<div class="message_details">
+	<ul class="message_header">
+		<li style="float:left;"><%= link_to "3dstxt.com/#{message.pickUpCode}", :controller => 'messages', :action => 'show', :pickUpCode => message.pickUpCode %></li>
+		<li><%= "#{message.comments.count} comments" %></li>
+		<li style="float:right;"><%= "#{message.impressionist_count(:filter=>:ip_address)} views" %></li>
+		</ul>
+		
+		<div class="message_contents"><%= truncate message.contents, :length => 150 %></div>
+		
+	edit<%= link_to (image_tag ("edit.png")), {:controller => 'messages', :action => 'edit', :pickUpCode => message.pickUpCode} %>
+	delete<%= link_to (image_tag ("delete_3.png")), message, :confirm => "Are you sure you want to delete this message? Your custom URL will also be deleted! Click the pencil icon to KEEP your URL and only edit the message.", :method => :delete, :alt => 'Delete' %>
+</div>
 <% end %>
 <% end %>
 <% else %>
-<ul class='oddrow'>
-	<li>You have no saved messages.</li>
-</ul>
+You have no saved messages.
+
 <% end %>
 </div>
 

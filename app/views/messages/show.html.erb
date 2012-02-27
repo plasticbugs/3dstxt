@@ -36,7 +36,7 @@
 <div class="share">Share this link as a 3DS message:<br/>
 <%= link_to "3dstxt.com/#{@message.pickUpCode}" %><br/>
 </div>
-<div class="comment_entry"><p>Enter your comment</p>
+<div class="comment_entry"><p>Add your comment</p>
 <%= form_for ([@message, @message.comments.build]) do |f| %>
 
 <%= f.label "Your Name:" %><br />

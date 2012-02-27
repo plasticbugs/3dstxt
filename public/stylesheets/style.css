@@ -225,12 +225,22 @@ input.comment_submit {
 	font-size: 13px;
 }
 
+
+.message_list h1{
+	color:#efefed;
+	letter-spacing:1px;
+	text-shadow: #000 0px 1px 2px;
+	font-size: 26px;
+	font-family: 'Open Sans Condensed', sans-serif;
+	padding-bottom: 8px;
+}
+
 .message_list{
 	width: 520px;
-	background-color: #bcbdbc;
+	background-image:url('/images/message_area.png');
 	margin-left: 30px;
 	font-size: 12px;
-	padding: 14px;
+	padding: 6px 14px 14px 14px;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
@@ -238,6 +248,65 @@ input.comment_submit {
 	-moz-box-shadow: 0px 1px 4px #333;
 	-webkit-box-shadow: 0px 1px 4px #333;
 	box-shadow: 0px 1px 4px #333;
+}
+
+.message_details{
+	background-image:url('/images/message_bg.png');
+	padding:8px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	border-style: none;
+	-moz-box-shadow: 0px 1px 2px #333;
+	-webkit-box-shadow: 0px 1px 2px #333;
+	box-shadow: 0px 1px 2px #333;
+	margin-bottom:8px;
+}
+
+.message_details ul{
+	padding: 6px 0 6px 8px;
+	font-size:18px;
+	background-image:url('/images/message_details.png');
+	-webkit-border-radius: 4px 4px 0 0;
+	-moz-border-radius: 4px 4px 0 0;
+	border-radius: 4px 4px 0 0;
+	border-style: none;
+	text-align:center;
+	-moz-box-shadow: 0px 1px 2px #fff;
+	-webkit-box-shadow: 0px 1px 2px #fff;
+	box-shadow: 0px 1px 2px #fff;
+}
+
+.message_contents{
+	font-size:14px;
+	line-height:16px;
+	padding:5px 0 5px 0;
+}
+
+.message_details li{
+	display:inline;
+	padding-right:8px;
+	
+}
+
+/*
+
+ul.message_list_header ul{
+	padding: 6px 0 6px 8px;
+}
+
+ul.message_list_header li.msg{
+}
+
+
+ul.message_list_header li.link{
+}
+
+
+ul.message_list_header li.hitcount{
+	color:purple;
+	line-height:1em;
+		width:60px;
 }
 
 .message_list ul{
@@ -252,25 +321,57 @@ input.comment_submit {
 }
 
 .message_list li{
-	display:block;
-	float:left;
-	padding: 0 0 25px 0;
+	display:inline;
+	padding:2px 8px 0 0;
 }
 
 .message_list li.msg {
-	width:150px;
+	display:block;
+	float:left;
+	width:180px;
 }
 
 .message_list li.link {
-	width:100px;
-	clear:left;
+	display:block;
+	float:left;
+	width:110px;
 }
+
+.message_list li.hitcount {
+	display:block;
+	float:left;
+	width:60px;
+	text-align:center;
+}
+
+li.icons {
+	padding:0 50px 0 0;
+}
+
 
 .message_list img{
-	margin-top: -3px;
 	padding-bottom: 3px;
+	text-align:center;
 }
 
+.message_list ul:hover {
+	background-color: #f3f2bb;
+}
+
+.message_list h1{
+	font-size: 26px;
+	font-family: 'Open Sans Condensed', sans-serif;
+	padding-bottom: 10px;
+}
+
+ul.message_list_header li{
+	font-size: 16px;
+	font-family: 'Open Sans Condensed', sans-serif;
+	padding-bottom: 10px;
+	line-height:2em;
+}
+
+*/
 
 /*
 .message_list_header li{
@@ -316,9 +417,7 @@ input.comment_submit {
 	padding-bottom: 3px;
 }
 
-.message_list ul:hover {
-	background-color: #f3f2bb;
-}
+
 
 */
 
