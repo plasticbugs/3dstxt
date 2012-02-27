@@ -1,7 +1,8 @@
 class MessagesController < ApplicationController
+  
   before_filter :authenticate, :only => [:edit]
   before_filter :correct_user, :only => [:edit]
-  
+    
   def index
     redirect_to :root
     #@message = Message.search(params[:search])
@@ -11,6 +12,7 @@ class MessagesController < ApplicationController
     @message = Message.find_by_pickUpCode(params[:pickUpCode].downcase)
     @comments = @message.comments.all
     @comment = Comment.new
+    impressionist(@message,message:"wtf is a widget?")
   end
 
   def new

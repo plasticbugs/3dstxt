@@ -1,5 +1,5 @@
 class Message < ActiveRecord::Base
-
+  is_impressionable
    belongs_to :user
    has_many :comments, :dependent => :destroy
 #  after_validation(:my_method)
@@ -10,6 +10,8 @@ class Message < ActiveRecord::Base
                       :maximum => 5000
    
   validate :has_fewer_than_7_messages , :on => :create
+  
+
   
   # before_validation do
   #   if signed_in?

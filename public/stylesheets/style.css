@@ -211,6 +211,20 @@ input.comment_submit {
 	border-radius: 4px;
 }
 
+
+.sign_in_nav{
+	text-align: right;
+	margin-right: 32px;
+	margin-bottom: 10px;
+	clear:right;
+}
+
+.sign_in_nav li{
+	display: inline;
+	padding: 0 0 0 5px;
+	font-size: 13px;
+}
+
 .message_list{
 	width: 520px;
 	background-color: #bcbdbc;
@@ -227,7 +241,7 @@ input.comment_submit {
 }
 
 .message_list ul{
-	padding: 6px 0 0 8px;
+	padding: 6px 0 6px 8px;
 }
 
 .message_list ul.oddrow{
@@ -237,17 +251,34 @@ input.comment_submit {
 .message_list ul.evenrow{
 }
 
-.sign_in_nav{
-	text-align: right;
-	margin-right: 32px;
-	margin-bottom: 10px;
-	clear:right;
+.message_list li{
+	display:block;
+	float:left;
+	padding: 0 0 25px 0;
 }
 
-.sign_in_nav li{
-	display: inline;
-	padding: 0 0 0 5px;
-	font-size: 13px;
+.message_list li.msg {
+	width:150px;
+}
+
+.message_list li.link {
+	width:100px;
+	clear:left;
+}
+
+.message_list img{
+	margin-top: -3px;
+	padding-bottom: 3px;
+}
+
+
+/*
+.message_list_header li{
+	display: block;
+	float:left;
+	font-size: 16px;
+	font-family: 'Open Sans Condensed', sans-serif;
+	padding-bottom: 10px;
 }
 
 .message_list h1{
@@ -263,13 +294,20 @@ input.comment_submit {
 
 .message_list li.msg{
 	display: block;
-	float: left;
-	width: 330px;
+	float:left;
+	width: 200px;
+}
+
+.message_list li.hitcount{
+	display: block;
+	float:left;
+	width: 20px;
 }
 
 .message_list li.link{
 	display: block;
-	float: left;
+	float:left;
+	clear:left;
 	width: 110px;
 }
 
@@ -281,6 +319,8 @@ input.comment_submit {
 .message_list ul:hover {
 	background-color: #f3f2bb;
 }
+
+*/
 
 .amazon {
 	float: right;
