@@ -13,6 +13,7 @@ class CommentsController < ApplicationController
     @comment.permalink = request.url
     
      if @comment.save
+        UserMailer.comment_alert(@comment).deliver if @comment.message.user.comment_alert == true
         flash[:notice] = "Comment was successfully posted at the bottom of the page."
         redirect_to :action => 'show', :pickUpCode => @message.pickUpCode, :controller => 'messages'
       else
