@@ -34,7 +34,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     
     if @user.update_attributes(params[:user])
-      flash[:notice] = 'Your password was successfully changed!'
+      flash[:notice] = 'Your settings have been saved'
       redirect_to :action => 'show'
     else
       render :action => 'edit'
