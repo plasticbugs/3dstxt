@@ -503,6 +503,11 @@ li.delete{
 	padding-bottom: 6px;
 }
 
+#account li.alerts{
+	background-image: url('/images/email_alert.png');
+}
+
+
 #account li.heart{
 	background-image: url('/images/heart.png');
 }
@@ -737,7 +742,6 @@ div.field {
 .sign_in h1{
 	font-family: "HelveticaNeue", "Helvetica Neue", "HelveticaNeueRoman", "HelveticaNeue-Roman", "Helvetica Neue Roman", 'TeXGyreHerosRegular', "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
 	font-weight:bold;
-	text-transform:uppercase;
 	font-size: 25px;
 	margin-bottom: 10px;
 }
