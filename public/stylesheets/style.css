@@ -33,6 +33,16 @@ body {
 	background-image: url('/images/bodybg.png');
 	font-family: Helvetica, Arial, "sans-serif";
 	color: #0a1304;
+	
+}
+
+a {
+	color:#D02B55;
+	text-decoration:none;
+}
+
+a:hover {
+	text-decoration:underline;
 }
 ol, ul {
 	list-style: none;
@@ -103,19 +113,18 @@ header {
 }
 
 #form {
-	margin: 20px 0 50px 30px;
-	width: 475px;
+	margin: 20px 30px 50px 30px;
 }
 
 #form h1 {
-	font-family: 'Open Sans Condensed', sans-serif;
-	font-size:20px;
-	text-transform:uppercase;
+	font-family: "HelveticaNeue", "Helvetica Neue", "HelveticaNeueRoman", "HelveticaNeue-Roman", "Helvetica Neue Roman", 'TeXGyreHerosRegular', "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+	font-weight:bold;
+	font-size: 18px;
 }
 
 #form textarea {
-	margin-top: 10px;
-	width: 450px;
+	margin-top: 5px;
+	width: 530px;
 	height: 180px;
 }
 
@@ -168,9 +177,9 @@ div.comment_entry {
 }
 
 .comment_entry p {
-	font-family: 'Open Sans Condensed', sans-serif;
+	font-family: "HelveticaNeue", "Helvetica Neue", "HelveticaNeueRoman", "HelveticaNeue-Roman", "Helvetica Neue Roman", 'TeXGyreHerosRegular', "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif; font-weight:400; font-stretch:normal;
 	font-size: 18px;
-	text-transform:uppercase;
+	font-weight:bold;
 	margin-bottom: 5px;
 }
 
@@ -230,9 +239,9 @@ input.comment_submit {
 
 .message_list h1{
 	color:#fefefe;
-	letter-spacing:1px;
-	font-size: 22px;
-	font-family: 'Open Sans Condensed', sans-serif;
+	font-family: "HelveticaNeue", "Helvetica Neue", "HelveticaNeueRoman", "HelveticaNeue-Roman", "Helvetica Neue Roman", 'TeXGyreHerosRegular', "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+	font-weight:bold;
+	font-size: 18px;
 	padding-bottom: 8px;
 }
 
@@ -246,6 +255,10 @@ input.comment_submit {
 	-moz-box-shadow: 0px 0px 2px #333;
 	-webkit-box-shadow: 0px 0px 2px #333;
 	box-shadow: 0px 0px 2px #333;
+}
+
+form#new_message.new_message{
+ 	width:100%;
 }
 
 .message_details{
@@ -275,6 +288,14 @@ input.comment_submit {
 	-moz-box-shadow:    inset 0 0 2px #535353;
   -webkit-box-shadow: inset 0 0 2px #535353;
   box-shadow:         inset 0 0 2px #535353;
+}
+
+.message_list a{
+	color:#333;
+}
+
+.message_list a:hover{
+	color:#D02B55;
 }
 
 
@@ -345,7 +366,9 @@ li.delete{
 }
 
 .message_details li{
-	font-family: 'Open Sans Condensed', sans-serif;
+	font-family: "HelveticaNeue", "Helvetica Neue", "HelveticaNeueRoman", "HelveticaNeue-Roman", "Helvetica Neue Roman", 'TeXGyreHerosRegular', "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+	font-weight:bold;
+	font-size: 16px;
 	display:inline;
 }
 
@@ -368,14 +391,25 @@ li.delete{
 }
 
 #content{
-	margin: 0 20px 20px 30px;
+	margin: 0 30px 20px 30px;
 }
 
 #content h1{
 	margin-bottom: 15px;
-	font-family: 'Open Sans Condensed', sans-serif;
-	text-transform:uppercase;
-	font-size: 30px;
+	font-family: "HelveticaNeue", "Helvetica Neue", "HelveticaNeueRoman", "HelveticaNeue-Roman", "Helvetica Neue Roman", 'TeXGyreHerosRegular', "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+	font-weight:bold;
+	font-size: 20px;
+}
+
+.about_page {
+	padding: 10px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	background-color: #fcfcfc;
+	-moz-box-shadow: 0px 0px 2px #666;
+	-webkit-box-shadow: 0px 0px 2px #666;
+	box-shadow: 0px 0px 2px #666;
 }
 
 #content p{
@@ -428,6 +462,7 @@ li.delete{
 
 .logged_in_as{
 	margin: 0 0 15px 30px;
+	line-height:18px;
 	font-size: 14px;
 }
 
@@ -474,8 +509,9 @@ li.delete{
 
 #account h1 {
 	margin: 12px 0 0 15px;
-	font-family: 'Open Sans Condensed', sans-serif;
-	font-size: 20px;
+	font-family: "HelveticaNeue", "Helvetica Neue", "HelveticaNeueRoman", "HelveticaNeue-Roman", "Helvetica Neue Roman", 'TeXGyreHerosRegular', "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+	font-weight:bold;
+	font-size: 18px;
 }
 
 #account span.link{
@@ -525,13 +561,15 @@ li.delete{
 
 #howto h1 {
 	margin: 12px 0 0 15px;
-	font-family: 'Open Sans Condensed', sans-serif;
-	font-size: 30px;
+	font-family: "HelveticaNeue", "Helvetica Neue", "HelveticaNeueRoman", "HelveticaNeue-Roman", "Helvetica Neue Roman", 'TeXGyreHerosRegular', "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+	font-weight:bold;
+	font-size: 25px;
 }
 
 .share {
 	font-size: 20px;
-	font-family: 'Open Sans Condensed', sans-serif;
+	font-family: "HelveticaNeue", "Helvetica Neue", "HelveticaNeueRoman", "HelveticaNeue-Roman", "Helvetica Neue Roman", 'TeXGyreHerosRegular', "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+	font-weight:bold;
 	padding-bottom: 40px;
 	line-height: 25px;
 }
@@ -541,14 +579,13 @@ li.delete{
 }
 
 .tips {
-	width: 490px;
 	padding: 15px;
-	margin: 15px 0 25px 30px;
+	margin: 15px 30px 25px 30px;
 	color: #f3fefe;
 	background-color: #292929;
-	-webkit-border-radius: 10px;
-	-moz-border-radius: 10px;
-	border-radius: 10px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
 }
 
 .tips ul {
@@ -558,7 +595,6 @@ li.delete{
 	-moz-border-radius: 4px;
 	border-radius: 4px;
 	margin-top: 3px;
-	margin-left: 10px;
 	padding: 8px 8px 8px 8px;
 }
 
@@ -572,17 +608,15 @@ li.delete{
 }
 
 .tips h1 {
-	color: #fefefe;
-	margin: 0 0 0 10px;
-	
-	font-size: 30px;
-	font-family: 'Open Sans Condensed', sans-serif;
+	color: #fefefe;	
+	font-family: "HelveticaNeue", "Helvetica Neue", "HelveticaNeueRoman", "HelveticaNeue-Roman", "Helvetica Neue Roman", 'TeXGyreHerosRegular', "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+	font-weight:bold;
+	font-size: 25px;
 	letter-spacing: 3px;
 }
 
 .tips h2 {
 	margin-top: 10px;
-	margin-left: 10px;
 	letter-spacing: 3px;
 }
 
@@ -617,23 +651,80 @@ div.field {
 }
 
 .sign_in{
-	margin: 0 30px 0 30px;
+	margin-left: 30px;
 	/*background-image: url('/images/account.png');
 		background-repeat: no-repeat;
 		background-position: 250px 20px;*/
 }
 
 .user_settings {
-	margin-left: 30px;
+	margin: 0 30px 30px 30px;
 	background-color: #fefefe;
-	padding: 8px;
+	padding: 10px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	-moz-box-shadow: 0px 0px 2px #666;
+	-webkit-box-shadow: 0px 0px 2px #666;
+	box-shadow: 0px 0px 2px #666;
+}
+
+.user_settings {
+	font-family: "HelveticaNeue", "Helvetica Neue", "HelveticaNeueRoman", "HelveticaNeue-Roman", "Helvetica Neue Roman", 'TeXGyreHerosRegular', "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif; font-weight:400; font-stretch:normal;
+	font-size: 13px;
+}
+
+.user_settings form{
+	line-height: 18px;
+}
+
+.user_settings label{
+	line-height:20px;
+}
+
+.user_settings input#user_comment_alert{
+	margin-left:15px;
+}
+
+.user_settings input{
+	font-size: 20px;
+	margin-bottom:15px;
+}
+
+.user_settings input.submit_reset {
+		font-size: 20px;
+		margin-top:15px;
+}
+
+
+.user_settings input#user_submit{
+	margin-top: 15px;
+}
+
+.user_settings hr {
+	width:100%;
+	height:1px;
+	color:#ddd;
+	background-color:#ddd;
+	border:none;
+}
+
+.user_settings h2 {
+	font-family: "HelveticaNeue", "Helvetica Neue", "HelveticaNeueRoman", "HelveticaNeue-Roman", "Helvetica Neue Roman", 'TeXGyreHerosRegular', "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif; font-weight:400; font-stretch:normal;
+	font-size: 14px ;
+	font-weight:bold;
+	margin-bottom: 8px;
 }
 
 .user_settings h1 {
-	font-family: 'Open Sans Condensed', sans-serif;
-	text-transform:uppercase;
-	font-size: 25px;
+	font-family: "HelveticaNeue", "Helvetica Neue", "HelveticaNeueRoman", "HelveticaNeue-Roman", "Helvetica Neue Roman", 'TeXGyreHerosRegular', "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+	font-weight:bold;
+	font-size: 18px ;
 	margin-bottom: 10px;
+}
+
+.user_settings .setting {
+	margin-bottom: 20px;
 }
 
 .sign_in label{
@@ -642,8 +733,10 @@ div.field {
 
 
 
+
 .sign_in h1{
-	font-family: 'Open Sans Condensed', sans-serif;
+	font-family: "HelveticaNeue", "Helvetica Neue", "HelveticaNeueRoman", "HelveticaNeue-Roman", "Helvetica Neue Roman", 'TeXGyreHerosRegular', "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+	font-weight:bold;
 	text-transform:uppercase;
 	font-size: 25px;
 	margin-bottom: 10px;
@@ -672,9 +765,9 @@ div.field {
 }
 
 .comment_box h1 {
-	font-size:18px;
-	text-transform:uppercase;
-	font-family: 'Open Sans Condensed', sans-serif;
+	font-family: "HelveticaNeue", "Helvetica Neue", "HelveticaNeueRoman", "HelveticaNeue-Roman", "Helvetica Neue Roman", 'TeXGyreHerosRegular', "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif; font-weight:400; font-stretch:normal;
+	font-size: 24px;
+	font-weight:bold;
 	margin-bottom: 4px;
 	letter-spacing: 0px;
 	text-shadow: #ccc 1px 1px 1px;
