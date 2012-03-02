@@ -184,8 +184,10 @@ div.comment_entry {
 		font-size: 18px;
 }
 
+
+
 .submit {
-	float: right;
+	float: right; 
 }
 
 input.comment_submit {
@@ -227,10 +229,9 @@ input.comment_submit {
 
 
 .message_list h1{
-	color:#efefed;
+	color:#fefefe;
 	letter-spacing:1px;
-	text-shadow: #000 0px 1px 1px;
-	font-size: 26px;
+	font-size: 22px;
 	font-family: 'Open Sans Condensed', sans-serif;
 	padding-bottom: 8px;
 }
@@ -241,11 +242,7 @@ input.comment_submit {
 	background-size:auto 100%;
 	margin-left: 30px;
 	font-size: 12px;
-	padding: 6px 14px 14px 14px;
-	-webkit-border-radius: 10px;
-	-moz-border-radius: 10px;
-	border-radius: 10px;
-	border-style: none;
+	padding: 6px 10px 1px 10px;
 	-moz-box-shadow: 0px 0px 2px #333;
 	-webkit-box-shadow: 0px 0px 2px #333;
 	box-shadow: 0px 0px 2px #333;
@@ -261,7 +258,7 @@ input.comment_submit {
 	-moz-box-shadow: 0px 1px 2px #333;
 	-webkit-box-shadow: 0px 1px 2px #333;
 	box-shadow: 0px 1px 2px #333;
-	margin-bottom:14px;
+	margin-bottom:10px;
 }
 
 .message_details ul.message_header{
@@ -422,7 +419,7 @@ li.delete{
 
 #form form {
 	margin-bottom: 25px;
-	margin-left: 18px;
+	margin-left: 0px;
 }
 
 .has_account{
@@ -620,15 +617,30 @@ div.field {
 }
 
 .sign_in{
-	margin-left: 30px;
+	margin: 0 30px 0 30px;
 	/*background-image: url('/images/account.png');
 		background-repeat: no-repeat;
 		background-position: 250px 20px;*/
 }
 
+.user_settings {
+	margin-left: 30px;
+	background-color: #fefefe;
+	padding: 8px;
+}
+
+.user_settings h1 {
+	font-family: 'Open Sans Condensed', sans-serif;
+	text-transform:uppercase;
+	font-size: 25px;
+	margin-bottom: 10px;
+}
+
 .sign_in label{
 	font-size: 12px;
 }
+
+
 
 .sign_in h1{
 	font-family: 'Open Sans Condensed', sans-serif;

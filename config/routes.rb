@@ -2,8 +2,12 @@ Txtapp::Application.routes.draw do
 
   get "sessions/new"
   
-  resources :users, :only => [:new, :create, :destroy, :show, :edit, :update]
+  resources :users, :only => [:new, :create, :destroy, :show, :edit, :update] do
+      get 'change_password', :on => :member
+  end
+  
   #match '/users/:id' => 'users#show', :via => :get
+  
   
   get "pages/about"
   

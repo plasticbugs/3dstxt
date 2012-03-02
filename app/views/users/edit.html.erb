@@ -8,24 +8,18 @@
 </div>
 <% end %>
 
-<div class="sign_in">
-	<h1>Change your password</h1>
+<div class="logged_in_as">Logged in as <%= @user.email %><br/>
+	<span style="font-size:12px;">Current Limit: 6 Messages</span>
+</div>
+<div class="user_settings">
+<h1>Notifications</h1>
+
+<p>want to receive an email when new comments are posted on one of your 3ds message pages?</p>
 <% form_for @user do |f| -%>
-  <p><%= f.label "Enter New Password" %><br/>
-	<%= f.password_field :password %></p>
-
-
-	<p><%= f.label "Retype New Password" %><br/>
-	<%= f.password_field :password_confirmation %> </p>
-	
-	<%= f.submit "Change Password" %>
-<% end -%></div>
-
-<div class="sign_in">
-	Do you want to receive an email when new comments are posted on one of your 3ds message pages?
-<% form_for @user do |f| -%>
-  <p><%= f.label :comment_alert %><br/>
+  <p><%= f.label "Enable email alerts for new comments" %><br/>
 	<%= f.check_box :comment_alert %></p>
 	
-	<%= f.submit "Save Setting" %>
-<% end -%></div>
+	<%= f.submit "Save user settings" %>
+<% end -%>
+<h1>Password Settings</h1><%= link_to "Change your password", change_password_user_path %>
+</div>
