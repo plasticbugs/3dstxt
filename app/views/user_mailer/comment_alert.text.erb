@@ -1,5 +1,6 @@
-You have received a new comment on one of your messages.
+You have a new comment on one of your messages.
 
-Visit the link below to read your new comment.
+"<%= truncate @comment.content, :length => 140 %>"
 
+Visit the link below to read the entire comment and to add your reply.
 <%= "http://www.3dstxt.com/#{@comment.message.pickUpCode}" %>
