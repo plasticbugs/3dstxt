@@ -134,7 +134,7 @@ header {
 }
 
 #form .submit {
-		font-size: 18px;
+		font-size: 14px;
 }
 
 .create {
@@ -190,7 +190,7 @@ div.comment_entry {
 
 .comment_entry input {
 	margin-bottom: 10px;
-		font-size: 18px;
+		font-size: 14px;
 }
 
 
@@ -692,17 +692,18 @@ div.field {
 }
 
 .user_settings input{
-	font-size: 20px;
+	font-size: 14px;
 	margin-bottom:15px;
 }
 
 .user_settings input.submit_reset {
-		font-size: 20px;
+		font-size: 14px;
 		margin-top:15px;
 }
 
 
 .user_settings input#user_submit{
+	font-size: 16px;
 	margin-top: 15px;
 }
 
@@ -747,7 +748,7 @@ div.field {
 }
 
 .sign_in input{
-	font-size: 18px;
+	font-size: 14px;
 	margin-bottom: 16px;
 }
 
