@@ -13,6 +13,11 @@ class MessagesController < ApplicationController
     @comments = @message.comments.all
     @comment = Comment.new
     impressionist(@message)
+    @friendcode = format_friend_code(@message.user.friend_code)
+  end
+  
+  def format_friend_code(friend_code)
+    friend_code.gsub(/\D/, '').gsub(/.{4}/, '\0 ')
   end
 
   def new

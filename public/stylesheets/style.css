@@ -134,7 +134,7 @@ header {
 }
 
 #form .submit {
-		font-size: 14px;
+		font-size: 16px;
 }
 
 .create {
@@ -428,7 +428,7 @@ li.delete{
 	line-height: 120%;
 	background-color: #fcfcfc;
 	margin-top: 20px;
-	margin-bottom: 0px;
+	margin-bottom: 10px;
 	padding: 15px;
 	-webkit-border-radius: 8px;
 	-moz-border-radius: 8px;
@@ -437,6 +437,14 @@ li.delete{
 	border-width: 1px;
 	border-color: #666;
 }
+
+.message h1 {
+	font-family: "HelveticaNeue", "Helvetica Neue", "HelveticaNeueRoman", "HelveticaNeue-Roman", "Helvetica Neue Roman", 'TeXGyreHerosRegular', "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+	font-weight:bold;
+	font-size: 18px ;
+	margin: 10px 0 10px 0;
+}
+
 
 .message p {
 	padding-bottom: 10px;
@@ -672,11 +680,16 @@ div.field {
 	-moz-box-shadow: 0px 0px 2px #666;
 	-webkit-box-shadow: 0px 0px 2px #666;
 	box-shadow: 0px 0px 2px #666;
-}
-
-.user_settings {
 	font-family: "HelveticaNeue", "Helvetica Neue", "HelveticaNeueRoman", "HelveticaNeue-Roman", "Helvetica Neue Roman", 'TeXGyreHerosRegular', "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif; font-weight:400; font-stretch:normal;
 	font-size: 13px;
+}
+
+.user_settings img{
+	float:right;
+	margin: 10px 5px 0 0;
+	-moz-box-shadow: 0px 0px 2px #666;
+	-webkit-box-shadow: 0px 0px 2px #666;
+	box-shadow: 0px 0px 2px #666;
 }
 
 .user_settings form{
@@ -692,19 +705,24 @@ div.field {
 }
 
 .user_settings input{
-	font-size: 14px;
-	margin-bottom:15px;
+	font-size: 16px;
+}
+
+.user_settings input#user_submit{
+	margin-bottom:0px;
+}
+
+.user_settings input#user_friend_code{
+	font-size:18px;
 }
 
 .user_settings input.submit_reset {
-		font-size: 14px;
-		margin-top:15px;
+		font-size: 16px;
 }
 
 
 .user_settings input#user_submit{
 	font-size: 16px;
-	margin-top: 15px;
 }
 
 .user_settings hr {
@@ -732,6 +750,7 @@ div.field {
 .user_settings .setting {
 	margin-bottom: 20px;
 }
+
 
 .sign_in label{
 	font-size: 12px;

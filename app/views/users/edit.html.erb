@@ -11,18 +11,28 @@
 <div class="logged_in_as">Logged in as <%= @user.email %><br/>
 	<span style="font-size:12px;">Current Limit: 6 Messages</span>
 </div>
-<div class="user_settings">
-<div class="setting">	<h1>User Settings</h1>
+<div class="user_settings"><h1>User Settings</h1>	<hr/>
+	<% form_for @user do |f| -%>
+	<div class="setting"><div class="example"><%= image_tag("friendcode.png") %></div><h2>3DS Friend Code</h2><p>Appears at the bottom of your 3DStxt pages</p>
+		<%= f.text_field :friend_code, :size => 30, :maxlength => 12,  %>
+		</div>
 	<hr/>
+<div class="setting">	
+
+	
 <h2>Notifications</h2>
 
-<p><% form_for @user do |f| -%>
+<p>
   <%= f.label "Email me when:" %><br/>
 	<%= f.check_box :comment_alert %>someone comments on one of my pages.
 	
-	<br/><%= f.submit "Save user settings" %>
-<% end -%>
+
 </p>
 </div>
 <hr/><div class="setting"><h2>Password</h2><%= link_to "Change your password", change_password_user_path %>
-</div></div>
+</div>
+
+<%= f.submit "Save user settings" %>
+
+<% end -%>
+</div>
