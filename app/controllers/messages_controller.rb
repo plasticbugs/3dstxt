@@ -13,7 +13,9 @@ class MessagesController < ApplicationController
     @comments = @message.comments.all
     @comment = Comment.new
     impressionist(@message)
-    @friendcode = format_friend_code(@message.user.friend_code)
+      if !@message.user.friend_code.nil?
+        @friendcode = format_friend_code(@message.user.friend_code)
+      end
   end
   
   def format_friend_code(friend_code)
