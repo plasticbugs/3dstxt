@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120228064945) do
+ActiveRecord::Schema.define(:version => 20120305033003) do
 
   create_table "comments", :force => true do |t|
     t.string    "code"
@@ -83,7 +83,11 @@ ActiveRecord::Schema.define(:version => 20120228064945) do
     t.string    "salt"
     t.string    "password_reset_token"
     t.timestamp "password_reset_sent_at"
-    t.boolean   "comment_alert",          :default => false
+    t.boolean   "comment_alert",            :default => false
+    t.string    "profile_pic_file_name"
+    t.string    "profile_pic_content_type"
+    t.integer   "profile_pic_file_size"
+    t.datetime  "profile_pic_updated_at"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

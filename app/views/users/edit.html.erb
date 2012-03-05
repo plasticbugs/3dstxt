@@ -12,7 +12,7 @@
 	<span style="font-size:12px;">Current Limit: 6 Messages</span>
 </div>
 <div class="user_settings"><h1>User Settings</h1>	<hr/>
-	<% form_for @user do |f| -%>
+	<%= form_for @user, :html => { :multipart => true} do |f| -%>
 	<div class="setting"><div class="example"><%= image_tag("friendcode.png") %></div><h2>3DS Friend Code</h2><p>Appears at the bottom of your 3DStxt pages</p>
 		<%= f.text_field :friend_code, :size => 30, :maxlength => 12  %>
 		</div>
@@ -25,9 +25,19 @@
 <p>
   <%= f.label "Email me when:" %><br/>
 	<%= f.check_box :comment_alert %>someone comments on one of my pages.
-	
 
 </p>
+</div>
+<hr/>
+<div class="setting">	
+	<h2>Profile Picture</h2>
+	<% if @user.profile_pic? %>
+	<%= image_tag @user.profile_pic.url(:medium) %>
+	<% end %>
+<%= f.label "Upload a profile picture" %><br/>
+<%= f.file_field :profile_pic, :style => "width:200px;font-size:14px;" %>
+
+
 </div>
 <hr/>
 <!-- // ><div class="setting">	
