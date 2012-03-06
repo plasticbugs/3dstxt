@@ -51,6 +51,8 @@ private
        self.pickUpCode = nil
      end
   end
+  
+
 
   def downcase_pickUpCode
     self.pickUpCode = self.pickUpCode.downcase

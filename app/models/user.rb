@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
                     :storage => :s3,
                     :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
                     :bucket => 'media.3dstxt.com',
-                    :styles=> { :medium => "300x300>", :thumb => "100x100>"},
+                    :styles=> { :medium => "250x250>", :thumb => "100x100>"},
                     :path => "/:style/:id/:filename"
     
   validates(:name, :length => {:maximum => 50})

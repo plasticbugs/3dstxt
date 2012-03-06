@@ -457,11 +457,28 @@ li.delete{
 #form textarea {
 	font-size: 16px;
 	resize: vertical;
+	padding: 10px;
+}
+
+#form label.form_header {
+	font-family: "HelveticaNeue", "Helvetica Neue", "HelveticaNeueRoman", "HelveticaNeue-Roman", "Helvetica Neue Roman", 'TeXGyreHerosRegular', "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+	font-weight:bold;
+	font-size: 18px;
 }
 
 #form form {
 	margin-bottom: 25px;
 	margin-left: 0px;
+}
+
+#form div.check_area {
+	font-size:14px;
+	margin-top: 15px;
+	margin-bottom: 8px;
+}
+
+#form div.check_area span.label {
+	margin-left: 6px;
 }
 
 .has_account{

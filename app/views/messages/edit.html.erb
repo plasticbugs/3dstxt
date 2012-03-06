@@ -12,8 +12,8 @@
 
 <%= form_for @message, :url => {:action => 'update'} do |f| -%>
 
-	<%= f.label "Edit your message here:" %><br/><%= f.text_area :contents, :rows => "10", :cols => "40" %>
-
+	<%= f.label "Edit your message:", :class => "form_header" %><br/><%= f.text_area :contents, :rows => "10", :cols => "40" %>
+	<div class="check_area"><%= f.check_box :display_fc %><span class="label">Display your Friend Code on this page</span></div>
   <div class="create"><%= f.submit "Update" %></div>
 
 <% end -%>

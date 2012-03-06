@@ -24,7 +24,7 @@ Txtapp::Application.routes.draw do
   #resources :messages do
   #  resources :comments
   #end
-  
+
   resources :password_resets
   
   match '/messages' => 'messages#new'  

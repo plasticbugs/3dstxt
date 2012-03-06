@@ -19,12 +19,17 @@
 <% if message.errors.blank? %>
 <div class="message_details">
 	<ul class="message_header">
-		<li style="float:left;"><%= link_to "3dstxt.com/#{message.pickUpCode}", :controller => 'messages', :action => 'show', :pickUpCode => message.pickUpCode %></li>
+
+		<li style="float:left;">
+	
+		<%= link_to "3dstxt.com/#{message.pickUpCode}", :controller => 'messages', :action => 'show', :pickUpCode => message.pickUpCode %></li>
 		<li><%= "#{message.comments.count} comments" %></li>
 		<li style="float:right;"><%= "#{message.impressionist_count(:filter=>:ip_address)} views" %></li>
 		</ul>
 		
-		<div class="message_contents"><%= truncate message.contents, :length => 150 %></div>
+		<div class="message_contents">
+		<%= truncate message.contents, :length => 150 %>
+		</div>
 		
 <ul class="commands">	<li class="edit"><%= link_to "EDIT", {:controller => 'messages', :action => 'edit', :pickUpCode => message.pickUpCode} %>
 	<%= link_to (image_tag ("edit.png")), {:controller => 'messages', :action => 'edit', :pickUpCode => message.pickUpCode} %></li>
