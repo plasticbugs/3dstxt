@@ -1,6 +1,7 @@
 class AddDisplayFcToMessages < ActiveRecord::Migration
   def self.up
     add_column :messages, :display_fc, :boolean, :default => true
+    Message.update_all :display_fc => true
   end
 
   def self.down
