@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120305033003) do
+ActiveRecord::Schema.define(:version => 20120306044141) do
 
   create_table "comments", :force => true do |t|
     t.string    "code"
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(:version => 20120305033003) do
     t.datetime "updated_at"
     t.string   "password"
     t.integer  "user_id"
+    t.boolean  "display_fc", :default => true
   end
 
   add_index "messages", ["pickUpCode"], :name => "index_messages_on_pickUpCode"
