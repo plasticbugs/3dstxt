@@ -775,6 +775,9 @@ img.profile {
 	margin-bottom: 20px;
 }
 
+.setting p {
+	margin-bottom: 8px;
+}
 
 .sign_in label{
 	font-size: 12px;
