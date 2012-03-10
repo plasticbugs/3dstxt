@@ -709,6 +709,13 @@ div.field {
 	box-shadow: 0px 0px 2px #666;
 }
 
+img.profile {
+	float:none;
+
+	border:solid;
+	border-width:3px;
+}
+
 .user_settings form{
 	line-height: 18px;
 }

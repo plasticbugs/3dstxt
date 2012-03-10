@@ -29,13 +29,14 @@
 </p>
 </div>
 <hr/>
-<div class="setting">	
+<div class="pic_setting">	
 	<h2>Profile Picture</h2>
-	<% if @user.profile_pic? %>
-	<%= image_tag @user.profile_pic.url(:medium) %>
-	<% end %>
+
 <%= f.label "Upload a profile picture" %><br/>
-<%= f.file_field :profile_pic, :style => "width:200px;font-size:14px;" %>
+<%= f.file_field :profile_pic, :style => "width:200px;font-size:14px;" %><br/>
+<% if @user.profile_pic? %>
+<%= image_tag @user.profile_pic.url(:medium), :class => 'profile' %>
+<% end %>
 
 
 </div>
