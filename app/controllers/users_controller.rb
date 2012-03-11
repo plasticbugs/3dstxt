@@ -23,7 +23,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     render :action => "change_password"
   end
-  
+
   
   def show
     @user = User.find(params[:id])

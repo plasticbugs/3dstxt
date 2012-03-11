@@ -13,6 +13,7 @@ gem 'paperclip'
 gem 'rmagick'
 gem 'aws-s3', :require => 'aws/s3'
 gem 'aws-sdk'
+gem 'amazon_product'
 
 #gem 'mongrel'
 

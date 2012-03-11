@@ -1,6 +1,9 @@
 Txtapp::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
-
+  AMAZON_KEY = "1EYD6CA01FYNXRQ4EK82"
+  AMAZON_SECRET = "qH4qNR1Nzty0UN1qP0LJCrKawm1hhg9B1TiMKvX6"
+  AMAZON_ASSOCIATE_TAG = "3ds0a-20"
+  
   # The production environment is meant for finished, "live" apps.
   # Code is not reloaded between requests
   config.cache_classes = true
