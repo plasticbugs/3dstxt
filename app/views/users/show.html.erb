@@ -2,8 +2,6 @@
 <div class="notice"><%= flash[:notice] %></div>
 <% end %>
 
-<%= @user.link_url %>
-
 <%#= render :partial => 'message_list' %>
 <div class="logged_in_as">Logged in as <%= @user.email %><br/>
 	<%= link_to 'User settings', edit_user_path(current_user.id) %>

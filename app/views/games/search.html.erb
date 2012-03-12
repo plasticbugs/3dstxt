@@ -1,0 +1,17 @@
+I am search!
+
+<%= form_tag do %>
+	<%= label_tag 'Game Title' %>
+	<%= text_field_tag :query, params[:query] %>
+	
+	<%= submit_tag "Add Game", :name => nil %>
+	<% end %>
+	
+	
+	
+	<% unless @user.games.nil? %>
+	<% @user.games.each do |game| %>
+		<h2><%= game.asin %></h2>
+	<% end %>
+	<% end %>
+	

@@ -53,31 +53,7 @@ class User < ActiveRecord::Base
     (user && user.salt == cookie_salt) ? user : nil
   end
   
-    def link_url
-      
-  #    response['Item'].first['DetailPageURL']
-    search = amazon_search
-
-   # search['Items']['Item'].first['DetailPageURL']
-    end
-    
-    def amazon_search
-
-       req = AmazonProduct["us"]
-
-       req.configure do |c|
-         c.key    = AMAZON_KEY
-         c.secret = AMAZON_SECRET
-         c.tag    = AMAZON_ASSOCIATE_TAG
-       end
-
-       req << { :operation => 'ItemSearch',
-                :search_index => 'VideoGames',
-                :keywords => 'Kid Icarus' + ' 3DS'}
-
-       response = req.get.to_hash
-
-     end
+ 
   
   private
   
