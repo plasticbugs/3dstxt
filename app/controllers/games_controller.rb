@@ -4,26 +4,30 @@ class GamesController < ApplicationController
   end
 
   def search
-    req = AmazonProduct["us"]
+    @user = User.find(params[:id])
+    if params[:query]
+    
+   req = AmazonProduct["us"]
 
-    req.configure do |c|
-      c.key    = AMAZON_KEY
-      c.secret = AMAZON_SECRET
-      c.tag    = AMAZON_ASSOCIATE_TAG
+   req.configure do |c|
+     c.key    = AMAZON_KEY
+     c.secret = AMAZON_SECRET
+     c.tag    = AMAZON_ASSOCIATE_TAG
+   end
+
+   req << { :operation => 'ItemSearch',
+            :search_index => 'VideoGames',
+            :response_group => %w{ItemAttributes Images},
+            :keywords => params[:query] + ' 3DS'}
+
+   @response = req.get.to_hash
+   @asin = @response['Items']['Item'].first['ASIN']
+   
+   @game = Game.new(:asin => @asin)
+   @game.user_id = @user.id
+   @game.save
     end
 
-    req << { :operation => 'ItemSearch',
-             :search_index => 'VideoGames',
-             :keywords => params[:query] + ' 3DS'}
-
-    @response = req.get.to_hash
-    @asin = @response['Items']['Item'].first['ASIN']
-    @user = User.find(params[:id])
-    @game = Game.new(:asin => @asin)
-    @game.user_id = @user.id
-    @game.save
-    render :action => "search"
-#    render :json => "oop"
   end
 
   
@@ -38,9 +42,32 @@ class GamesController < ApplicationController
     end
   end
 
-  def show
-    @user = User.find(params[:id])
-    @games = @user.games
+  def index
+    @user = current_user
+     @games = @user.games
+
+      @asins = []
+      @games.each do |game|
+        @asins << game.asin
+      end
+      req = AmazonProduct["us"]
+
+      req.configure do |c|
+        c.key    = AMAZON_KEY
+        c.secret = AMAZON_SECRET
+        c.tag    = AMAZON_ASSOCIATE_TAG
+      end
+
+      req << {  :operation => 'ItemLookup',
+                :search_index => nil,
+                 :response_group => %w{ItemAttributes Images},
+                 :item_id => "#{@asins.join(',')}"
+                          }
+      @response = req.get.to_hash
+      
+      @game_collection =  @response['Items']['Item']
+        
+    
   end
 
   def update

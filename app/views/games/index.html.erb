@@ -1,0 +1,11 @@
+<h1>Games#index</h1>
+<p>Find me in app/views/games/show.html.erb</p>
+
+<% if @game_collection %>
+<% @game_collection.each do |game| %>
+<p style="font-size:20px; margin-bottom:20px;">	<%= game['ItemAttributes']['Title'] %><br/>
+	Publisher: <%= game['ItemAttributes']['Publisher'] %><br/>
+	<%= image_tag(game['MediumImage']['URL']) %>
+	</p>
+<% end %>
+<% end %>
