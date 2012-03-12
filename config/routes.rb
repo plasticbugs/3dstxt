@@ -1,5 +1,17 @@
 Txtapp::Application.routes.draw do
 
+  get "games/new"
+
+  get "games/create"
+
+  get "games/show"
+
+  get "games/update"
+
+  get "games/edit"
+
+  get "games/destroy"
+
   get "sessions/new"
   
   resources :users, :only => [:new, :create, :destroy, :show, :edit, :update] do
