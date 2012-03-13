@@ -1,10 +1,16 @@
 class GamesController < ApplicationController
+  before_filter :authenticate, :only => [:edit, :search, :index]
+  before_filter :correct_user, :only => [:edit, :search, :index]
+  
   def new
     @game = Game.new
   end
 
   def search
-    @user = User.find(params[:id])
+  if signed_in?
+    @user = current_user
+    #User.find(params[:id])
+  end
     if params[:query]
     
    req = AmazonProduct["us"]
@@ -43,6 +49,7 @@ class GamesController < ApplicationController
   end
 
   def index
+    if signed_in?
     @user = current_user
      @games = @user.games
 
@@ -66,6 +73,9 @@ class GamesController < ApplicationController
       @response = req.get.to_hash
       
       @game_collection =  @response['Items']['Item']
+    else
+      redirect_to root_path
+    end
     
   end
 
@@ -89,6 +99,18 @@ class GamesController < ApplicationController
     @game.destroy
     flash[:notice] = "Game was successfully deleted."
     redirect_to :action => "show"
+  end
+  
+  private
+  def authenticate
+    deny_access unless signed_in?
+  end
+
+  def correct_user
+    accessed = User.find_by_id(params[:id])
+    #message = Message.find_by_pickUpCode(params[:pickUpCode].downcase)
+    @user = accessed
+    redirect_to root_path unless current_user?(@user)
   end
 
 end
