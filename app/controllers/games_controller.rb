@@ -66,7 +66,6 @@ class GamesController < ApplicationController
       @response = req.get.to_hash
       
       @game_collection =  @response['Items']['Item']
-        
     
   end
 
