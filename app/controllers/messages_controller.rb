@@ -13,7 +13,8 @@ class MessagesController < ApplicationController
     @comments = @message.comments.all
     @comment = Comment.new
     impressionist(@message)
-      if !@message.user.friend_code.nil?
+      
+      if !@message.user.nil? && !@message.user.friend_code.nil?
         @friendcode = format_friend_code(@message.user.friend_code)
       end
   end
