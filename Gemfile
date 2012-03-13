@@ -6,9 +6,9 @@ gem 'rails', '3.0.3'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3-ruby', :require => 'sqlite3'
+gem 'sqlite3', :require => 'sqlite3'
 gem 'sanitize'
-gem 'rake', '0.8.7'
+gem 'rake'
 gem 'paperclip'
 gem 'rmagick'
 gem 'aws-s3', :require => 'aws/s3'
@@ -25,8 +25,9 @@ end
 
 group :test do
   gem 'rspec-rails'
-  gem 'factory_girl'
-  gem 'webrat'
+  gem 'factory_girl_rails'
+#  gem 'webrat'
+  gem 'capybara'
 end
 
 

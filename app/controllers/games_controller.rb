@@ -1,6 +1,8 @@
+include SessionsHelper
+
 class GamesController < ApplicationController
-  before_filter :authenticate, :only => [:edit, :search, :index]
-  before_filter :correct_user, :only => [:edit, :search, :index]
+  before_filter :authenticate, :only => [:edit, :search]
+  before_filter :correct_user, :only => [:edit, :search]
   
   def new
     @game = Game.new
@@ -51,7 +53,7 @@ class GamesController < ApplicationController
   def index
     if signed_in?
     @user = current_user
-     @games = @user.games
+    @games = @user.games
 
       @asins = []
       @games.each do |game|

@@ -9,13 +9,13 @@ describe "Users" do
       it "should not make a new user" do
         lambda do
            visit signup_path
-           fill_in "user_name",         :with => ""
+           #fill_in "user_name",         :with => ""
            fill_in "user_email",        :with => ""
            fill_in "user_password",     :with => ""
            fill_in "user_password_confirmation", :with => ""
-           click_button
-           response.should render_template('users/new')
-           response.should have_selector("div.errors")
+           click_button "Sign up"
+           current_path.should == '/users'
+           page.should have_selector("div.errors")
          end.should_not change(User, :count)
       end
     end
@@ -25,13 +25,14 @@ describe "Users" do
       it "should make a new user" do
         lambda do
           visit signup_path
-          fill_in "user_name", :with => "Scott Moschella"
+          #fill_in "user_name", :with => "Scott Moschella"
           fill_in "user_email",        :with => "scottmosch@gmail.com"
           fill_in "user_password",     :with => "foobar"
           fill_in "user_password_confirmation", :with => "foobar"
-          click_button
-          response.should have_selector("div.notice", :content => "Thanks")
-          response.should render_template('users/show')
+          click_button "Sign up"
+          page.should have_content("Thanks for creating an account!")
+          current_path.should == "/users/1"
+          #assert_template("users/1")
         end.should change(User, :count).by(1)
       end
     end

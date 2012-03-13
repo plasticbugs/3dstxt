@@ -12,7 +12,7 @@ describe SessionsController do
   
   it "should have the right title" do
     get :new
-    response.should have_selector("title", :content => "Sign in")
+    response.should have_selector('title')
   end
   
   
@@ -44,6 +44,7 @@ describe SessionsController do
     
     before(:each) do
       @user = Factory(:user)
+      #post "/signin", {:email => @user.email, :password => @user.password}
       @attr = { :email => @user.email, :password => @user.password }
     end
     

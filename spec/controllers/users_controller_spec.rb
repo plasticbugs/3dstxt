@@ -6,23 +6,29 @@ describe UsersController do
   
   describe "GET 'show'" do
     
-    # before(:each) do
-    #      @attr = { :name => "Scott Moschella", :email => "scottmosch@gmail.com", :password => "foobar", :password_confirmation => "foobar"}
-    #    end
-    #    
-    #    it "should be successful" do
-    #      @user = User.create(@attr)
-    #      sign_in @user
-    #      get :show, :id => @user
-    #      response.should be_success
-    #    end
-    #    
-    #    it "should find the right user" do
-    #      @user = User.new(@attr)
-    #      @user.save
-    #      get :show, :id => @user
-    #      assigns(:user).should == @user
-    #    end
+    before(:each) do
+      @user = Factory(:user)
+      visit signin_path
+      fill_in "session_email", :with => @user.email
+      fill_in "session_password", :with => @user.password
+      click_button "Sign in"
+      
+      #@attr = FactoryGirl.attributes_for(:user)
+      #post :create, :session => @attr
+      #Sessions.create :email => @user.email, :password => @user.password
+      #post "/signin", :email => @user.email, :password => @user.password
+      
+    end
+       
+       it "should be successful" do
+         visit user_path, :id => @user
+         response.should be_success
+       end
+       
+       it "should find the right user" do
+         get :show, :id => @user
+         assigns(:user).should == current_user
+       end
   end
   
   
