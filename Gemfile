@@ -14,6 +14,7 @@ gem 'rmagick'
 gem 'aws-s3', :require => 'aws/s3'
 gem 'aws-sdk'
 gem 'amazon_product'
+gem 'escape_utils'
 
 #gem 'mongrel'
 
@@ -21,12 +22,13 @@ gem 'impressionist'
 
 group :development do
   gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'capybara'
 end
 
 group :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
-#  gem 'webrat'
   gem 'capybara'
 end
 

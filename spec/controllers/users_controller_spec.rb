@@ -7,11 +7,13 @@ describe UsersController do
   describe "GET 'show'" do
     
     before(:each) do
-      @user = Factory(:user)
-      visit signin_path
-      fill_in "session_email", :with => @user.email
-      fill_in "session_password", :with => @user.password
-      click_button "Sign in"
+      
+    @user = Factory(:user)
+    test_sign_in @user
+    #  visit signin_path
+    #  fill_in "session_email", :with => @user.email
+    #  fill_in "session_password", :with => @user.password
+    #  click_button "Sign in"
       
       #@attr = FactoryGirl.attributes_for(:user)
       #post :create, :session => @attr
@@ -21,13 +23,14 @@ describe UsersController do
     end
        
        it "should be successful" do
-         visit user_path, :id => @user
-         response.should be_success
+         #user = User.create!(:email => "scottmossch@gmail.com", :password => "wired1", :password_confirmation => "wired1")
+         get 'show', :id => 1
+         response.status.should eql 200
        end
        
        it "should find the right user" do
          get :show, :id => @user
-         assigns(:user).should == current_user
+         assigns(:user).should eq current_user
        end
   end
   

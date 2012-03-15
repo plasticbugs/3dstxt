@@ -79,12 +79,5 @@ class User < ActiveRecord::Base
       self[column] = SecureRandom.base64.tr("+/", "-_")
     end while User.exists?(column => self[column])
   end
-  
-
-
-
-  
-  
-
-  
+    
 end

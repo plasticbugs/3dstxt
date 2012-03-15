@@ -12,7 +12,24 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 RSpec.configure do |config|
   
   def test_sign_in(user)
+    jar = ActionDispatch::Cookies::CookieJar.build(@request)
+    jar.signed[:remember_token] = [user.id, user.salt]
+    @request.cookies[:remember_token] = jar[:remember_token]
+    
     controller.sign_in(user)
+    
+    current_user = user
+    @current_user = user
+  end
+  
+  def test_sign_out
+    current_user = nil
+    @current_user = nil
+    @request.cookies.delete(:remember_token)
+  end
+  
+  def test_signed_in?
+    return !current_user.nil?
   end
   
   # == Mock Framework

@@ -11,8 +11,8 @@ describe SessionsController do
   end
   
   it "should have the right title" do
-    get :new
-    response.should have_selector('title')
+    visit signin_path
+    page.should have_content('Sign in here')
   end
   
   
@@ -31,7 +31,7 @@ describe SessionsController do
     
     it "should have the right title" do
       post :create, :session => @attr
-      response.should have_selector("title", :content => "Sign in")
+      response.body.should include("Sign in here")
     end
     
     it "should have a flash.now message" do

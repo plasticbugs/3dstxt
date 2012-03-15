@@ -18,9 +18,9 @@ describe Message do
   
   it 'should regenerate a new five digit key if the pick up code is not unique' do
     x = Factory(:message)
-    y = Factory(:message)
     x.save
-    y.save
+    y = Message.create(:pickUpCode => 'scott', :contents => "This is some random text")
+    y.save!
     y.pickUpCode.should_not == x.pickUpCode
     y.pickUpCode.length.should == 5
     
@@ -70,9 +70,7 @@ describe Message do
   end
   
   it 'should not allow me to create a blank pick up code' do
-    x = Factory(:message)
-    x.pickUpCode = ""
-    x.save
+    x = Message.create(:pickUpCode => "", :contents => "this is something")
     
     x.pickUpCode.should_not be_blank
   end
