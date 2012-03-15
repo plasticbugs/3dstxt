@@ -32,6 +32,13 @@ describe UsersController do
          get :show, :id => @user
          assigns(:user).should eq current_user
        end
+       
+       it "should not allow me to access someone else's page" do
+         @user2 = User.new({:email => "scott@scott.com", :password => 'test123', :password_confirmation => 'test123'})
+         @user2.save!
+         get :show, :id => @user2
+         response.status.should eql 302
+       end
   end
   
   

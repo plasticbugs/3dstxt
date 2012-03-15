@@ -3,6 +3,7 @@ FactoryGirl.define do
   factory :message do
   pickUpCode        "scott"
   contents          "hello, my name is scott"
+  user_id           "1"
   end
 
 
@@ -12,4 +13,6 @@ FactoryGirl.define do
   password_confirmation  "westwood1"
   id                      "1"
   end
+
+  
 end
