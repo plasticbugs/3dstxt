@@ -1,8 +1,8 @@
 include SessionsHelper
 
 class GamesController < ApplicationController
-  before_filter :authenticate, :only => [:edit, :search]
-  before_filter :correct_user, :only => [:edit, :search]
+  before_filter :authenticate, :only => [:edit, :search, :create]
+  before_filter :correct_user, :only => [:edit, :search, :create]
   
   def new
     @game = Game.new
@@ -40,12 +40,14 @@ class GamesController < ApplicationController
 
   
   def create
-    @user = User.find(params[:id])
+    #@user = User.find(params[:id])
+    @user = current_user
     @game = @user.games.build(params[:game])
     if @game.save
-      flash[:notice] = 'Game was successfully created.'
-      redirect_to(@game)
+      flash[:notice] = 'Game was successfully added.'
+      render :action => "new"
     else
+      flash[:error] = 'There was an error adding that game. Please try again.'
       render :action => "new"
     end
   end
@@ -54,6 +56,8 @@ class GamesController < ApplicationController
     if signed_in?
     @user = current_user
     @games = @user.games
+    
+    if @games.count > 0
 
       @asins = []
       @games.each do |game|
@@ -71,10 +75,21 @@ class GamesController < ApplicationController
                 :search_index => nil,
                  :response_group => %w{ItemAttributes Images},
                  :item_id => "#{@asins.join(',')}"
-                          }
-      @response = req.get.to_hash
+               }
       
-      @game_collection =  @response['Items']['Item']
+      @response = req.get.to_hash
+      @response =  @response['Items']['Item']
+      
+      if @response.class == Hash
+        new_array = []
+        new_array << @response
+        @response = new_array
+      end
+      @response = @response.zip(@games)
+    else
+      @response = nil
+    end
+      
     else
       redirect_to root_path
     end
@@ -100,7 +115,7 @@ class GamesController < ApplicationController
     @game = Game.find(params[:id])
     @game.destroy
     flash[:notice] = "Game was successfully deleted."
-    redirect_to :action => "show"
+    redirect_to :action => "index"
   end
   
   private

@@ -19,7 +19,10 @@ Txtapp::Application.routes.draw do
   
   resources :users, :only => [:new, :create, :destroy, :show, :edit, :update] do
      
-      resources :games
+      resources :games do
+        get 'search', :on => :collection
+      end
+        
 #        collection do
 #          get 'search'
 #          get 'search/:query'

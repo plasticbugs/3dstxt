@@ -13,6 +13,10 @@ FactoryGirl.define do
   password_confirmation  "westwood1"
   id                      "1"
   end
+  
+  factory :game do
+  asin                  "B0053BCO00"
+  end
 
   
 end

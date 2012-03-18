@@ -22,9 +22,10 @@ RSpec.configure do |config|
     @current_user = user
   end
   
-  def test_sign_out
+  def test_sign_out(user)
     current_user = nil
     @current_user = nil
+    user = nil
     @request.cookies.delete(:remember_token)
   end
   

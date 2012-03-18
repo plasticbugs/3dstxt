@@ -1,8 +1,17 @@
-<% if @game_collection %>
-<% @game_collection.each do |game| %>
-<p style="font-size:20px; margin-bottom:20px;">	<%= game['ItemAttributes']['Title'] %><br/>
-	Publisher: <%= game['ItemAttributes']['Publisher'] %><br/>
-	<%= image_tag(game['LargeImage']['URL'], :style => 'width:40%;') %>
-	</p>
+<%= flash[:notice] %>
+
+<% if @response && !@games.nil? %>
+<div style="width:500px;">
+<% @response.each do |amazon, game| %>
+
+<div style="font-size:10px; margin-bottom:10px; margin-right:20px;float:left;clear:<%= cycle("left", "none") -%>">	<%= amazon['ItemAttributes']['Title'] %><br/>
+	Publisher: <%= amazon['ItemAttributes']['Publisher'] %><br/>
+<%= image_tag(amazon['MediumImage']['URL']) %><br/>
+	<%= link_to "Remove #{amazon['ItemAttributes']['Title']}", [game.user, game], :method => :delete, :alt => 'Delete Game'%>
+</div>
+</div>
 <% end %>
+<% else %>
+<%= link_to "Add games to your collection", :controller => 'games', :action => 'search' %>
+
 <% end %>

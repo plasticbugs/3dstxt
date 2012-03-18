@@ -8,3 +8,11 @@ en:
     attributes:
       message:
         pickUpCode: "Custom URL"
+        
+        
+  activerecord:
+    models:     
+      game: 3DS Game
+    attributes:
+      game:
+        asin: "That 3DS Game"

@@ -1,3 +1,20 @@
+
+<% if flash[:notice] %>
+	<div class="notice">
+		<%= flash[:notice] %>
+	</div>
+<% end %>
+
+<% if @game && @game.errors.any? %>
+	<div class="errors">
+	<ul>
+    <% @game.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+</div>
+<% end %>
+
 Add games to your collection.
 <%= form_tag(:method => "get") do %>
 	<%= label_tag 'Game Title' %>
