@@ -23,6 +23,9 @@ class MessagesController < ApplicationController
   end
 
   def new
+    if signed_in?
+      @user = current_user
+    end
    @message = Message.new
   end
   
@@ -71,15 +74,15 @@ class MessagesController < ApplicationController
     end
         
     if @message.save
-      flash[:notice] = 'Your message was created!'
+      flash[:notice] = 'Your page was created!'
       redirect_to :action => "show", :pickUpCode => @message.pickUpCode
-    elsif signed_in?
+    elsif @message.save && signed_in?
       render :action => 'users/show', :messages => current_user.messages
     else
       # flash[:notice] = ":("
       # redirect_to root_path, {:flash => "!"}
       
-      flash[:error] = "Must be between 1 and 5000 characters"
+      flash[:error] = "Your message must be between 1 and 5000 characters"
       redirect_to root_url
     end
   end

@@ -6,9 +6,7 @@ class Message < ActiveRecord::Base
   validates :pickUpCode, :uniqueness => {:case_sensitive => false}
   validates_length_of :pickUpCode, :minimum => 3, :maximum => 5, :if => :pickUpCode
   #validates_presence_of :pickUpCode
-  validates_length_of :contents,
-                      :minimum => 1,
-                      :maximum => 5000
+  validates :contents, :length => { :in => 1..5000 }
    
   validate :has_fewer_than_7_messages , :on => :create
   

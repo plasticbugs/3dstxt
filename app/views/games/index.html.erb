@@ -1,10 +1,10 @@
 <%= flash[:notice] %>
 
 <% if @response && !@games.nil? %>
-<div style="width:500px;">
+<div>
 <% @response.each do |amazon, game| %>
 
-<div style="font-size:10px; margin-bottom:10px; margin-right:20px;float:left;clear:<%= cycle("left", "none") -%>">	<%= amazon['ItemAttributes']['Title'] %><br/>
+<div>	<%= amazon['ItemAttributes']['Title'] %><br/>
 	Publisher: <%= amazon['ItemAttributes']['Publisher'] %><br/>
 <%= image_tag(amazon['MediumImage']['URL']) %><br/>
 	<%= link_to "Remove #{amazon['ItemAttributes']['Title']}", [game.user, game], :method => :delete, :alt => 'Delete Game'%>

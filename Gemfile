@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.3'
+gem 'rails', '3.1'
 #gem 'mongrel', '>= 1.2.0.pre2'
 
 # Bundle edge Rails instead:
@@ -30,6 +30,10 @@ group :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'capybara'
+end
+
+group :assets do
+  gem 'twitter-bootstrap-rails'
 end
 
 

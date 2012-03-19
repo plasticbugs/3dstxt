@@ -7,9 +7,7 @@
 	<%= link_to 'User settings', edit_user_path(current_user.id) %>
 </div>
 
-<div class="amazon_user_page"><OBJECT classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://fpdownload.macromedia.com/get/flashplayer/current/swflash.cab" id="Player_30111211-afb6-4562-b39a-ed032ee02be7"  WIDTH="120px" HEIGHT="400px"> <PARAM NAME="movie" VALUE="http://ws.amazon.com/widgets/q?ServiceVersion=20070822&MarketPlace=US&ID=V20070822%2FUS%2Fplasticbugs-20%2F8009%2F30111211-afb6-4562-b39a-ed032ee02be7&Operation=GetDisplayTemplate"><PARAM NAME="quality" VALUE="high"><PARAM NAME="bgcolor" VALUE="#FFFFFF"><PARAM NAME="allowscriptaccess" VALUE="always"><embed src="http://ws.amazon.com/widgets/q?ServiceVersion=20070822&MarketPlace=US&ID=V20070822%2FUS%2Fplasticbugs-20%2F8009%2F30111211-afb6-4562-b39a-ed032ee02be7&Operation=GetDisplayTemplate" id="Player_30111211-afb6-4562-b39a-ed032ee02be7" quality="high" bgcolor="#ffffff" name="Player_30111211-afb6-4562-b39a-ed032ee02be7" allowscriptaccess="always"  type="application/x-shockwave-flash" align="middle" height="400px" width="120px"></embed></OBJECT> <NOSCRIPT><A HREF="http://ws.amazon.com/widgets/q?ServiceVersion=20070822&MarketPlace=US&ID=V20070822%2FUS%2Fplasticbugs-20%2F8009%2F30111211-afb6-4562-b39a-ed032ee02be7&Operation=NoScript">Amazon.com Widgets</A></NOSCRIPT></div>
-
-	<div class="message_list">
+<div class="message_list">
 
 <h1>StreetPass Messages</h1>
 		
@@ -56,17 +54,25 @@ You have no saved messages.
 </div>
 <% end %>
 
-<div id="form">
 
-<%= form_for @message do |f| -%>
 
-	<p><h1>Create a new message:</h1><%= f.text_area :contents, :rows => "10", :cols => "40" %></p>
-	
-<div class="custom">Optional:<br/>Give this message a custom URL like <span style="color: #f00">3dstxt.com/scott</span> (5 letters max)
-<p>3dstxt.com/<%= f.text_field :pickUpCode, :rows => "5", :maxlength => "5"%></p>
+<%= form_for(@message, :html => { :class => "form-horizontal"}) do |f| -%>
+
+<fieldset><legend>Create a new page</legend>
+
+<div class="control-group">
+<label class="control-label">Your message</label>
+<div class="controls"><%= f.text_area :contents, :rows => "10", :cols => "40" %></div>
 </div>
 
-  <div class="create"><%= f.submit "Create", :class => "create_button" %></div>
+<div class="control-group">
+<label class="control-label">Custom link</label>
+<div class="controls"><div class="input-prepend"><span class="add-on">3dstxt.com/</span><%= f.text_field :pickUpCode, :size => "5", :maxlength => "5", :class => "span2", :id => "prependedInput" %></div>
+<p class="help-block">Give this message a custom URL like <span style="color: #f00">3dstxt.com/scott</span> (5 letters max)</p>
+</div>
+</div>
 
+
+<div class="form-actions"><%= f.submit "Create", :class => "btn btn-large btn-primary" %></div>
+</fieldset>
 <% end -%>
-</div>
