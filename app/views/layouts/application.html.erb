@@ -35,30 +35,56 @@
 </head>
 <body>
 <div class="container">
-	<header>
-		<%= link_to image_tag("new_logo2.png", :alt => '3DSTXT Logo'), root_path %>
-		<%= link_to image_tag("ribbon.png", :alt => 'Make your own 3DS txt!', :class => 'ribbon'), root_path %>
-	</header>
 
-<ul class="nav nav-pills">
-			<% if signed_in? %>
-			<li><%= link_to "Message List", user_path(current_user.id) %></li>
-			<li><%= link_to 'User settings', edit_user_path(current_user.id) %></li>
-			<li><%= link_to "Sign out", signout_path, :method => :delete %></li>
+<div class="navbar navbar-fixed-top">
+	<div class="navbar-inner">
+		<div class="container">
+			<ul class="nav">
+				<a class="brand" href="/">3DS<span>txt</span></a>
+				<li><%= link_to_unless_current "Home", root_path do %></li>
+					<li class="active"><%= link_to "Home", "/" %></li>
+					<% end %>
+				
+				<% if signed_in? %>
+				<li><%= link_to_unless_current "Message list", user_path(current_user.id) do %>
+					<li class="active"><%= link_to "Message list", user_path(current_user.id) %></li>
+					<% end %>
+
+							
+					</li>
+				<li><%= link_to_unless_current 'User settings', edit_user_path(current_user.id) do %></li>
+					<li class="active"><%= link_to "User settings", edit_user_path(current_user.id) %></li>
+				<% end %>
+				</ul>
+				
+				<ul class="nav pull-right">
+				<li><%= link_to "Sign out", signout_path, :method => :delete %></li>
+				</ul>
 			
-			<% else %>
-			<li><%= link_to "Create new account", signup_path %></li>
-			<li><%= link_to "Sign in", signin_path %></li>
 
-			<% end %>
-</ul>
+		
+				<% else %>
+				</ul>
+				<ul class="nav pull-right"><li><%= link_to "Create new account", signup_path %></li>
+				<li><%= link_to "Sign in", signin_path %></li>
+				</ul>
+				<% end %>
+
+		</div>
+	</div>
+</div>
+
+<header>
+	<%= link_to image_tag("new_logo2.png", :alt => '3DSTXT Logo'), root_path %>
+	<%= link_to image_tag("ribbon.png", :alt => 'Make your own 3DS txt!', :class => 'ribbon'), root_path %>
+</header>
 
 
 <div class="row">
 	
 
 <div class="span9"><%= yield %></div>
-<div class="span3"><OBJECT classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://fpdownload.macromedia.com/get/flashplayer/current/swflash.cab" id="Player_30111211-afb6-4562-b39a-ed032ee02be7"  WIDTH="120px" HEIGHT="400px"> <PARAM NAME="movie" VALUE="http://ws.amazon.com/widgets/q?ServiceVersion=20070822&MarketPlace=US&ID=V20070822%2FUS%2Fplasticbugs-20%2F8009%2F30111211-afb6-4562-b39a-ed032ee02be7&Operation=GetDisplayTemplate"><PARAM NAME="quality" VALUE="high"><PARAM NAME="bgcolor" VALUE="#FFFFFF"><PARAM NAME="allowscriptaccess" VALUE="always"><embed src="http://ws.amazon.com/widgets/q?ServiceVersion=20070822&MarketPlace=US&ID=V20070822%2FUS%2Fplasticbugs-20%2F8009%2F30111211-afb6-4562-b39a-ed032ee02be7&Operation=GetDisplayTemplate" id="Player_30111211-afb6-4562-b39a-ed032ee02be7" quality="high" bgcolor="#ffffff" name="Player_30111211-afb6-4562-b39a-ed032ee02be7" allowscriptaccess="always"  type="application/x-shockwave-flash" align="middle" height="400px" width="120px"></embed></OBJECT> <NOSCRIPT><A HREF="http://ws.amazon.com/widgets/q?ServiceVersion=20070822&MarketPlace=US&ID=V20070822%2FUS%2Fplasticbugs-20%2F8009%2F30111211-afb6-4562-b39a-ed032ee02be7&Operation=NoScript">Amazon.com Widgets</A></NOSCRIPT>
+<div class="span3"><OBJECT classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://fpdownload.macromedia.com/get/flashplayer/current/swflash.cab" id="Player_30111211-afb6-4562-b39a-ed032ee02be7"  WIDTH="120px" HEIGHT="400px"> <PARAM name="movie" VALUE="http://ws.amazon.com/widgets/q?ServiceVersion=20070822&MarketPlace=US&ID=V20070822%2FUS%2Fplasticbugs-20%2F8009%2F30111211-afb6-4562-b39a-ed032ee02be7&Operation=GetDisplayTemplate"><PARAM NAME="quality" VALUE="high"><PARAM NAME="bgcolor" VALUE="#FFFFFF"><PARAM NAME="allowscriptaccess" VALUE="always"><embed src="http://ws.amazon.com/widgets/q?ServiceVersion=20070822&MarketPlace=US&ID=V20070822%2FUS%2Fplasticbugs-20%2F8009%2F30111211-afb6-4562-b39a-ed032ee02be7&Operation=GetDisplayTemplate" id="Player_30111211-afb6-4562-b39a-ed032ee02be7" quality="high" bgcolor="#ffffff" name="Player_30111211-afb6-4562-b39a-ed032ee02be7" allowscriptaccess="always"  type="application/x-shockwave-flash" align="middle" height="400px" width="120px" wmode="transparent"></embed></OBJECT> <NOSCRIPT><A HREF="http://ws.amazon.com/widgets/q?ServiceVersion=20070822&MarketPlace=US&ID=V20070822%2FUS%2Fplasticbugs-20%2F8009%2F30111211-afb6-4562-b39a-ed032ee02be7&Operation=NoScript">Amazon.com Widgets</A></NOSCRIPT>
 </div>
 </div>
 

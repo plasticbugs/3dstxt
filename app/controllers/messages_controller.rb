@@ -65,10 +65,14 @@ class MessagesController < ApplicationController
   
   def create
     
-    if signed_in?
+    if signed_in? 
       @user = current_user
       @messages = @user.messages
-      @message = @user.messages.build(params[:message])
+      @message = Message.new
+      @message.user_id = @user.id
+      @message.contents(params[:message][:contents])
+      @message.pickUpCode(params[:message][:pickUpCode])
+      #@message = @user.messages.build(params[:message])
     else
       @message = Message.new(params[:message])
     end

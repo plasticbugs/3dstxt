@@ -14,7 +14,7 @@
 	</ul>
 </div>
 
-<div class="well">
+<div>
 	<h1>How it works</h1><ul><li>Enter a StreetPass message.</li>
 	<li>Press create.</li>
 	<li>Share your new 3DStxt link as a greeting or personal message on your 3DS.</li>
@@ -38,7 +38,7 @@
 
 
 <%= form_for(@message, :html => {:class => "well"}) do |f| -%>
-<%= f.label "Create a new 3DStxt page here" %>
+<h2>Create a new 3DStxt page here</h2>
 <%= f.text_area(:contents, :class => "span8", :style => "height:150px;") %><br/>
 <%= f.submit "Create", :class => "btn btn-success btn-large" -%>
 <% end %>
