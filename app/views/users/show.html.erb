@@ -2,41 +2,53 @@
 <div class="notice"><%= flash[:notice] %></div>
 <% end %>
 
-<%#= render :partial => 'message_list' %>
-<div class="logged_in_as">Logged in as <%= @user.email %><br/>
-	<%= link_to 'User settings', edit_user_path(current_user.id) %>
-</div>
+<% if flash[:error] %>
+<div class="alert"><%= flash[:error] %></div>
+<% end %>
 
-<div class="message_list">
+<%#= render :partial => 'message_list' %>
+Logged in as <%= @user.email %>
+
+<div class="well">
 
 <h1>StreetPass Messages</h1>
 		
 	
 	<% if @messages.count > 0 %>
-<% @messages.each do |message|%>
-<% if message.errors.blank? %>
-<div class="message_details">
-	<ul class="message_header">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+			
+			<th>Link</th>
+			<th>Comments</th>
+			<th>Views</th>
+			<th>Contents</th>
+			<th>Edit</th>
+			<th>Delete</th>
+			
+			</tr>
+			</thead>
+<% @messages.each do |m|%>
+		<tr>
+			<td><%= link_to "3dstxt.com/#{m.pickUpCode}", :controller => 'messages', :action => 'show', :pickUpCode => m.pickUpCode %></td>
+		
+		<td><span class="badge badge-info"><%= "#{m.comments.count}" %></span></td>
+		
+		<td><span class="badge"><%= "#{m.impressionist_count(:filter=>:ip_address)}" %></span></td>		
+		
+		<td WIDTH="35%">
+		<%= truncate m.contents, :length => 150 %>
+		</td>
+	
+	<td><%= link_to "edit", {:controller => 'messages', :action => 'edit', :pickUpCode => m.pickUpCode} %></td>
+	
+	<td><i class="icon-trash" style:"margin-left:-20px;"></i><%= link_to "delete", m, :confirm => "Are you sure you want to delete this message? Your custom URL will also be deleted! Click 'edit' to KEEP your URL and only edit the message.", :method => :delete, :alt => 'Delete' %></td>
+	
+</tr>
 
-		<li style="float:left;">
-	
-		<%= link_to "3dstxt.com/#{message.pickUpCode}", :controller => 'messages', :action => 'show', :pickUpCode => message.pickUpCode %></li>
-		<li><%= "#{message.comments.count} comments" %></li>
-		<li style="float:right;"><%= "#{message.impressionist_count(:filter=>:ip_address)} views" %></li>
-		</ul>
-		
-		<div class="message_contents">
-		<%= truncate message.contents, :length => 150 %>
-		</div>
-		
-<ul class="commands">	<li class="edit"><%= link_to "EDIT", {:controller => 'messages', :action => 'edit', :pickUpCode => message.pickUpCode} %>
-	<%= link_to (image_tag ("edit.png")), {:controller => 'messages', :action => 'edit', :pickUpCode => message.pickUpCode} %></li>
-	
-	<li class="delete"><%= link_to "DELETE", message, :confirm => "Are you sure you want to delete this message? Your custom URL will also be deleted! Click the pencil icon to KEEP your URL and only edit the message.", :method => :delete, :alt => 'Delete' %>
- <%= link_to (image_tag ("delete_3.png")), message, :confirm => "Are you sure you want to delete this message? Your custom URL will also be deleted! Click the pencil icon to KEEP your URL and only edit the message.", :method => :delete, :alt => 'Delete' %></li>
-</ul></div>
 <% end %>
-<% end %>
+
+</table>
 <% else %>
 You have no saved messages.
 
@@ -62,7 +74,7 @@ You have no saved messages.
 
 <div class="control-group">
 <label class="control-label">Your message</label>
-<div class="controls"><%= f.text_area :contents, :rows => "10", :cols => "40" %></div>
+<div class="controls"><%= f.text_area :contents, :class => "span7", :style => "height:250px;" %></div>
 </div>
 
 <div class="control-group">
@@ -73,6 +85,6 @@ You have no saved messages.
 </div>
 
 
-<div class="form-actions"><%= f.submit "Create", :class => "btn btn-large btn-primary" %></div>
+<div class="form-actions"><%= f.submit "Create", :class => "btn btn-primary" %></div>
 </fieldset>
 <% end -%>

@@ -6,7 +6,7 @@
 <% end %>
 
 <% if @game && @game.errors.any? %>
-	<div class="errors">
+	<div class="alert">
 	<ul>
     <% @game.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
@@ -15,10 +15,10 @@
 </div>
 <% end %>
 
-Add games to your collection.
-<%= form_tag(:method => "get") do %>
+<h2>Add games to your collection</h2>
+<%= form_tag({:controller => "games", :action => "search"}, :method => "get", :class => "well form-search") do %>
 	<%= label_tag 'Game Title' %>
-	<%= text_field_tag :query, params[:query] %>
+	<%= text_field_tag :query, params[:query], :class => "input-medium search-query" %>
 	
 	<%= submit_tag "Add Game", :name => nil %>
 	<% end %>

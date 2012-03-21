@@ -4,7 +4,7 @@
 	</div>
 <% end %>
 
-<div class="hero-unit">
+<div>
 	<h1><%= link_to "Get a free account", signup_path %></h1>
 	<ul>
 		<li>Save, Edit and Delete your StreetPass pages</li>
@@ -14,7 +14,7 @@
 	</ul>
 </div>
 
-<div id="howto">
+<div class="well">
 	<h1>How it works</h1><ul><li>Enter a StreetPass message.</li>
 	<li>Press create.</li>
 	<li>Share your new 3DStxt link as a greeting or personal message on your 3DS.</li>
@@ -39,12 +39,12 @@
 
 <%= form_for(@message, :html => {:class => "well"}) do |f| -%>
 <%= f.label "Create a new 3DStxt page here" %>
-<%= f.text_area(:contents, :class => "span5") %><br/>
+<%= f.text_area(:contents, :class => "span8", :style => "height:150px;") %><br/>
 <%= f.submit "Create", :class => "btn btn-success btn-large" -%>
 <% end %>
 
 
-<div class="tips"><h1>Tips</h1>
+<div><h1>Tips</h1>
 <h2>You may want to include:</h2>
 <ul>
 	<li>Your first name or your Mii's nickname</li>

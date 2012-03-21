@@ -1,6 +1,8 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.1'
+gem 'jquery-rails'
+gem 'coffee-script'
 #gem 'mongrel', '>= 1.2.0.pre2'
 
 # Bundle edge Rails instead:

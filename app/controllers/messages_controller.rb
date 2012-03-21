@@ -1,7 +1,7 @@
 class MessagesController < ApplicationController
   
-  before_filter :authenticate, :only => [:edit]
-  before_filter :correct_user, :only => [:edit]
+  before_filter :authenticate, :only => [:edit, :destroy]
+  before_filter :correct_user, :only => [:edit, :destroy]
     
   def index
     redirect_to :root
@@ -78,9 +78,11 @@ class MessagesController < ApplicationController
       redirect_to :action => "show", :pickUpCode => @message.pickUpCode
     elsif @message.save && signed_in?
       render :action => 'users/show', :messages => current_user.messages
-    else
+    elsif !@message.valid? && signed_in?
       # flash[:notice] = ":("
       # redirect_to root_path, {:flash => "!"}
+      render :template => 'users/show'
+    else
       
       flash[:error] = "Your message must be between 1 and 5000 characters"
       redirect_to root_url
@@ -89,10 +91,12 @@ class MessagesController < ApplicationController
     
     
  def destroy
+    @user = current_user
    @message = Message.find(params[:id])
    @message.destroy
    flash[:notice] = "Message was successfully deleted."
    redirect_to user_path(current_user.id)
+   
  end
  
  private
@@ -102,7 +106,11 @@ class MessagesController < ApplicationController
  end
  
  def correct_user
-   message = Message.find_by_pickUpCode(params[:pickUpCode].downcase)
+   #message = Message.find(params[:id])
+   message = Message.find_by_pickUpCode(params[:pickUpCode])
+   unless message
+     message = Message.find(params[:id])
+   end
    @user = message.user
    redirect_to root_path unless current_user?(@user)
  end

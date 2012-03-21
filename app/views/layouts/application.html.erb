@@ -7,15 +7,14 @@
 <% else %>
 <title>3DSTXT.com - Breaking the 16 Character Limit</title>
 <% end %>
-<% if false %>
-  <%= stylesheet_link_tag '/stylesheets/style.css' %>
-<% end %>
 
 <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
   <![endif]-->
+		<%= javascript_include_tag "application" %>
   <%= javascript_include_tag '//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js', :defer	=> true, :async => true %>
 	<%= javascript_include_tag "bootstrap-alert" %>
+
 <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,7 +37,7 @@
 <div class="container">
 	<header>
 		<%= link_to image_tag("new_logo2.png", :alt => '3DSTXT Logo'), root_path %>
-		<%= link_to image_tag("ribbon.png", :alt => 'Make your own 3DS txt!'), root_path %>
+		<%= link_to image_tag("ribbon.png", :alt => 'Make your own 3DS txt!', :class => 'ribbon'), root_path %>
 	</header>
 
 <ul class="nav nav-pills">
