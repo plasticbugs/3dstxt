@@ -37,14 +37,14 @@
 
 
 
-<%= form_for(@message, :html => {:class => "well"}) do |f| -%>
+<%= form_for(@message, :html => {:class => "well span8"}) do |f| -%>
 <h2>Create a new 3DStxt page here</h2>
 <%= f.text_area(:contents, :class => "span8", :style => "height:150px;") %><br/>
 <%= f.submit "Create", :class => "btn btn-success btn-large" -%>
 <% end %>
 
 
-<div><h1>Tips</h1>
+<div style="clear:left;"><h1>Tips</h1>
 <h2>You may want to include:</h2>
 <ul>
 	<li>Your first name or your Mii's nickname</li>

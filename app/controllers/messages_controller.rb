@@ -13,9 +13,10 @@ class MessagesController < ApplicationController
     @comments = @message.comments.all
     @comment = Comment.new
     impressionist(@message)
-      if !@message.user.friend_code.nil?
+      if !@message.user.nil?
         @friendcode = format_friend_code(@message.user.friend_code)
       end
+    
   end
   
   def format_friend_code(friend_code)
@@ -64,6 +65,37 @@ class MessagesController < ApplicationController
   
   
   def create
+    @message = Message.new params_for_message
+    
+    return message_create_failed unless @message.save
+    return message_create_succeeded
+  end
+  
+  def params_for_message
+    params[:message].merge(user: current_user)
+  end
+  
+  def message_create_succeeded
+    if signed_in?
+      @user = current_user
+      @messages = @user.messages
+      return render action: 'show', pickUpCode: @message.pickUpCode
+    end
+    
+    return redirect_to action: 'show', pickUpCode: @message.pickUpCode
+  end
+  
+  def message_create_failed
+    if signed_in?
+      @user = current_user
+      @messages = @user.messages
+      return render template: 'users/show'
+      
+    end
+    return redirect_to root_url
+  end
+  
+  if false
     
     if signed_in? 
       @user = current_user
@@ -74,7 +106,6 @@ class MessagesController < ApplicationController
       @message.pickUpCode(params[:message][:pickUpCode])
       #@message = @user.messages.build(params[:message])
     else
-      @message = Message.new(params[:message])
     end
         
     if @message.save
@@ -92,6 +123,8 @@ class MessagesController < ApplicationController
       redirect_to root_url
     end
   end
+  
+
     
     
  def destroy

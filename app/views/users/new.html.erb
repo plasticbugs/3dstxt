@@ -1,26 +1,25 @@
 <% if @user.errors.any? %>
-	<div class="errors">
-	<ul>
+	<div class="span5 alert alert-error">
     <% @user.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
+    	<div><%= msg %></div>
     <% end %>
-    </ul>
 </div>
 <% end %>
 
-<div class="user_settings">
-<h1>Create a new account</h1><%= form_for @user do |f| -%>
+<div>
+<legend>Create a new account</legend>
+<%= form_for(@user, :html => {class: 'well'}) do |f| -%>
 
-<p><%= f.label "Email (CASE sensitive!)" %><br/>
-<%= f.text_field :email %></p>
-
-
-<p><%= f.label "Password" %><br/>
-<%= f.password_field :password %></p>
+<%= f.label "Email (CASE sensitive!)" %>
+<%= f.text_field :email %>
 
 
-<p><%= f.label "Retype Password" %><br/>
-<%= f.password_field :password_confirmation %> </p>
+<%= f.label "Password" %>
+<%= f.password_field :password %>
+
+
+<%= f.label "Retype Password" %>
+<%= f.password_field :password_confirmation %><br/>
 
 
 <%= f.submit "Sign up" %>

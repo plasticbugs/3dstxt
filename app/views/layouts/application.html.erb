@@ -49,6 +49,10 @@
 				<li><%= link_to_unless_current "Message list", user_path(current_user.id) do %>
 					<li class="active"><%= link_to "Message list", user_path(current_user.id) %></li>
 					<% end %>
+					
+				<li><%= link_to_unless_current "Your games", user_games_path(current_user.id) do %>
+					<li class="active"><%= link_to "Your games", user_games_path(current_user.id) %></li>
+					<% end %>
 
 							
 					</li>
@@ -83,8 +87,8 @@
 <div class="row">
 	
 
-<div class="span9"><%= yield %></div>
-<div class="span3"><OBJECT classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://fpdownload.macromedia.com/get/flashplayer/current/swflash.cab" id="Player_30111211-afb6-4562-b39a-ed032ee02be7"  WIDTH="120px" HEIGHT="400px"> <PARAM name="movie" VALUE="http://ws.amazon.com/widgets/q?ServiceVersion=20070822&MarketPlace=US&ID=V20070822%2FUS%2Fplasticbugs-20%2F8009%2F30111211-afb6-4562-b39a-ed032ee02be7&Operation=GetDisplayTemplate"><PARAM NAME="quality" VALUE="high"><PARAM NAME="bgcolor" VALUE="#FFFFFF"><PARAM NAME="allowscriptaccess" VALUE="always"><embed src="http://ws.amazon.com/widgets/q?ServiceVersion=20070822&MarketPlace=US&ID=V20070822%2FUS%2Fplasticbugs-20%2F8009%2F30111211-afb6-4562-b39a-ed032ee02be7&Operation=GetDisplayTemplate" id="Player_30111211-afb6-4562-b39a-ed032ee02be7" quality="high" bgcolor="#ffffff" name="Player_30111211-afb6-4562-b39a-ed032ee02be7" allowscriptaccess="always"  type="application/x-shockwave-flash" align="middle" height="400px" width="120px" wmode="transparent"></embed></OBJECT> <NOSCRIPT><A HREF="http://ws.amazon.com/widgets/q?ServiceVersion=20070822&MarketPlace=US&ID=V20070822%2FUS%2Fplasticbugs-20%2F8009%2F30111211-afb6-4562-b39a-ed032ee02be7&Operation=NoScript">Amazon.com Widgets</A></NOSCRIPT>
+<div class="span10"><%= yield %></div>
+<div class="span2" style="float:right;"><OBJECT classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://fpdownload.macromedia.com/get/flashplayer/current/swflash.cab" id="Player_30111211-afb6-4562-b39a-ed032ee02be7"  WIDTH="120px" HEIGHT="400px"> <PARAM name="movie" VALUE="http://ws.amazon.com/widgets/q?ServiceVersion=20070822&MarketPlace=US&ID=V20070822%2FUS%2Fplasticbugs-20%2F8009%2F30111211-afb6-4562-b39a-ed032ee02be7&Operation=GetDisplayTemplate"><PARAM NAME="quality" VALUE="high"><PARAM NAME="bgcolor" VALUE="#FFFFFF"><PARAM NAME="allowscriptaccess" VALUE="always"><embed src="http://ws.amazon.com/widgets/q?ServiceVersion=20070822&MarketPlace=US&ID=V20070822%2FUS%2Fplasticbugs-20%2F8009%2F30111211-afb6-4562-b39a-ed032ee02be7&Operation=GetDisplayTemplate" id="Player_30111211-afb6-4562-b39a-ed032ee02be7" quality="high" bgcolor="#ffffff" name="Player_30111211-afb6-4562-b39a-ed032ee02be7" allowscriptaccess="always"  type="application/x-shockwave-flash" align="middle" height="400px" width="120px" wmode="transparent"></embed></OBJECT> <NOSCRIPT><A HREF="http://ws.amazon.com/widgets/q?ServiceVersion=20070822&MarketPlace=US&ID=V20070822%2FUS%2Fplasticbugs-20%2F8009%2F30111211-afb6-4562-b39a-ed032ee02be7&Operation=NoScript">Amazon.com Widgets</A></NOSCRIPT>
 </div>
 </div>
 

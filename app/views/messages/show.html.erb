@@ -29,11 +29,13 @@
 	<%= simple_format(@message.contents.gsub(/\b((?:[a-z][\w-]+:(?:\/{1,3}|[a-z0-9%])|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}\/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'".,<>?«»“”‘’]))/) { |match|
 "<a href='#{match}'>#{match}</a>"
 }) %>
+<% if false %>
 	<% if @friendcode && @friendcode.length == 15 && @message.display_fc? %>
 		<h1>
 		<%= "My Friend Code: #{@friendcode}" %> 
 		</h1>
 	<% end %>
+<% end %>
 	</div>
 
 <div class="share">Share this link as a 3DS message:<br/>
@@ -56,18 +58,22 @@
 	<% @comments.each do |comment| %>
 	<% if current_user && current_user.id == comment.message.user_id %>
 		
-			<div class="comment"><div class="comment_info"><span class="comment_author"><%= comment.author %></span> <%= comment.created_at.strftime("posted on %B %d @ %I:%M%p") %><%= link_to "Delete Comment", [comment.message, comment], :confirm => "Are you sure you want to delete this comment? It will be gone forever.", :method => :delete, :alt => 'Delete Comment', :class => 'delete'%></div>
+			<%= comment.author %>
+			<% if false %>
+			<%= comment.created_at.strftime("posted on %B %d @ %I:%M%p") %>
+			<% end %>
+			<%= link_to "Delete Comment", [comment.message, comment], :confirm => "Are you sure you want to delete this comment? It will be gone forever.", :method => :delete, :alt => 'Delete Comment', :class => 'delete'%>
+			
 			<%=  nl2br(comment.content.html_safe) %>
-			</div>
 
 	<% else %>
-	<div class="comment"><div class="comment_info"><span class="comment_author"><%= comment.author %></span> <%= comment.created_at.strftime("posted on %B %d @ %I:%M%p") %></div>
+	<%= comment.author %>
+	<%= comment.created_at.strftime("posted on %B %d @ %I:%M%p") %>
 			<%= nl2br(comment.content.html_safe) %>
-			</div>
-
-
+	
 	<% end %>
 	<% end %>
+
 </div>
 
 

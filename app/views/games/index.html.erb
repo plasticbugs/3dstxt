@@ -1,16 +1,18 @@
 <%= flash[:notice] %>
 
 <% if @response && !@games.nil? %>
-<div>
+<div class="span9">
 <% @response.each do |amazon, game| %>
 
-<div>	<%= amazon['ItemAttributes']['Title'] %><br/>
-	Publisher: <%= amazon['ItemAttributes']['Publisher'] %><br/>
+<div class="span4 well" style="float:left;">	<%= amazon['ItemAttributes']['Title'] %><br/>
 <%= image_tag(amazon['MediumImage']['URL']) %><br/>
-	<%= link_to "Remove #{amazon['ItemAttributes']['Title']}", [game.user, game], :method => :delete, :alt => 'Delete Game'%>
+	<%= link_to [game.user, game], :method => :delete, :alt => 'Delete Game' do %>
+	<i class="icon-remove"></i>Remove
+	<% end %>
 </div>
-</div>
+
 <% end %>
+</div>
 <% else %>
 <%= link_to "Add games to your collection", :controller => 'games', :action => 'search' %>
 

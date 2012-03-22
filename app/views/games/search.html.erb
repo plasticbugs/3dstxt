@@ -14,10 +14,9 @@
     </ul>
 </div>
 <% end %>
-
-<h2>Add games to your collection</h2>
-<%= form_tag({:controller => "games", :action => "search"}, :method => "get", :class => "well form-search") do %>
-	<%= label_tag 'Game Title' %>
+	<h2>Add games to your collection</h2>
+<%= form_tag({:controller => "games", :action => "search"}, :method => "get", :class => "form-search") do %>
+	<%= label_tag 'Game Title' %><br/>
 	<%= text_field_tag :query, params[:query], :class => "input-medium search-query" %>
 	
 	<%= submit_tag "Add Game", :name => nil %>
