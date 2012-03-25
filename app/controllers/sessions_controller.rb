@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
   def new
     @title = "Sign in"
+    @banner_text = "Sign in."
   end
 
   def create

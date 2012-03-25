@@ -10,49 +10,77 @@ class GamesController < ApplicationController
 
   def search
   if signed_in?
+    @banner_text = "Add games"
     @user = current_user
     #User.find(params[:id])
   end
-    if params[:query]
+  
+  if params[:query]
     
    req = AmazonProduct["us"]
 
-   req.configure do |c|
-     c.key    = AMAZON_KEY
-     c.secret = AMAZON_SECRET
-     c.tag    = AMAZON_ASSOCIATE_TAG
-   end
-
-   req << { :operation => 'ItemSearch',
+    req.configure do |c|
+      c.key    = AMAZON_KEY
+      c.secret = AMAZON_SECRET
+      c.tag    = AMAZON_ASSOCIATE_TAG
+    end
+  
+    req << { :operation => 'ItemSearch',
             :search_index => 'VideoGames',
             :response_group => %w{ItemAttributes Images},
             :keywords => params[:query] + ' 3DS'}
 
-   @response = req.get.to_hash
-   @asin = @response['Items']['Item'].first['ASIN']
+            @response = req.get.to_hash
+            begin
+              @asin = @response['Items']['Item'].first['ASIN']
+            rescue
+              @response = nil
+              @asin = nil
+            end
+
+            if !@asin.nil?
+              @game = Game.new(:asin => @asin)
+              @game.user_id = @user.id
+              @game.save
+              
+              if @game.valid?
+                flash[:notice] = 'A game was successfully added.'
+                render :action => "search"
+              else
+                flash[:error] = 'There was an error adding that game. Please try again.'
+                @game.errors.full_messages.each do |error|
+                  flash[:error] << error
+                end
+                  
+                redirect_to :action => "search"
+              end
+              
+            else
+              flash[:error] = 'There was an error adding that game. Please try again.'
+              redirect_to :action => "search"
+            end
    
-   @game = Game.new(:asin => @asin)
-   @game.user_id = @user.id
-   @game.save
+
     end
 
   end
 
   
-  def create
-    #@user = User.find(params[:id])
-    @user = current_user
-    @game = @user.games.build(params[:game])
-    if @game.save
-      flash[:notice] = 'Game was successfully added.'
-      render :action => "new"
-    else
-      flash[:error] = 'There was an error adding that game. Please try again.'
-      render :action => "new"
-    end
-  end
+  #def create
+  #  #@user = User.find(params[:id])
+  #  @user = current_user
+  #  @game = @user.games.build(params[:game])
+  #  if @game.save
+  #    flash[:notice] = 'Game was successfully added.'
+  #    render :action => "new"
+  #  else
+  #    flash[:error] = 'There was an error adding that game. Please try again.'
+  #    render :action => "new"
+  #  end
+  #end
 
   def index
+    @banner_text = "Game collection."
     if signed_in?
     @user = current_user
     @games = @user.games
@@ -115,7 +143,7 @@ class GamesController < ApplicationController
     @game = Game.find(params[:id])
     @game.destroy
     flash[:notice] = "Game was successfully deleted."
-    redirect_to :action => "index"
+    redirect_to :controller => "games", :action => "index"
   end
   
   private

@@ -10,7 +10,8 @@ class MessagesController < ApplicationController
 
   def show
     @message = Message.find_by_pickUpCode(params[:pickUpCode].downcase)
-    @comments = @message.comments.all
+    @banner_text = "3DStxt.com/#{@message.pickUpCode}"
+    @comments = @message.comments
     @comment = Comment.new
     impressionist(@message)
       if !@message.user.nil?
@@ -32,13 +33,14 @@ class MessagesController < ApplicationController
   
   def edit
     @message = Message.find_by_pickUpCode(params[:pickUpCode].downcase)
+    @banner_text = "Edit 3DStxt.com/#{@message.pickUpCode}"
   end
   
   def update
     @message = Message.find_by_pickUpCode(params[:pickUpCode].downcase)
     
     if @message.update_attributes(params[:message])
-      flash[:notice] = 'Your 3DS txt message was successfully updated!'
+      flash[:notice] = 'Your 3DStxt page was successfully updated!'
       redirect_to :action => 'show', :pickUpCode => @message.pickUpCode
     else
       render :action => 'edit'

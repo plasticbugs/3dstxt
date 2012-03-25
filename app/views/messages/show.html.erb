@@ -42,7 +42,8 @@
 <%= link_to "3dstxt.com/#{@message.pickUpCode}" %><br/>
 </div>
 <div class="comment_entry"><p>Add your comment</p>
-<%= form_for ([@message, @message.comments.build]) do |f| %>
+
+<%= form_for([@message, @comment]) do |f| %>
 
 <%= f.label "Your Name:" %><br />
 <%= f.text_field :author, :placeholder => "Enter your name here" %><br/>
@@ -53,15 +54,14 @@
 <%= f.submit "Post comment", :class => "comment_submit" %>
 <% end %>
 </div>
-<div class="comment_box">
+<div>
 	<h1>Comments:</h1>
+	
 	<% @comments.each do |comment| %>
 	<% if current_user && current_user.id == comment.message.user_id %>
 		
 			<%= comment.author %>
-			<% if false %>
 			<%= comment.created_at.strftime("posted on %B %d @ %I:%M%p") %>
-			<% end %>
 			<%= link_to "Delete Comment", [comment.message, comment], :confirm => "Are you sure you want to delete this comment? It will be gone forever.", :method => :delete, :alt => 'Delete Comment', :class => 'delete'%>
 			
 			<%=  nl2br(comment.content.html_safe) %>
@@ -77,6 +77,6 @@
 </div>
 
 
-<div class="make_your_own"><%= link_to "Make your own 3DS TXT!", new_message_path %></div>
+<div><%= link_to "Make your own 3DS TXT!", new_message_path %></div>
 
 </div>

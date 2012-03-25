@@ -15,7 +15,7 @@ describe "Users" do
            fill_in "user_password_confirmation", :with => ""
            click_button "Sign up"
            current_path.should == '/users'
-           page.should have_selector("div.errors")
+           page.should have_selector("div.alert")
          end.should_not change(User, :count)
       end
     end
