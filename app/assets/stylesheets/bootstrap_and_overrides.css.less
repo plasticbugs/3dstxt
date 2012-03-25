@@ -15,7 +15,7 @@ div.navbar-inner div.container {
 header img.ribbon {
 float:right;
 margin-right:-25px;
-margin-top:80px;
+margin-top:10px;
 }
 
 .navbar .brand {
@@ -31,7 +31,7 @@ margin-top:80px;
 .big_banner {
 	padding-left:20px;
 margin-bottom: 9px;
-font-size: 80px;
+font-size: 70px;
 font-weight: bold;
 letter-spacing: -1px;
 line-height: 1;
@@ -62,15 +62,22 @@ border: 0;
 
 .game_box {
 	width:160px;
-	float:left;
-	margin: 0 20px 30px 0;
 	border-style:solid;
 	border-width:2px;
 	border-color:black;
+	 position:relative;
 }
 
-.game_box a {
- float:left;
+.game_container {
+	height:200px;
+	float:left;
+	margin: 0 20px 30px 0;
+}
+
+.game_container .game_box .remove {
+	position:absolute;
+	bottom: -30px;
+
 }
 
 .game_box p {
@@ -80,6 +87,7 @@ border: 0;
 	background-color:#222;
 	padding:3px 0 3px 8px;
 	font-size: 12px;
+	margin-bottom:0;
 }
 
 .game_box p img{

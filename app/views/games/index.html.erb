@@ -2,33 +2,27 @@
 <% if flash[:notice] %>
 <div class="row"><div class="alert alert-success span4"><%= flash[:notice] %></div></div>
 <% end %>
-
-<% if @response && !@games.nil? %>
-<div class="span9">
-	<% if false %>
-	<div class="row"><h1>Your game collection</h1></div>
-	<% end %>
-<div class="row"><%= button_to "Add games", {:controller => "games", :action => "search"}, {:class => "btn btn-success"} %></div>
-<% @response.each_slice(4) do |four_responses| %>
-<div class="row">
-<% four_responses.each do |amazon, game| %>
-
+	
+	<% if @response && !@games.nil? %>
+	
+	<div class="row"><div class="span5"><%= button_to "Add games", {:controller => "games", :action => "search"}, {:class => "btn btn-success"} %></div></div>
+	<div class="row">
+		<div class="span10">
+	<% @response.each do |amazon, game| %>
+<div class="game_container">
 <div class="game_box">
 <%= image_tag(amazon['MediumImage']['URL']) %>
 <p><%= image_tag('18px-fade.png') %>
 <%= amazon['ItemAttributes']['Title'] %></p>
-
-<%= link_to [game.user, game], :method => :delete, :alt => 'Delete Game' do %>
-<i class="icon-remove"></i>Remove
-<% end %>
 </div>
-
-<% end %>
+<div class="remove"><%= link_to [game.user, game], :method => :delete, :alt => 'Delete Game' do %>
+<i class="icon-remove"></i>Remove</div>
 </div>
 <% end %>
+
+<% end %>
 </div>
-
-
+</div>
 <% else %>
 <%= link_to "Add games to your collection", :controller => 'games', :action => 'search' %>
 
