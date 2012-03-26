@@ -14,13 +14,13 @@ describe GamesController do
    end
  end
 
- describe "POST 'create'" do
+ describe "POST 'search'" do
    it "returns http success" do
      game = Factory(:game)
 
-     post :create, :id => game.id
+     post :search, :id => game.id
      response.should be_success
-     flash[:notice].should =~ /added/i
+     flash[:notice].should =~ /game was successfully/i
    end
    
    describe "failure" do

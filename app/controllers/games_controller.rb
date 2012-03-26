@@ -44,8 +44,8 @@ class GamesController < ApplicationController
               @game.save
               
               if @game.valid?
-                flash[:notice] = 'A game was successfully added.'
-                render :action => "search"
+                flash.now[:notice] = 'A game was successfully added.'
+                render :controller => "games", :action => "search"
               else
                 flash[:error] = 'There was an error adding that game. Please try again.'
                 @game.errors.full_messages.each do |error|
@@ -62,7 +62,9 @@ class GamesController < ApplicationController
    
 
     end
-
+    if !flash[:error].nil?
+      @error_messages = flash[:error].split('.')
+    end
   end
 
   
@@ -91,6 +93,7 @@ class GamesController < ApplicationController
       @games.each do |game|
         @asins << game.asin
       end
+              
       req = AmazonProduct["us"]
 
       req.configure do |c|
@@ -106,7 +109,7 @@ class GamesController < ApplicationController
                }
       
       @response = req.get.to_hash
-      @response =  @response['Items']['Item']
+      @response = @response['Items']['Item']
       
       if @response.class == Hash
         new_array = []

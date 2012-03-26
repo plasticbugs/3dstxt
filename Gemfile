@@ -27,6 +27,7 @@ group :development do
   gem 'factory_girl_rails'
   gem 'capybara'
   gem 'thin'
+  gem 'mongrel', '>=1.2.0.pre2'
 end
 
 group :test do

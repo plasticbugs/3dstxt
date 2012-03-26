@@ -1,23 +1,17 @@
-
 <% if flash[:notice] %>
 	<div class="row"><div class="alert alert-success span4">
 		<%= flash[:notice] %><br/>
 	</div></div>
 <% end %>
 
-
-<% if flash[:error] %>
-<div class="row"><div class="alert alert-error span4"><%= flash[:error] %></div></div>
+<% if  !@error_messages.nil? %>
+<div class="row">
+	<div class="alert alert-error span4">
+<% @error_messages.each do |error| %>
+<%= "#{error}." %><br/>
 <% end %>
-
-<% if false %>
-<% if @game && @game.errors.any? %>
-	<div class="alert">
-    <% @game.errors.full_messages.each do |msg| %>
-<p><%= msg %></p>
-    <% end %>
 </div>
-<% end %>
+</div>
 <% end %>
 
 	<h2>Add games to your collection</h2>

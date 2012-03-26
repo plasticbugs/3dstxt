@@ -6,24 +6,30 @@
 	<% if @response && !@games.nil? %>
 	
 	<div class="row"><div class="span5"><%= button_to "Add games", {:controller => "games", :action => "search"}, {:class => "btn btn-success"} %></div></div>
+
 	<div class="row">
 		<div class="span10">
 	<% @response.each do |amazon, game| %>
 <div class="game_container">
 <div class="game_box">
-<%= image_tag(amazon['MediumImage']['URL']) %>
+<a href="<%= amazon['DetailPageURL'] %>" alt="Buy on Amazon"><%= image_tag(amazon['MediumImage']['URL']) %></a>
 <p><%= image_tag('18px-fade.png') %>
 <%= amazon['ItemAttributes']['Title'] %></p>
 </div>
-<div class="remove"><%= link_to [game.user, game], :method => :delete, :alt => 'Delete Game' do %>
+<%= link_to "buy on amazon", amazon['DetailPageURL'] %>
+<div class="remove" style="float:right;">
+<%= link_to [game.user, game], :method => :delete, :alt => 'Delete Game' do %>
 <i class="icon-remove"></i>Remove</div>
-</div>
 <% end %>
+</div>
 
 <% end %>
 </div>
 </div>
-<% else %>
-<%= link_to "Add games to your collection", :controller => 'games', :action => 'search' %>
 
-<% end %>
+
+	<% else %>
+	<%= link_to "Add games to your collection", :controller => 'games', :action => 'search' %>
+
+	<% end %>
+

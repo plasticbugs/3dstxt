@@ -18,6 +18,42 @@ class MessagesController < ApplicationController
         @friendcode = format_friend_code(@message.user.friend_code)
       end
     
+    @games = @message.user.games
+    
+    if !@games.nil? && @games.count > 0
+
+      @asins = []
+      @games.each do |game|
+        @asins << game.asin
+      end
+              
+      req = AmazonProduct["us"]
+
+      req.configure do |c|
+        c.key    = AMAZON_KEY
+        c.secret = AMAZON_SECRET
+        c.tag    = AMAZON_ASSOCIATE_TAG
+      end
+
+      req << {  :operation => 'ItemLookup',
+                :search_index => nil,
+                 :response_group => %w{ItemAttributes Images},
+                 :item_id => "#{@asins.join(',')}"
+               }
+      
+      @response = req.get.to_hash
+      @response = @response['Items']['Item']
+      
+      if @response.class == Hash
+        new_array = []
+        new_array << @response
+        @response = new_array
+      end
+      @response = @response.zip(@games)
+    else
+      @response = nil
+    end
+    
   end
   
   def format_friend_code(friend_code)
@@ -38,7 +74,8 @@ class MessagesController < ApplicationController
   
   def update
     @message = Message.find_by_pickUpCode(params[:pickUpCode].downcase)
-    
+    @banner_text = "3DStxt.com/#{@message.pickUpCode}"
+        
     if @message.update_attributes(params[:message])
       flash[:notice] = 'Your 3DStxt page was successfully updated!'
       redirect_to :action => 'show', :pickUpCode => @message.pickUpCode
@@ -81,6 +118,10 @@ class MessagesController < ApplicationController
     if signed_in?
       @user = current_user
       @messages = @user.messages
+      @comments = @message.comments
+      @comment = Comment.new
+      @banner_text = "3DStxt.com/#{@message.pickUpCode}"
+      
       return render action: 'show', pickUpCode: @message.pickUpCode
     end
     
