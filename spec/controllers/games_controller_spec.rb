@@ -3,7 +3,7 @@ require 'spec_helper'
 describe GamesController do
   render_views
   before(:each) do
-    @user = Factory(:user)
+    @user = FactoryGirl.create(:user)
     test_sign_in @user
   end
 
@@ -16,7 +16,7 @@ describe GamesController do
 
  describe "POST 'search'" do
    it "returns http success" do
-     game = Factory(:game)
+     game = FactoryGirl.create(:game)
 
      post :search, :id => game.id
      response.should be_success
@@ -26,7 +26,7 @@ describe GamesController do
    describe "failure" do
    #it "does not create a valid game" do
    #  test_sign_out @user
-   #   game = Factory(:game)
+   #   game = FactoryGirl.create(:game)
    #   post :create, :id => game.id
    #   flash[:notice].should =~ /error adding that game/i
    # end
@@ -56,7 +56,7 @@ describe GamesController do
 
  describe "GET 'destroy'" do
    it "returns http success" do
-     @game = Factory(:game)
+     @game = FactoryGirl.create(:game)
      @game.save!
      get 'destroy', :id => @game.id
      Game.count.should eql 0

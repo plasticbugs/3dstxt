@@ -4,6 +4,7 @@
 	</div></div>
 <% end %>
 
+
 <% if  !@error_messages.nil? %>
 <div class="row">
 	<div class="alert alert-error span4">
@@ -16,18 +17,16 @@
 
 	<h2>Add games to your collection</h2>
 <%= form_tag({:controller => "games", :action => "search"}, :method => "get", :class => "form-horizontal") do %>
-	<%= label_tag 'Game Title' %><br/>
-	<div class="input-append"><%= text_field_tag :query, params[:query], :class => "span2", :id => "appendedPrependedInput", :type => "text" %><button type="submit" class="btn">Add Game</button></div>
+	<%= label_tag 'Game Title' %><div class="input-append"><%= text_field_tag :query, params[:query], :class => "span2", :id => "appendedPrependedInput", :type => "text" %><button type="submit" class="btn">Add Game</button></div>
 	<% end %>
-	
 	
 	
 	<% unless @user.games.nil? %>
-	<% @user.games.each do |game| %>
-		<h2><%= game.asin %></h2>
+		<h5><%= "You have #{@user.games.count} games in your collection." %></h5>
 	<% end %>
-	<% end %>
+
 	
 	<% if @response %>
-	<%= image_tag (@response['Items']['Item'].first['MediumImage']['URL']) %>
+	
+	<div class="row"><div class="span5 well"><%= "You added #{@response['Items']['Item'].first['ItemAttributes']['Title']} to your collection."  %><br/><%= image_tag (@response['Items']['Item'].first['MediumImage']['URL']) %></div></div>
 	<% end %>

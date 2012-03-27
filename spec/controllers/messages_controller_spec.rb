@@ -16,9 +16,9 @@ describe MessagesController do
 
   describe "GET 'edit'" do
     before(:each) do
-      @user = Factory(:user)
+      @user = FactoryGirl.create(:user)
       test_sign_in @user
-      @message = Factory(:message)   
+      @message = FactoryGirl.create(:message)   
     end
     
     describe "success" do

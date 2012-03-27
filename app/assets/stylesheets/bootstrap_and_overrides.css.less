@@ -8,11 +8,17 @@ div.navbar-inner div.container {
 }
 
 .container {
-	background-color: #ddd;
+	background-color: #f4f4f4;
 	padding-left:30px;
 }
 
+.message-contents legend {
+	margin-bottom:10px;
+}
 
+.message-contents legend:nth-child(n+1) {
+	margin-top:30px;
+}
 
 header img.ribbon {
 float:right;
@@ -60,6 +66,11 @@ background-image: -moz-linear-gradient(left, transparent, rgba(0, 0, 0, .1), tra
 background-image: -ms-linear-gradient(left, transparent, rgba(0, 0, 0, .1), transparent);
 background-image: -o-linear-gradient(left, transparent, rgba(0, 0, 0, .1), transparent);
 border: 0;
+}
+
+.message-contents p {
+	font-size:15px;
+	line-height:20px;
 }
 
 .game_box {
@@ -123,7 +134,7 @@ div .game-box-small {
 	margin: 0 15px 15px 0;
 }
 
-.game-box-small p {
+.span9 .game-container-small .game-box-small p {
 	color:#333;
 	white-space:nowrap;
 	overflow:hidden;
@@ -168,7 +179,7 @@ div.navbar.navbar-fixed-top {
 }
 
 .message-contents {
-	background-color:#fff;
+	background-color:#fdfdfd;
 	padding:20px 20px;
 	-moz-box-shadow: 0px 0px 3px rgba(0,0,0,.6);
 	-khtml-box-shadow: 0px 0px 3px rgba(0,0,0,.6);
@@ -178,6 +189,8 @@ div.navbar.navbar-fixed-top {
 	-moz-border-radius: 8px; 
 	-webkit-border-radius: 8px;
 }
+
+
 
 .comment {
 	border-bottom: solid 1px #aaa;

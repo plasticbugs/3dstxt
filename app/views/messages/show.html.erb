@@ -2,13 +2,6 @@
 <div class="alert alert-success"><%= flash[:notice] %></div>
 <% end %>
 
-
-<% if @comment && @comment.errors.any? %>
-    <% @comment.errors.full_messages.each do |msg| %>
-     <div class="alert alert-warning"><%= msg %></div>
-    <% end %>
-<% end %>
-
 <% if flash[:errors] %>
 <div class="alert alert-warning">
 
@@ -26,7 +19,7 @@
 "<a href='#{match}'>#{match}</a>"
 }) %>
 
-	<% if @friendcode && @friendcode.length == 15 && @message.display_fc? %>
+	<% if @friendcode %>
 		<div class="page-header"><h2>My Friend Code <small><%= @friendcode %></small></h2>
 		</div>
 		<% end %>
@@ -35,6 +28,7 @@
 
 			<div class="row">
 				<div class="span9">
+					<h2 style="padding-bottom:10px;">My Top 10 Games</h2>
 			<% @response.each do |amazon, game| %>
 		<div class="game-container-small">
 		<div class="game-box-small">
@@ -57,7 +51,7 @@
 <%= link_to "3dstxt.com/#{@message.pickUpCode}" %>
 </div>
 
-<div><h3>Add your comment</h3>
+<div class="well"><h3>Add your comment</h3>
 
 <%= form_for([@message, @comment], :html => {:class => ".form-vertical"}) do |f| %>
 
@@ -72,6 +66,7 @@
 </div>
 
 <div class="comment-area">
+	<% if @comments %>
 	<h1>Comments:</h1>
 	
 	<% @comments.each do |comment| %>
@@ -85,14 +80,16 @@
 			<p><%=  nl2br(comment.content).html_safe %></p>
 </div></div>
 	<% else %>
-	<div class="span8 comment">
-	<%= comment.author %>
-	<%= comment.created_at.strftime("posted on %B %d @ %I:%M%p") %>
-			<%= nl2br(comment.content).html_safe %>
-	</div>
+	<div class="row"><div class="span8 comment">
+	<div class="posted_by"><span class="label label-info"><%= comment.author %></span> <%= comment.created_at.strftime("posted on %B %d @ %I:%M%p") %></div>
+			<p><%= nl2br(comment.content).html_safe %></p>
+	</div></div>
 	<% end %>
 	<% end %>
-
+	
+	<% else %>
+<h1>There are no comments yet.</h1>
+<% end %>
 </div>
 
 

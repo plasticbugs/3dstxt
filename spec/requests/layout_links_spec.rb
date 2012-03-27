@@ -12,7 +12,7 @@ describe "LayoutLinks" do
   describe "when signed in" do
     
     before(:each) do
-      @user = Factory(:user)
+      @user = FactoryGirl.create(:user)
       visit signin_path
       fill_in "session_email", :with => @user.email
       fill_in "session_password", :with => @user.password

@@ -8,7 +8,7 @@ describe UsersController do
     
     before(:each) do
       
-    @user = Factory(:user)
+    @user = FactoryGirl.create(:user)
     test_sign_in @user
     #  visit signin_path
     #  fill_in "session_email", :with => @user.email

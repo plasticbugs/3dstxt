@@ -8,52 +8,146 @@ class MessagesController < ApplicationController
     #@message = Message.search(params[:search])
   end
 
-  def show
-    @message = Message.find_by_pickUpCode(params[:pickUpCode].downcase)
-    @banner_text = "3DStxt.com/#{@message.pickUpCode}"
-    @comments = @message.comments
-    @comment = Comment.new
-    impressionist(@message)
-      if !@message.user.nil?
-        @friendcode = format_friend_code(@message.user.friend_code)
-      end
+#  def show
+#    @message = Message.find_by_pickUpCode(params[:pickUpCode].downcase)
+#    return message_show_failed unless !@message.nil?
+#    return message_show_succeeded
+#  end
+#    
+#      
+#  def message_show_succeeded 
+#    @banner_text = "3DStxt.com/#{@message.pickUpCode}"
+#    @comments = @message.comments
+#    @comment = Comment.new
+#    impressionist(@message)
+#    
+#    display_friend_code if !@message.user.friend_code.nil? && 
+#      
+#      if !@message.user.nil? && !@message.user.friend_code.nil?
+#        @friendcode = format_friend_code(@message.user.friend_code)
+#      end
+#    
+#    @games = @message.user.games
+#    
+#    if @message.display_games == true  && !@games.nil? && @games.count > 0
+#
+#      @asins = []
+#      @games.each do |game|
+#        @asins << game.asin
+#      end
+#              
+#      req = AmazonProduct["us"]
+#
+#      req.configure do |c|
+#        c.key    = AMAZON_KEY
+#        c.secret = AMAZON_SECRET
+#        c.tag    = AMAZON_ASSOCIATE_TAG
+#      end
+#
+#      req << {  :operation => 'ItemLookup',
+#                :search_index => nil,
+#                 :response_group => %w{ItemAttributes Images},
+#                 :item_id => "#{@asins.join(',')}"
+#               }
+#      
+#      @response = req.get.to_hash
+#      @response = @response['Items']['Item']
+#      
+#      if @response.class == Hash
+#        new_array = []
+#        new_array << @response
+#        @response = new_array
+#      end
+#      @response = @response.zip(@games)
+#    else
+#      @response = nil
+#    end
+#  end
+#  end
+#  
+#  
+#  def message_show_failed
+#      redirect_to :root
+#  end
+#  
+#  def message_has_a_user?
+#    !@message.user_id.nil?
+#  end
+
+
+def show
+  @message = Message.find_by_pickUpCode(params[:pickUpCode].downcase)
+  return message_show_failed unless !@message.nil?
+  return message_show_succeeded
+end
+
+def message_show_failed
+    redirect_to :root
+end
     
-    @games = @message.user.games
+def message_show_succeeded 
+  @banner_text = "3DStxt.com/#{@message.pickUpCode}"
+  @comments = @message.comments
+  @comment = Comment.new
+  impressionist(@message)
+  
+  if message_has_a_user?(@message)
+    @owner = @message.user
     
-    if !@games.nil? && @games.count > 0
+    display_friend_code
+    display_user_games
+  end
+end
 
-      @asins = []
-      @games.each do |game|
-        @asins << game.asin
-      end
-              
-      req = AmazonProduct["us"]
+def display_user_games
+    @games = @owner.games
+  if !@owner.games.nil? && @message.display_games? && @games.count > 0
+    fetch_games_from_amazon
+  end
+end
 
-      req.configure do |c|
-        c.key    = AMAZON_KEY
-        c.secret = AMAZON_SECRET
-        c.tag    = AMAZON_ASSOCIATE_TAG
-      end
-
-      req << {  :operation => 'ItemLookup',
-                :search_index => nil,
-                 :response_group => %w{ItemAttributes Images},
-                 :item_id => "#{@asins.join(',')}"
-               }
-      
-      @response = req.get.to_hash
-      @response = @response['Items']['Item']
-      
-      if @response.class == Hash
-        new_array = []
-        new_array << @response
-        @response = new_array
-      end
-      @response = @response.zip(@games)
-    else
-      @response = nil
+def fetch_games_from_amazon
+    @asins = []
+    @games.each do |game|
+      @asins << game.asin
     end
+            
+    req = AmazonProduct["us"]
+
+    req.configure do |c|
+      c.key    = AMAZON_KEY
+      c.secret = AMAZON_SECRET
+      c.tag    = AMAZON_ASSOCIATE_TAG
+    end
+
+    req << {  :operation => 'ItemLookup',
+              :search_index => nil,
+               :response_group => %w{ItemAttributes Images},
+               :item_id => "#{@asins.join(',')}"
+             }
     
+    @response = req.get.to_hash
+    @response = @response['Items']['Item']
+    
+    if @response.class == Hash
+      new_array = []
+      new_array << @response
+      @response = new_array
+    end
+    @response = @response.zip(@games)
+    return @response
+end
+
+
+def message_has_a_user?(message)
+  !message.user_id.nil?
+end
+  
+  def display_friend_code
+   if !@owner.friend_code.nil? && @message.display_fc? && @owner.friend_code.length == 12
+     @friendcode = format_friend_code(@message.user.friend_code)
+     return @friendcode
+   end
   end
   
   def format_friend_code(friend_code)
