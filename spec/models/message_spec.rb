@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Message do
   
   it 'should make a message from the Factory ' do
-    f = Factory(:message)
+    f = FactoryGirl.create(:message)
     f.should_not be_nil
     f.should be_kind_of(Message)
     
@@ -17,10 +17,10 @@ describe Message do
   
   
   it 'should regenerate a new five digit key if the pick up code is not unique' do
-    x = Factory(:message)
-    y = Factory(:message)
+    x = FactoryGirl.create(:message)
     x.save
-    y.save
+    y = Message.create(:pickUpCode => 'scott', :contents => "This is some random text")
+    y.save!
     y.pickUpCode.should_not == x.pickUpCode
     y.pickUpCode.length.should == 5
     
@@ -42,7 +42,7 @@ describe Message do
 
   
   it 'should allow me to change the pickUpCode if a password has been entered' do
-    x = Factory(:message)
+    x = FactoryGirl.create(:message)
     
     x.pickUpCode = "scott"
     x.save
@@ -50,7 +50,7 @@ describe Message do
   end
   
   it 'should not allow me to create a pickUpCode that is in use' do
-    x = Factory(:message)
+    x = FactoryGirl.create(:message)
     
     x.pickUpCode = 'scott'
     x.save
@@ -61,7 +61,7 @@ describe Message do
   end
   
   it 'should have a pickup code of at least three characters' do
-    x = Factory(:message)
+    x = FactoryGirl.create(:message)
     
     x.pickUpCode = "sc"
     x.save
@@ -70,9 +70,7 @@ describe Message do
   end
   
   it 'should not allow me to create a blank pick up code' do
-    x = Factory(:message)
-    x.pickUpCode = ""
-    x.save
+    x = Message.create(:pickUpCode => "", :contents => "this is something")
     
     x.pickUpCode.should_not be_blank
   end

@@ -1,20 +1,21 @@
 <% if @message.errors.any? %>
-	<div class="errors">
-	<ul>
+	<div class="alert alert-error">
+		<a class="close" data-dismiss="alert" href="#">&times;</a>
     <% @message.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
+      <p><%= msg %></p>
     <% end %>
-    </ul>
 </div>
 <% end %>
 
-<div id="form">
 
-<%= form_for @message, :url => {:action => 'update'} do |f| -%>
 
-	<%= f.label "Edit your message:", :class => "form_header" %><br/><%= f.text_area :contents, :rows => "10", :cols => "40" %>
-	<div class="check_area"><%= f.check_box :display_fc %><span class="label">Display your Friend Code on this page</span></div>
-  <div class="create"><%= f.submit "Update" %></div>
+<%= form_for @message, :url => {:action => 'update'}, :html => {:class=> 'form-horizontal'} do |f| -%>
+
+	<%= f.label "Edit your message:" %><%= f.text_area :contents, :class => "span5", :style => "height:200px;"%>
+	<label class="checkbox">Display your Friend Code on this page
+	<%= f.check_box :display_fc %></label>
+	<label class="checkbox">Display your game collection on this page
+	<%= f.check_box :display_games %></label>
+	<button type="submit" class="btn" name="commit">Update</button>
 
 <% end -%>
-</div>

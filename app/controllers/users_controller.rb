@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   def new
     @user = User.new
     @title = "Sign Up"
+    @banner_text = "Sign up."
   end
   
   def create
@@ -23,17 +24,19 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     render :action => "change_password"
   end
-  
+
   
   def show
     @user = User.find(params[:id])
     @messages = @user.messages
-    @message = @user.messages.new
-    @title = @user.name
+    @message = Message.new
+    @title = "3DStxt.com - Your StreetPass Pages"
+    @banner_text = "Saved StreetPass Pages"
   end
   
   def edit
     @user = User.find(params[:id])
+    @banner_text = "User settings."
   end
   
   def update

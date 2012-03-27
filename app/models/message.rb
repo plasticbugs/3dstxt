@@ -5,9 +5,8 @@ class Message < ActiveRecord::Base
 #  after_validation(:my_method)
   validates :pickUpCode, :uniqueness => {:case_sensitive => false}
   validates_length_of :pickUpCode, :minimum => 3, :maximum => 5, :if => :pickUpCode
-  validates_length_of :contents,
-                      :minimum => 1,
-                      :maximum => 5000
+  #validates_presence_of :pickUpCode
+  validates :contents, :length => { :in => 1..5000 }
    
   validate :has_fewer_than_7_messages , :on => :create
   
@@ -55,7 +54,9 @@ private
 
 
   def downcase_pickUpCode
-    self.pickUpCode = self.pickUpCode.downcase
+    unless self.pickUpCode.nil?
+      self.pickUpCode = self.pickUpCode.downcase
+    end
   end
 
   def create_code_until_valid(size = 5)

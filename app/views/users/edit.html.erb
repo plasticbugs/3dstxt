@@ -1,59 +1,29 @@
 <% if @user.errors.any? %>
-	<div class="errors">
-	<ul>
+	<div class="alert alert-error"><a class="close" data-dismiss="alert" href="#">&times;</a>
     <% @user.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
+      <p><%= msg %></p>
     <% end %>
-    </ul>
 </div>
 <% end %>
 
-<div class="logged_in_as">Logged in as <%= @user.email %><br/>
-	<span style="font-size:12px;">Current Limit: 6 Messages</span>
-</div>
-<div class="user_settings"><h1>User Settings</h1>	<hr/>
-	<%= form_for @user, :html => { :multipart => true} do |f| -%>
-	<div class="setting"><div class="example"><%= image_tag("friendcode.png") %></div><h2>3DS Friend Code</h2><p>Appears at the bottom of your 3DStxt pages</p>
-		<%= f.text_field :friend_code, :size => 20, :maxlength => 12  %>
-		</div>
-	<hr/>
-<div class="setting">	
+<span class="label label-success" style="font-size:12px;">Logged in as <%= @user.email %></span><br/>
+Current Limit: 6 Messages
 
-	
-<h2>Notifications</h2>
+<div class="message-contents" >	<%= form_for @user, :html => { :multipart => true, :class => ""} do |f| -%>
+		<legend>3DS Friend Code</legend><%= image_tag("friendcode.png", :style => "float:right;") %><label>Appears at the bottom of your 3DStxt pages</label>
+			<%= f.text_field :friend_code, :size => 20, :maxlength => 12  %>
+			<legend>Notifications</legend><%= f.label "Email me when:" %>
+	<label class="checkbox"><%= f.check_box :comment_alert %>someone comments on one of my pages.</label>
+	<legend>Profile Picture</legend>
+<%= f.label "Upload a profile picture" %>
+<%= f.file_field :profile_pic, :style => "width:200px;font-size:14px;" %>
 
-<p>
-  <%= f.label "Email me when:" %><br/>
-	<%= f.check_box :comment_alert %>someone comments on one of my pages.
-
-</p>
-</div>
-<hr/>
-<div class="pic_setting">	
-	<h2>Profile Picture</h2>
-
-<%= f.label "Upload a profile picture" %><br/>
-<%= f.file_field :profile_pic, :style => "width:200px;font-size:14px;" %><br/>
 <% if @user.profile_pic? %>
 <%= image_tag @user.profile_pic.url(:medium), :class => 'profile' %>
 <% end %>
 
-
-</div>
-<hr/>
-<!-- // ><div class="setting">	
-
-	
-<h2>Email address</h2>
-	<%= f.text_field :email, :size => 30 %>
-	
-</div>
-<hr/> //-->
-
-<div class="setting"><h2>Password</h2><%= link_to "Change your password", change_password_user_path %>
-</div>
-
-<%= f.submit "Save user settings" %>
+<legend>Password</legend><%= link_to "Change your password", change_password_user_path %>
+<br/><button class="btn btn-success" name="commit" type="submit" style="margin-top:20px">Save user settings</button>
 
 <% end -%>
 </div>

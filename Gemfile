@@ -1,18 +1,22 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.3'
+gem 'rails', '3.1'
+gem 'jquery-rails'
+gem 'coffee-script'
 #gem 'mongrel', '>= 1.2.0.pre2'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3-ruby', :require => 'sqlite3'
+gem 'sqlite3', :require => 'sqlite3'
 gem 'sanitize'
-gem 'rake', '0.8.7'
+gem 'rake'
 gem 'paperclip'
 gem 'rmagick'
 gem 'aws-s3', :require => 'aws/s3'
 gem 'aws-sdk'
+gem 'amazon_product'
+gem 'escape_utils'
 
 #gem 'mongrel'
 
@@ -20,12 +24,20 @@ gem 'impressionist'
 
 group :development do
   gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'thin'
+  gem 'mongrel', '>=1.2.0.pre2'
 end
 
 group :test do
   gem 'rspec-rails'
-  gem 'factory_girl'
-  gem 'webrat', '0.7.1'
+  gem 'factory_girl_rails'
+  gem 'capybara'
+end
+
+group :assets do
+  gem 'twitter-bootstrap-rails'
 end
 
 

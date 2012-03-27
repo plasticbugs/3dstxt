@@ -6,10 +6,12 @@ class User < ActiveRecord::Base
     
   has_many :messages
   has_many :comments
+  has_many :games
+  
   
   has_attached_file :profile_pic,
                     :storage => :s3,
-                    :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
+                    :s3_credentials => "#{::Rails.root.to_s}/config/s3.yml",
                     :bucket => 'media.3dstxt.com',
                     :styles=> { :medium => "250x250>", :thumb => "100x100>"},
                     :path => "/:style/:id/:filename"
@@ -51,6 +53,8 @@ class User < ActiveRecord::Base
     (user && user.salt == cookie_salt) ? user : nil
   end
   
+ 
+  
   private
   
   def encrypt_password
@@ -75,6 +79,5 @@ class User < ActiveRecord::Base
       self[column] = SecureRandom.base64.tr("+/", "-_")
     end while User.exists?(column => self[column])
   end
-
-  
+    
 end
