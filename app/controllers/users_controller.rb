@@ -28,7 +28,7 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-    @messages = @user.messages
+    @messages = @user.messages.order("created_at ASC")
     @message = Message.new
     @title = "3DStxt.com - Your StreetPass Pages"
     @banner_text = "Saved StreetPass Pages"
