@@ -1,6 +1,6 @@
 class Game < ActiveRecord::Base
   belongs_to :user
-  validates :asin, :uniqueness => {:message => "is already in your collection."}
+  validates :asin, :uniqueness => {:message => "is already in your collection.", :scope => :user_id}
   validate :has_only_10_games, :on => :create
   
   def has_only_10_games
