@@ -42,11 +42,11 @@
 
 
 <div class="row">
-<%= form_for(@message, :html => {:class => ""}) do |f| -%>
+<div class="action-box content-padding"><%= form_for(@message, :html => {:class => ""}) do |f| -%>
 <h2>Create a new 3DStxt page here</h2>
 <%= f.text_area(:contents, :class => "span6", :style => "height:150px;") %><br/>
 <%= f.submit "Create", :class => "btn btn-success btn-large" -%>
-<% end %>
+<% end %></div>
 </div>
 
 <div class="row"><h1>Tips</h1>

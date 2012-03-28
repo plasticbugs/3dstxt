@@ -9,13 +9,13 @@
 
 
 
-<%= form_for @message, :url => {:action => 'update'}, :html => {:class=> 'form-horizontal'} do |f| -%>
-
-	<%= f.label "Edit your message:" %><%= f.text_area :contents, :class => "span6", :style => "height:200px;margin-bottom:20px;"%>
+<div class="action-box content-padding"><h2>Edit your message</h2><%= form_for @message, :url => {:action => 'update'}, :html => {:class=> 'form-horizontal'} do |f| -%>
+	
+	<%= f.text_area :contents, :class => "span6", :style => "height:200px;margin-bottom:20px;"%>
 	<label class="checkbox">Display your Friend Code on this page
 	<%= f.check_box :display_fc %></label>
 	<label class="checkbox">Display your game collection on this page
 	<%= f.check_box :display_games %></label>
 	<button type="submit" class="btn" name="commit">Update</button>
-
+</div>
 <% end -%>
