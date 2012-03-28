@@ -1,20 +1,20 @@
 <% if flash[:notice] %>
-<div class="alert"><%= flash[:notice] %></div>
+<div class="row"><div class="alert span5"><%= flash[:notice] %></div></div>
 <% end %>
 
 <% if flash[:error] %>
-<div class="alert alert-success">
+<div class="row"><div class="alert alert-success span5">
 <% flash[:error].each do |error| %>
 <%= error %><br/>
 <% end %>
-</div>
+</div></div>
 <% end %>
 
 <%#= render :partial => 'message_list' %>
 Logged in as <%= @user.email %>
 
-<div class="row">
-<div class="span9 message-contents">
+
+<div class="message-contents span9">
 <h1>StreetPass Messages</h1>
 		
 	
@@ -53,25 +53,27 @@ Logged in as <%= @user.email %>
 
 <% end %>
 </tbody>
-</table></div>
+</table>
+</div>
 <% else %>
-You have no saved messages.
+
+<div class="span5 message-contents">You have no saved messages.</div>
 
 <% end %>
-</div>
+
 
 <hr class="soften"/>
+
 <% if @message.errors.any? %>
-	<div class="alert alert-error">
+<div class="row">	<div class="alert alert-error">
     <% @message.errors.full_messages.each do |msg| %>
       <%= msg %><br/>
     <% end %>
-</div>
+</div></div>
 
 <% end %>
 
 
-<div class="row">
 <div class="white_box span9"><%= form_for(@message, :html => { :class => "form-horizontal"}) do |f| -%>
 
 <fieldset>
@@ -92,5 +94,4 @@ You have no saved messages.
 <div class="form-actions"><%= f.submit "Create", :class => "btn btn-primary" %></div>
 </fieldset>
 <% end -%>
-</div>
 </div>

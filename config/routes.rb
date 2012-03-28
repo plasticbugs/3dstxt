@@ -42,7 +42,7 @@ Txtapp::Application.routes.draw do
   
   resources :sessions, :only => [:new, :create, :destroy]
   match '/signin' => 'sessions#new'
-  match '/signout' => 'sessions#destroy'
+  match '/signout' => 'sessions#destroy'  
   
   resources :messages, :only => [:new, :create, :destroy] do
     resources :comments, :only => [:create, :destroy]
@@ -59,8 +59,9 @@ Txtapp::Application.routes.draw do
   match '/:pickUpCode'      => 'messages#show', :via => :get
   match '/:pickUpCode/edit' => 'messages#edit', :via => :get
   match '/:pickUpCode'      => 'messages#update', :via => :put
- 
- match '/messages/new' => 'messages#new'
+  match '/:pickUpCode'      => 'messages#create', :via => :post
+  
+  match '/messages/new' => 'messages#new'
 
  root :to => "messages#new"
   match "/messages/:id" => redirect("/")

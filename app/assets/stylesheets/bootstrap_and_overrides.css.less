@@ -180,16 +180,20 @@ div.navbar.navbar-fixed-top {
 
 .message-contents {
 	background-color:#fdfdfd;
-	padding:20px 20px;
 	-moz-box-shadow: 0px 0px 3px rgba(0,0,0,.6);
 	-khtml-box-shadow: 0px 0px 3px rgba(0,0,0,.6);
 	-webkit-box-shadow: 0px 0px 3px rgba(0,0,0,.6);
-	margin:10px 0;
+	margin-top:10px;
+	margin-bottom:10px;
 	border-radius: 8px; 
 	-moz-border-radius: 8px; 
 	-webkit-border-radius: 8px;
 }
 
+.message-contents h1 {
+	margin-left:8px;
+	margin-top:10px;
+}
 
 
 .comment {
@@ -220,17 +224,17 @@ div.navbar.navbar-fixed-top {
 	margin-top:3px;
 }
 
-@import "twitter/bootstrap/responsive";
+//@import "twitter/bootstrap/responsive";
 
-@media (max-width: 600px) {
-	.navbar .nav > li > a {
-    clear:left;
-  }
-}
+//@media (max-width: 600px) {
+//	.navbar .nav > li > a {
+//    clear:left;
+//  }
+//}
 
 // Set the correct sprite paths
-//@iconSpritePath: asset-path('twitter/bootstrap/glyphicons-halflings.png');
-//@iconWhiteSpritePath: asset-path('twitter/bootstrap/glyphicons-halflings-white.png');
+@iconSpritePath: asset-path('twitter/bootstrap/glyphicons-halflings.png');
+@iconWhiteSpritePath: asset-path('twitter/bootstrap/glyphicons-halflings-white.png');
 
 // Your custom LESS stylesheets goes here
 //

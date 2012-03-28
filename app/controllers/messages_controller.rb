@@ -216,7 +216,7 @@ end
       @comment = Comment.new
       @banner_text = "3DStxt.com/#{@message.pickUpCode}"
       
-      return render action: 'show', pickUpCode: @message.pickUpCode
+      return redirect_to action: 'show', pickUpCode: @message.pickUpCode
     end
     
     return redirect_to action: 'show', pickUpCode: @message.pickUpCode

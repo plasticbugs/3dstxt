@@ -1,10 +1,13 @@
-<% if flash[:notice] %>
+<div class="row">
+<div class="span5"><% if flash[:notice] %>
 	<div class="notice">
 		<%= flash[:notice] %>
 	</div>
-<% end %>
+<% end %></div>
+</div>
 
 <div class="row">
+
 	<h1><%= link_to "Get a free account", signup_path %></h1>
 	<ul>
 		<li>Save, Edit and Delete your StreetPass pages</li>
@@ -14,8 +17,9 @@
 	</ul>
 </div>
 
+
 <div class="row">
-	<h1>How it works</h1><ul><li>Enter a StreetPass message.</li>
+<h1>How it works</h1><ul><li>Enter a StreetPass message.</li>
 	<li>Press create.</li>
 	<li>Share your new 3DStxt link as a greeting or personal message on your 3DS.</li>
 	<li>Come back to your page and read your replies!</li>
@@ -38,9 +42,9 @@
 
 
 <div class="row">
-<%= form_for(@message, :html => {:class => "span8"}) do |f| -%>
+<%= form_for(@message, :html => {:class => ""}) do |f| -%>
 <h2>Create a new 3DStxt page here</h2>
-<%= f.text_area(:contents, :class => "span8", :style => "height:150px;") %><br/>
+<%= f.text_area(:contents, :class => "span6", :style => "height:150px;") %><br/>
 <%= f.submit "Create", :class => "btn btn-success btn-large" -%>
 <% end %>
 </div>
