@@ -15,7 +15,7 @@
   <%= javascript_include_tag '//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js', :defer	=> true, :async => true %>
 	<%= javascript_include_tag "bootstrap-alert" %>
 
-<%= stylesheet_link_tag    "application", :media => "all" %>
+<%= stylesheet_link_tag "application", :media => "all" %>
   <%= csrf_meta_tags %>
 
 	<script type="text/javascript">
@@ -33,47 +33,48 @@
 	</script>
 </head>
 <body>
-<div class="navbar navbar-fixed-top">
-	<div class="navbar-inner">
-		<div class="container">
-				<a class="brand" href="/">3DS<span>txt</span></a>
-			
-			<ul class="nav">
-				<li><%= link_to_unless_current "Home", root_path do %></li>
-					<li class="active"><%= link_to "Home", root_path %></li>
+
+<div class="container">
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+					<a class="brand" href="/">3DS<span>txt</span></a>
+
+				<ul class="nav">
+					<li><%= link_to_unless_current "Home", root_path do %></li>
+						<li class="active"><%= link_to "Home", root_path %></li>
+						<% end %>
+
+					<% if signed_in? %>
+					<li><%= link_to_unless_current "Message list", user_path(current_user.id) do %></li>
+						<li class="active"><%= link_to "Message list", user_path(current_user.id) %></li>
+						<% end %>
+
+					<li><%= link_to_unless_current "Your games", user_games_path(current_user.id) do %></li>
+						<li class="active"><%= link_to "Your games", user_games_path(current_user.id) %></li>
+						<% end %>
+
+					<li><%= link_to_unless_current 'User settings', edit_user_path(current_user.id) do %></li>
+						<li class="active"><%= link_to "User settings", edit_user_path(current_user.id) %></li>
 					<% end %>
-				
-				<% if signed_in? %>
-				<li><%= link_to_unless_current "Message list", user_path(current_user.id) do %></li>
-					<li class="active"><%= link_to "Message list", user_path(current_user.id) %></li>
-					<% end %>
-					
-				<li><%= link_to_unless_current "Your games", user_games_path(current_user.id) do %></li>
-					<li class="active"><%= link_to "Your games", user_games_path(current_user.id) %></li>
+					</ul>
+
+					<ul class="nav pull-right">
+					<li><%= link_to "Sign out", signout_path, :method => :delete %></li>
+					</ul>
+
+
+
+					<% else %>
+					</ul>
+					<ul class="nav pull-right"><li><%= link_to "Create new account", signup_path %></li>
+					<li><%= link_to "Sign in", signin_path %></li>
+					</ul>
 					<% end %>
 
-				<li><%= link_to_unless_current 'User settings', edit_user_path(current_user.id) do %></li>
-					<li class="active"><%= link_to "User settings", edit_user_path(current_user.id) %></li>
-				<% end %>
-				</ul>
-				
-				<ul class="nav pull-right">
-				<li><%= link_to "Sign out", signout_path, :method => :delete %></li>
-				</ul>
-			
-
-		
-				<% else %>
-				</ul>
-				<ul class="nav pull-right"><li><%= link_to "Create new account", signup_path %></li>
-				<li><%= link_to "Sign in", signin_path %></li>
-				</ul>
-				<% end %>
-			
+			</div>
 		</div>
 	</div>
-</div>
-<div class="container">
 <header>
 	<% if false %>
 	<%= link_to image_tag("new_logo2.png", :alt => '3DSTXT Logo'), root_path %>
