@@ -260,7 +260,7 @@ div.navbar {
 			
 @import "twitter/bootstrap/responsive";
 
-//@media (max-width: 480px) {
+//@media (max-width: 767px) and (min-width: 300px) {
 //	.navbar-fixed-top {
 //    position: static;
 //    margin-bottom: 0px;
@@ -275,12 +275,45 @@ div.navbar {
 //    margin-left: 0;
 //  }
 //
+//
+//.container {
+//	padding-left:30px;
+//}
 //  // Static navbar
 //  .navbar-static .navbar-inner {
 //    padding-left:  10px;
 //    padding-right: 10px;
 //  }
+//	.navbar-inner .container {
+//		width:724px;
+//	}
+//
 //}
+
+@media (max-width: 978px) and (min-width: 300px) {
+	.navbar-inner .container {
+		width:724px;
+	}
+}
+
+
+@media (max-width: 1199px) and (min-width: 979px) {
+	.navbar-inner .container {
+		width:940px;
+	}
+}
+
+
+
+
+@media (min-width: 1200px) {
+	.navbar-inner .container {
+		width:1170px;
+	}
+}
+
+
+
 
 // Set the correct sprite paths
 @iconSpritePath: asset-path('twitter/bootstrap/glyphicons-halflings.png');
