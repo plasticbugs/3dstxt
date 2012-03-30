@@ -8,32 +8,32 @@
 
 <div class="row">
 
-<div class="span9"><h1><%= link_to "Get a free account", signup_path %></h1>
+<div class="span9"><div class="content-padding"><h1><%= link_to "Get a free account", signup_path %></h1>
 	<ul>
 		<li>Save, Edit and Delete your StreetPass pages</li>
 		<li>Personalized links like this one: 3dstxt.com/scott</li>
 		<li>Receive email notifications when people comment on your page.</li>
 		<li>See how many views and comments your pages receive!</li>
-	</ul></div>
+	</ul></div></div>
 </div>
 
 
 <div class="row">
-<div class="span9"><h1>How it works</h1><ul><li>Enter a StreetPass message.</li>
+<div class="span9"><div class="content-padding"><h1>How it works</h1><ul><li>Enter a StreetPass message.</li>
 	<li>Press create.</li>
 	<li>Share your new 3DStxt link as a greeting or personal message on your 3DS.</li>
 	<li>Come back to your page and read your replies!</li>
-	</ul></div>
+	</ul></div></div>
 </div>
 
 <% if flash[:error] %>
-<div class="row"><div class="span5"><div class="alert alert-error">
+<div class="row"><div class="span5"><div class="alert alert-error content-padding">
 <%= flash[:error] %>
 </div></div></div>
 <% end %>
 
 <% if @message.errors.any? %>
-	<div class="row"><div class="span5"><div class="alert alert-error">
+	<div class="row"><div class="span5"><div class="alert alert-error content-padding">
     <% @message.errors.full_messages.each do |msg| %>
       <p><%= msg %></p>
     <% end %>
@@ -42,14 +42,14 @@
 
 
 <div class="row">
-<div class="action-box content-padding span9"><%= form_for(@message, :html => {:class => ""}) do |f| -%>
+<div class="span9"><div class="content-padding"><div class="action-box"><div class="inner-padding"><%= form_for(@message, :html => {:class => ""}) do |f| -%>
 <h2>Create a new 3DStxt page here</h2>
 <%= f.text_area(:contents, :class => "span6", :style => "height:150px;") %><br/>
 <%= f.submit "Create", :class => "btn btn-success btn-large" -%>
-<% end %></div>
+<% end %></div></div></div></div>
 </div>
 
-<div class="row"><div class="span9"><h1>Tips</h1>
+<div class="row"><div class="span9"><div class="content-padding"><h1>Tips</h1>
 <h2>You may want to include:</h2>
 <ul>
 	<li>Your first name or your Mii's nickname</li>
@@ -60,6 +60,6 @@
 <h2>You should NOT include:</h2>
 <ul><li>Your full name</li>
 <li>Your address</li>
-<li>Any other personally identifiable information</li></ul></div>
+<li>Any other personally identifiable information</li></ul></div></div>
 </div>
 

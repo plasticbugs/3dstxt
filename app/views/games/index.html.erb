@@ -1,14 +1,15 @@
 
 <% if flash[:notice] %>
-<div class="row"><div class="alert alert-success span4"><%= flash[:notice] %></div></div>
+<div class="row"><div class="content-padding"><div class="alert alert-success span4"><%= flash[:notice] %></div></div></div>
 <% end %>
 	
 	<% if @response && !@games.nil? %>
 	
-	<div class="row"><div class="span5"><%= button_to "Add games", {:controller => "games", :action => "search"}, {:class => "btn btn-success"} %></div></div>
+	<div class="row"><div class="span5"><div class="content-padding"><%= button_to "Add games", {:controller => "games", :action => "search"}, {:class => "btn btn-success"} %></div></div></div>
 
 	<div class="row">
 		<div class="span10">
+			<div class="content-padding">
 	<% @response.each do |amazon, game| %>
 <div class="game_container">
 <div class="game_box">
@@ -23,7 +24,7 @@
 <% end %>
 </div>
 
-<% end %>
+<% end %></div>
 </div>
 </div>
 

@@ -1,5 +1,11 @@
 @import "twitter/bootstrap/bootstrap";
 
+body {
+	background-color:#444;
+	padding-top:40px;
+	// background-color: #f4f4f4;
+	
+}
 
 
 div.navbar-inner div.container {
@@ -28,12 +34,12 @@ margin-top:10px;
  color:#de1c1c;
  font-weight:bold;
  letter-spacing:1px;
+ margin-left:-10px;
 }
 
 .navbar .brand span {
  color:#efefef;
 }
-
 
 
 .big_banner {
@@ -189,7 +195,11 @@ div.navbar.navbar-fixed-top {
 }
 
 .content-padding {
-	padding:20px;
+	padding-left:30px;
+}
+
+.inner-padding {
+	padding: 10px 20px 10px 20px;
 }
 
 .add-comment-box {
@@ -231,7 +241,7 @@ div.navbar.navbar-fixed-top {
 	padding-bottom:10px;
 }
 
-//@import "twitter/bootstrap/responsive";
+
 
 //@media (max-width: 600px) {
 //	.navbar .nav > li > a {
@@ -245,8 +255,34 @@ div.navbar.navbar-fixed-top {
 //  }
 //}
 
-body { background-color:#444;
-			 }
+.user-settings {
+	padding-left:30px;
+}		
+
+			
+@import "twitter/bootstrap/responsive";
+
+@media (max-width: 767px) {
+	.navbar-fixed-top {
+    position: static;
+    margin-bottom: 0px;
+  }
+	
+	body {
+    padding-top: 0;
+  }
+
+	.navbar .nav.pull-right {
+    float: none;
+    margin-left: 0;
+  }
+
+  // Static navbar
+  .navbar-static .navbar-inner {
+    padding-left:  10px;
+    padding-right: 10px;
+  }
+}
 
 // Set the correct sprite paths
 @iconSpritePath: asset-path('twitter/bootstrap/glyphicons-halflings.png');
