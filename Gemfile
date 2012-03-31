@@ -37,7 +37,6 @@ group :test do
 end
 
 group :assets do
-  gem 'twitter-bootstrap-rails'
   gem 'uglifier', '>= 1.0.3'
 end
 
