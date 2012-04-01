@@ -50,7 +50,7 @@ Logged in as <%= @user.email %>
 	
 	<td><%= link_to "edit", {:controller => 'messages', :action => 'edit', :pickUpCode => m.pickUpCode} %></td>
 	
-	<td><i class="icon-trash" style:"margin-left:-20px;"></i> <%= link_to "delete", m, :confirm => "Are you sure you want to delete this message? Your custom URL will also be deleted! Click 'edit' to KEEP your URL and only edit the message.", :method => :delete, :alt => 'Delete' %></td>
+	<td><%= link_to "delete", m, :confirm => "Are you sure you want to delete this message? Your custom URL will also be deleted! Click 'edit' to KEEP your URL and only edit the message.", :method => :delete, :alt => 'Delete' %> <i class="icon-trash" style:"margin-left:-20px;"></i></td>
 	
 </tr>
 
