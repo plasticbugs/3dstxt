@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120327015040) do
+ActiveRecord::Schema.define(:version => 20120401072237) do
 
   create_table "comments", :force => true do |t|
     t.string    "code"
@@ -63,14 +63,14 @@ ActiveRecord::Schema.define(:version => 20120327015040) do
   add_index "impressions", ["user_id"], :name => "index_impressions_on_user_id"
 
   create_table "messages", :force => true do |t|
-    t.string    "pickUpCode"
-    t.text      "contents"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-    t.string    "password"
-    t.integer   "user_id"
-    t.boolean   "display_fc",    :default => true
-    t.boolean   "display_games", :default => true
+    t.string   "pickUpCode"
+    t.text     "contents"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "password"
+    t.integer  "user_id"
+    t.boolean  "display_fc",    :default => true
+    t.boolean  "display_games", :default => true
   end
 
   add_index "messages", ["pickUpCode"], :name => "index_messages_on_pickUpCode"
