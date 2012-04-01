@@ -1,13 +1,13 @@
 <% if flash[:notice] %>
-	<div class="row"><div class="alert alert-success span4"><div class="content-padding">
+	<div class="row"><div class="content-padding"><div class="alert alert-success span4">
 		<%= flash[:notice] %><br/>
 	</div></div></div>
 <% end %>
 
 
 <% if  !@error_messages.nil? %>
-<div class="row">
-	<div class="alert alert-error span4"><div class="content-padding">
+<div class="row"><div class="content-padding">
+	<div class="alert alert-error span4">
 <% @error_messages.each do |error| %>
 <%= "#{error}." %><br/>
 <% end %>
@@ -26,5 +26,5 @@
 	
 	<% if @response %>
 	
-	<div class="row"><div class="span5 well"><div class="content-padding"><%= "You added #{@response['Items']['Item'].first['ItemAttributes']['Title']} to your collection."  %><br/><%= image_tag (@response['Items']['Item'].first['MediumImage']['URL']) %></div></div></div>
+	<div class="row"><div class="content-padding"><div class="span5 well"><%= "You added #{@response['Items']['Item'].first['ItemAttributes']['Title']} to your collection."  %><br/><%= image_tag (@response['Items']['Item'].first['MediumImage']['URL']) %></div></div></div>
 	<% end %>

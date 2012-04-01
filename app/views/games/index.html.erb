@@ -1,6 +1,6 @@
 
 <% if flash[:notice] %>
-<div class="row"><div class="alert alert-success span4"><div class="content-padding"><%= flash[:notice] %></div></div></div>
+<div class="row"><div class="content-padding"><div class="alert alert-success span4"><%= flash[:notice] %></div></div></div>
 <% end %>
 	
 	<% if @response && !@games.nil? %>
@@ -30,7 +30,9 @@
 
 
 	<% else %>
-	<%= link_to "Add games to your collection", :controller => 'games', :action => 'search' %>
+		<div class="row"><div class="span5"><div class="content-padding"><%= button_to "Add games", {:controller => "games", :action => "search"}, {:class => "btn btn-success"} %>
+			<%= link_to "Add games to your collection", :controller => 'games', :action => 'search' %>
+			</div></div></div>
 
 	<% end %>
 
