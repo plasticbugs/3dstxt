@@ -1,9 +1,10 @@
+<div class="content-padding">
 <% if flash[:notice] %>
-<div class="row"><div class="content-padding"><div class="alert alert-success span5"><%= flash[:notice] %></div></div></div>
+<div class="row"><div class="span5"><div class="alert alert-success"><%= flash[:notice] %></div></div></div>
 <% end %>
 
 <% if flash[:error] %>
-<div class="row"><div class="content-padding"><div class="alert alert-error span5">
+<div class="row"><div class="span5"><div class="alert alert-error">
 <% flash[:error].each do |error| %>
 <%= error %><br/>
 <% end %>
@@ -13,10 +14,10 @@
 
 
 <%#= render :partial => 'message_list' %>
-<div class="content-padding">Logged in as <%= @user.email %></div>
+Logged in as <%= @user.email %>
 
 
-<div class="content-padding"><div class="message-contents">
+<div class="message-contents">
 <div class="inner-padding"><h1>StreetPass Messages</h1>
 		
 	
@@ -56,27 +57,27 @@
 <% end %>
 </tbody>
 </table></div>
-</div></div>
+</div>
 <% else %>
 
-<div class="span5"><div class="content-padding message-contents">You have no saved messages.</div></div>
-
+<div class="row"><div class="span5"><div class="message-contents inner-padding">You have no saved messages.</div></div>
+</div>
 <% end %>
 
 
 <hr class="soften"/>
 
 <% if @message.errors.any? %>
-<div class="row">	<div class="alert alert-error">
+<div class="row"><div class="span5"><div class="alert alert-error">
     <% @message.errors.full_messages.each do |msg| %>
       <%= msg %><br/>
     <% end %>
-</div></div>
+</div></div></div>
 
 <% end %>
 
 
-<div class="content-padding"><div class="action-box inner-padding"><%= form_for(@message, :html => { :class => "form-horizontal"}) do |f| -%>
+<div class="action-box inner-padding"><%= form_for(@message, :html => { :class => "form-horizontal"}) do |f| -%>
 
 <fieldset>
 	<h1>Create a new page</h1>

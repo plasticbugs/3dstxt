@@ -1,12 +1,12 @@
+<div class="content-padding">
 <% if @user.errors.any? %>
-	<div class="span5"><div class="content-padding"><div class="alert alert-error">
+	<div class="row"><div class="span5"><div class="alert alert-error">
     <% @user.errors.full_messages.each do |msg| %>
     	<div><%= msg %></div>
     <% end %>
 </div></div></div>
 <% end %>
 
-<div class="content-padding">
 <h1>Create a new account</h1>
 <%= form_for(@user, :html => {class: 'well'}) do |f| -%>
 
@@ -24,4 +24,4 @@
 
 <%= f.submit "Sign up" %>
 <% end -%>
-<span class="has_account">Already have one? <%= link_to "Sign in!", signin_path %></span></div>
+<span class="has_account">Already have one? <%= link_to "Sign in!", signin_path %></span>
