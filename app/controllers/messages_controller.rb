@@ -229,7 +229,7 @@ end
       return render template: 'users/show'
       
     end
-    return redirect_to root_url
+    return render new_message_path
   end
   
   if false
