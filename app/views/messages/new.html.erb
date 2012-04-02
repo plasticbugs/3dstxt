@@ -11,7 +11,7 @@
 		<li><i class="icon-star icon-white"></i> List the 3DS and DS games you're playing</li>
 		</ul></div></div></div>
 		
-		<h1><%= link_to "Get a free account", signup_path %></h1>
+<h1><%= link_to "Get a free account", signup_path %></h1>
 <p>Get your own customizable 3DS page to broadcast to anyone you StreetPass!</p>
 
  </div>
@@ -33,7 +33,8 @@
 <% end %>
 
 <div class="row"><div class="span8"><div class="action-box inner-padding"><%= form_for(@message, :html => {:class => ""}) do |f| -%>
-<h2>Create a new 3DStxt page here</h2>
+<h2>Create a basic 3DStxt page here</h2>
+For more options, <%= link_to "create an account", signup_path %>.
 <%= f.text_area(:contents, :class => "span6", :style => "height:150px;") %><br/>
 <%= f.submit "Create", :class => "btn btn-success btn-large" -%>
 <% end %></div></div></div>
