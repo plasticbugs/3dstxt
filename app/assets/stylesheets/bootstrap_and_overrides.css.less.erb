@@ -247,6 +247,56 @@ div.navbar {
 .navbar .navbar-inner div.container {
 }
 
+.hero-unit {
+	margin-top:20px;
+	border:solid #ddd 1px;
+	padding:10px;
+	height:234px;
+}
+
+.hero-unit h1 {
+	font-size:40px;
+	margin-bottom:20px;
+}
+
+.picture-tease {
+	width:350px;
+	height:234px;
+	margin:0px;
+	background-image:url(<%= asset_path 'site-details.jpg' %>);
+	background-repeat:no-repeat;
+	position:relative;
+	border-radius: 5px; 
+	-moz-border-radius: 5px; 
+	-webkit-border-radius: 5px;
+	-moz-box-shadow: 0px 0px 2px rgba(0,0,0,.6);
+	-khtml-box-shadow: 0px 0px 2px rgba(0,0,0,.6);
+	-webkit-box-shadow: 0px 0px 2px rgba(0,0,0,.6);
+	float:right;
+}
+
+.text-overlay {
+	width:100%;
+	background-color:rgba(0,0,0,0.5);
+	position:absolute;
+	bottom:0px;
+	left:0px;
+	color:#eee;
+}
+
+.picture-tease .inner-padding {
+	padding-top:10px;
+	padding-left:10px;
+	padding-bottom:0px;
+	ul {
+		list-style:none;
+		line-height:22px;
+		margin-left:0px;
+		letter-spacing:1px;
+	}
+}
+
+
 
 @import "twitter/bootstrap/responsive";
 
