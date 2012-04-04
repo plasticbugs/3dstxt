@@ -7,7 +7,7 @@
 </div>
 <% end %>
 
-<div class="action-box inner-padding">
+<div class="action-box">
 	<span class="label label-success" style="font-size:12px;">Logged in as <%= @user.email %></span><br/>
 	Current Limit: 6 Messages
 	<%= form_for @user, :html => { :multipart => true, :class => ""} do |f| -%>
