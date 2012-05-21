@@ -33,7 +33,7 @@ When a 3DS user receives a 3dstxt.com URL as a message, hopefully they'll fire u
 
 + paperclip: Enables profile image uploads
 
-+ rmagick: Resizes image uploads
++ rmagick: a nice Ruby wrapper for ImageMagick. ImageMagick must be installed on your remote server! Heroku supports this. ImageMagick is used to resize image uploads.
 
 + aws-s3: Amazon S3 storage
 
