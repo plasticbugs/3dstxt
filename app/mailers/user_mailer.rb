@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default :from => "3dstxt@gmail.com"
+  default :from => APP_CONFIG['gmail_from_address_for_password_reset_and_email_alerts']
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:

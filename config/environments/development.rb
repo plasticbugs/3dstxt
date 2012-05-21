@@ -1,8 +1,6 @@
 Txtapp::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
-  AMAZON_KEY = "1EYD6CA01FYNXRQ4EK82"
-  AMAZON_SECRET = "qH4qNR1Nzty0UN1qP0LJCrKawm1hhg9B1TiMKvX6"
-  AMAZON_ASSOCIATE_TAG = "3ds0a-20"
+  APP_CONFIG = YAML.load_file("#{::Rails.root.to_s}/config/config.yml")[RAILS_ENV]
   
   Paperclip.options[:command_path] = "/usr/local/bin/convert"
   

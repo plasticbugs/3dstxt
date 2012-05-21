@@ -5,7 +5,7 @@ class Game < ActiveRecord::Base
   
   def has_only_10_games
     if self.user.games.count > 9
-      self.errors[:base] << "You can only save and display up to 10 of your favorite games in your collection."
+      self.errors[:base] << "You can save and display up to 10 of your favorite games in your collection."
     end
   end
   

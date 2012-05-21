@@ -3,3 +3,6 @@ db/*.sqlite3
 log/*.log
 tmp/**/*
 .DS_Store
+*.dat
+config/s3.yml
+config/config.yml

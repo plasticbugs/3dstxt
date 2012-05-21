@@ -1,0 +1,23 @@
+development:
+  amazon_key: your_amazon_associate_key
+  amazon_secret: your_amazon_associate_secret
+  amazon_associate_tag: your_amazon_associate_tag
+  s3_bucket: your_s3_bucket_unique_identifier
+  gmail_from_address_for_password_reset_and_email_alerts: your_gmail_address
+  gmail_from_address_password: your_gmail_password
+  secret_token: your_secret_token_for_cookie_authentication
+  
+test:
+  s3_bucket: your_s3_bucket_unique_identifier
+  gmail_from_address_for_password_reset_and_email_alerts: your_gmail_address
+  gmail_from_address_password: your_gmail_password
+  secret_token: your_secret_token_for_cookie_authentication
+       
+production:
+  amazon_key: your_amazon_associate_key
+  amazon_secret: your_amazon_associate_secret
+  amazon_associate_tag: your_amazon_associate_tag
+  s3_bucket: your_s3_bucket_unique_identifier
+  gmail_from_address_for_password_reset_and_email_alerts: your_gmail_address
+  gmail_from_address_password: your_gmail_password
+  secret_token: your_secret_token_for_cookie_authentication
