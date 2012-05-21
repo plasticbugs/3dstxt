@@ -27,24 +27,24 @@ When a 3DS user receives a 3dstxt.com URL as a message, hopefully they'll fire u
 ## Gems
 3DStxt makes use of these gems:
 
-+ amazon_product: Amazon Product Advertising API gem lets users customize their pages with images and links to their favorite Nintendo DS and 3DS games.
++ amazon_product: Ruby interface to the Amazon Product Advertising API. 3DStxt uses the Product Advertising API for allowing users to customize their page with images and links to their favorite Nintendo DS and 3DS games. The app's database follows Amazon's usage guidelines, storing only the ASIN for each game that is added.
 
 + sanitize: Sanitizes user input
 
-+ paperclip: Enables profile image uploads
++ paperclip: Enables profile image uploads with S3 integration
 
 + rmagick: a nice Ruby wrapper for ImageMagick. ImageMagick must be installed on your remote server! Heroku supports this. ImageMagick is used to resize image uploads.
 
-+ aws-s3: Amazon S3 storage
++ aws-s3: Amazon S3 storage for profile images
 
 + impressionist: Logs unique impressions for users to track page visits on their account
 
-+ twitter-bootstrap-rails: Twitter Bootstrap
++ twitter-bootstrap-rails: Twitter Bootstrap!
 
 ## Customizing 3DStxt
 Rename these files by removing '.example':
-+ *config/config.yml.example* >> config/config.yml
-+ *config/s3.yml.example* >> config/s3.yml
++ **config/config.yml.example** >> config/config.yml
++ **config/s3.yml.example** >> config/s3.yml
 
 ## CONFIG.YML
 ### Email Account Info
