@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
                        :length => {:within => 6..40},
                        :if => :password_present?)
 
-  
+  before_create :downcase_email
   before_save :encrypt_password
   
   def send_password_reset
@@ -56,6 +56,10 @@ class User < ActiveRecord::Base
  
   
   private
+  
+  def downcase_email
+    self.email = self.email.downcase
+  end
   
   def encrypt_password
     self.salt = make_salt if new_record?
