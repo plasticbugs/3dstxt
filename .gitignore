@@ -8,3 +8,4 @@ config/s3.yml
 config/config.yml
 .env
 Procfile
+*.log
