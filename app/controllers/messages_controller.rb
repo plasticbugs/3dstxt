@@ -115,9 +115,9 @@ def fetch_games_from_amazon
     req = AmazonProduct["us"]
 
     req.configure do |c|
-      c.key    = AMAZON_KEY
-      c.secret = AMAZON_SECRET
-      c.tag    = AMAZON_ASSOCIATE_TAG
+      c.key    = ENV['AMAZON_KEY']
+      c.secret = ENV['AMAZON_SECRET']
+      c.tag    = ENV['AMAZON_ASSOCIATE_TAG']
     end
 
     req << {  :operation => 'ItemLookup',

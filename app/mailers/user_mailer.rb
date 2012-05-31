@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default :from => GMAIL_FROM_ADDRESS
+  default :from => ENV['GMAIL_FROM_ADDRESS']
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
