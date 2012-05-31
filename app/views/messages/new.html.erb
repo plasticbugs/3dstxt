@@ -1,56 +1,76 @@
-<div class="content-padding"><div class="row"><div class="span5"><% if flash[:notice] %>
-	<div class="notice">
-		<%= flash[:notice] %>
+<% if flash[:notice] %>
+	<div class="row">
+		<div class="span5">
+			<div class="notice">
+				<%= flash[:notice] %>
+			</div>
+		</div>
 	</div>
-<% end %></div></div>
-
-<div class="hero-unit">
-<div class="picture-tease"><div class="text-overlay"><div class="inner-padding"><ul><li><i class="icon-list-alt icon-white"></i> Stat tracking</li>
-		<li><i class="icon-envelope icon-white"></i> Email notifications</li>
-			<li><i class="icon-heart icon-white"></i> Share your Friend Code</li>
-		<li><i class="icon-star icon-white"></i> List the 3DS and DS games you're playing</li>
-		</ul></div></div></div>
-		
-<h1><%= link_to "Get a free account", signup_path %></h1>
-<p>Get your own customizable 3DS page to broadcast to anyone you StreetPass!</p><p>Simply set your StreetPass greeting as your new 3DStxt link.</p><p>Now, anyone who sees your StreetPass greeting in Mii Plaza can visit your page.</p>
-
- </div>
-
-
-
-<% if flash[:error] %>
-<div class="row"><div class="span5"><div class="alert alert-error">
-<%= flash[:error] %>
-</div></div></div>
 <% end %>
 
-<% if @message.errors.any? %>
-<div class="row"><div class="span5"><div class="alert alert-error">
-    <% @message.errors.full_messages.each do |msg| %>
-      <p><%= msg %></p>
-    <% end %>
-</div></div></div>
-<% end %>
+	<div class="hero-unit">
+		<div class="picture-tease">
+			<div class="text-overlay">
+		 	 <ul>
+		 	 		<li><i class="icon-list-alt icon-white"></i> Stat tracking</li>
+		 	 		<li><i class="icon-envelope icon-white"></i> Email notifications</li>
+		 	 		<li><i class="icon-heart icon-white"></i> Share your Friend Code</li>
+		 	 		<li><i class="icon-star icon-white"></i> List the 3DS and DS games you're playing</li>
+		 	 </ul>
+			</div>
+		</div>
+	
+		<h1><%= link_to "Get a free account", signup_path %></h1>
+		<p>Get your own customizable 3DS page to broadcast to anyone you StreetPass!</p>
+		<p>Simply set your StreetPass greeting as your new 3DStxt link.</p>
+		<p>Now, anyone who sees your StreetPass greeting in Mii Plaza can visit your page.</p>
+ 	</div>
 
-<div class="row"><div class="span8"><div class="new-message-box inner-padding"><%= form_for(@message, :html => {:class => ""}) do |f| -%>
-<h2>Create a basic 3DStxt page here</h2>
-For more options, <%= link_to "create an account", signup_path %>.
-<%= f.text_area(:contents, :class => "span6", :style => "height:150px;") %><br/>
-<%= f.submit "Create", :class => "btn btn-success btn-large" -%>
-<% end %></div></div></div>
+
+
+	<% if flash[:error] %>
+		<div class="row">
+				<div class="alert alert-error">
+					<%= flash[:error] %>
+				</div>
+		</div>
+	<% end %>
+
+	<% if @message.errors.any? %>
+		<div class="row">
+			<div class="span5">
+				<div class="alert alert-error">
+  	  		<% @message.errors.full_messages.each do |msg| %>
+  	    		<p><%= msg %></p>
+  	  		<% end %>
+				</div>
+			</div>
+		</div>
+	<% end %>
+
+		<div class="new-message-box inner-padding">
+			<%= form_for(@message, :html => {:class => ""}) do |f| -%>
+				<h2>Create a basic 3DStxt page</h2>
+					For more options, <%= link_to "create an account", signup_path %>.<br/>
+					<%= f.text_area(:contents, :class => "span6", :style => "height:150px;") %><br/>
+					<%= f.submit "Create", :class => "btn btn-success btn-large" -%>
+			<% end %>
+		</div>
 
 
 
-<h1>Tips</h1>
+
+<div class="well"><h1>Tips</h1>
 <h2>You may want to include:</h2>
-<ul>
-	<li>Your first name or your Mii's nickname</li>
-	<li>Your Friend Code</li>
-	<li>Your home state and/or city</li>
-	<li>A list of your favorite 3DS games</li>
-</ul>
+		<ul>
+			<li>Your first name or your Mii's nickname</li>
+			<li>Your Friend Code</li>
+			<li>Your home state and/or city</li>
+			<li>A list of your favorite 3DS games</li>
+		</ul>
 <h2>You should NOT include:</h2>
-<ul><li>Your full name</li>
-<li>Your address</li>
-<li>Any other personally identifiable information</li></ul>
-</div>
+		<ul>
+			<li>Your full name</li>
+			<li>Your address</li>
+			<li>Any other personally identifiable information</li>
+		</ul></div>

@@ -4,5 +4,6 @@ log/*.log
 tmp/**/*
 .DS_Store
 *.dat
-config/s3.yml.example
-config/config.yml.example
+config/s3.yml
+config/config.yml
+.env
