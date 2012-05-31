@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   
   has_attached_file :profile_pic,
                     :storage => :s3,
-                    :s3_credentials => "#{::Rails.root.to_s}/config/s3.yml",
+                    :s3_credentials => {:access_key_id => ENV['S3_KEY'], :secret_access_key => ENV['S3_SECRET']},
                     :bucket => ENV['S3_BUCKET'],
                     :styles=> { :medium => "250x250>", :thumb => "100x100>"},
                     :path => "/:style/:id/:filename"
