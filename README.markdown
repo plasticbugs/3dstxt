@@ -42,11 +42,11 @@ When a 3DS user receives a 3dstxt.com URL as a message, hopefully they'll fire u
 + twitter-bootstrap-rails: Twitter Bootstrap!
 
 ## Customizing 3DStxt
-Rename these files by removing '.example':
-+ **config/config.yml.example** >> config/config.yml
-+ **config/s3.yml.example** >> config/s3.yml
+Rename example.env to .env
+Rename s3.yml.example to s3.yml
 
-## CONFIG.YML
+.env Variables Explained
+------------------------
 ### Email Account Info
 For password reset and email notifications, you will need to provide a Gmail account which will be used for sending auto-generated emails from the User Mailer.
 
@@ -62,6 +62,9 @@ You will need an [Amazon Associates account](https://affiliate-program.amazon.co
 ### Amazon S3 (for user profile image uploads)
 Get an [Amazon S3 account](http://aws.amazon.com/s3/). It's free as long as you're not pushing too much data!
 Create a unique bucket on S3 and add your bucket name to the config.yml file.
+
+### Host Name
+This is the domain name that will serve as the 'from' name in email alerts and notifications that the app generates
 
 ## S3.YML
 Using the same S3 Account from above, enter your Access Key ID and Secret Access Key from your S3 Account in the s3.yml file.
