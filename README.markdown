@@ -43,7 +43,6 @@ When a 3DS user receives a 3dstxt.com URL as a message, hopefully they'll fire u
 
 ## Customizing 3DStxt
 Rename example.env to .env
-Rename s3.yml.example to s3.yml
 
 .env Variables Explained
 ------------------------
@@ -54,19 +53,19 @@ For password reset and email notifications, you will need to provide a Gmail acc
 Supply a secret token. Rails auto-generates this in *config/initializers/secret_token.rb* when a new app is created. Ideally, it's a random string of characters, recommended to be at least 30 characters long.
 
 ### Amazon Associates Account & Product Advertising API Settings
-You will need an [Amazon Associates account](https://affiliate-program.amazon.com/), and you need to [sign up for access to the Amazon Product Advertising API](https://affiliate-program.amazon.com/gp/advertising/api/detail/main.html). Once you have an Amazon Associate account and API access, add the following to the config.yml file:
+You will need an [Amazon Associates account](https://affiliate-program.amazon.com/), and you need to [sign up for access to the Amazon Product Advertising API](https://affiliate-program.amazon.com/gp/advertising/api/detail/main.html). Once you have an Amazon Associate account and API access, add the following to the .env file:
 + Amazon Key
 + Amazon Secret
 + Amazon Associate Tag/ID
 
 ### Amazon S3 (for user profile image uploads)
 Get an [Amazon S3 account](http://aws.amazon.com/s3/). It's free as long as you're not pushing too much data!
-Create a unique bucket on S3 and add your bucket name to the config.yml file.
+Create a unique bucket on S3 and add your bucket name to the .env file.
+
+### S3 Key and Secret
+Using the same S3 Account from above, enter your Access Key ID and Secret Access Key from your S3 Account in the .env file.
 
 ### Host Name
 This is the domain name that will serve as the 'from' name in email alerts and notifications that the app generates
-
-## S3.YML
-Using the same S3 Account from above, enter your Access Key ID and Secret Access Key from your S3 Account in the s3.yml file.
 
 Feel free to email me with any questions *scottmosch [at] gmail [d0t] com*
