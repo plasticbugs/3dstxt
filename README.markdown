@@ -46,6 +46,10 @@ Rename example.env to .env
 
 .env Variables Explained
 ------------------------
+
+3dstxt uses the Foreman gem to load in configuration variables when running on a local machine. When deployed to a remote server, Foreman is not used. For Heroku, follow these instructions to store your environment config variables remotely:
+https://devcenter.heroku.com/articles/config-vars
+
 ### Email Account Info
 For password reset and email notifications, you will need to provide a Gmail account which will be used for sending auto-generated emails from the User Mailer.
 
