@@ -20,9 +20,9 @@ class GamesController < ApplicationController
    req = AmazonProduct["us"]
 
     req.configure do |c|
-      c.key    = APP_CONFIG['amazon_key']
-      c.secret = APP_CONFIG['amazon_secret']
-      c.tag    = APP_CONFIG['amazon_associate_tag']
+      c.key    = AMAZON_KEY
+      c.secret = AMAZON_SECRET
+      c.tag    = AMAZON_ASSOCIATE_TAG
     end
   
     req << { :operation => 'ItemSearch',
@@ -97,9 +97,9 @@ class GamesController < ApplicationController
       req = AmazonProduct["us"]
 
       req.configure do |c|
-        c.key    = APP_CONFIG['amazon_key']
-        c.secret = APP_CONFIG['amazon_secret']
-        c.tag    = APP_CONFIG['amazon_associate_tag']
+        c.key    = AMAZON_KEY
+        c.secret = AMAZON_SECRET
+        c.tag    = AMAZON_ASSOCIATE_TAG
       end
 
       req << {  :operation => 'ItemLookup',

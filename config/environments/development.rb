@@ -1,6 +1,6 @@
 Txtapp::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
-  APP_CONFIG = YAML.load_file("#{::Rails.root.to_s}/config/config.yml")[Rails.env]
+  #APP_CONFIG = YAML.load_file("#{::Rails.root.to_s}/config/config.yml")[Rails.env]
   
   Paperclip.options[:command_path] = "/usr/local/bin/convert"
   

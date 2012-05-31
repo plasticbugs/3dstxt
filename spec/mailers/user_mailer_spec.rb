@@ -10,7 +10,7 @@ describe UserMailer do
     it "renders the headers" do
       mail.subject.should eq("Password Reset")
       mail.to.should eq([user.email])
-      mail.from.should eq(APP_CONFIG['gmail_from_address_for_password_reset_and_email_alerts'])
+      mail.from.should eq(GMAIL_FROM_ADDRESS)
     end
 
     it "renders the body" do

@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   has_attached_file :profile_pic,
                     :storage => :s3,
                     :s3_credentials => "#{::Rails.root.to_s}/config/s3.yml",
-                    :bucket => APP_CONFIG['s3_bucket'],
+                    :bucket => S3_BUCKET,
                     :styles=> { :medium => "250x250>", :thumb => "100x100>"},
                     :path => "/:style/:id/:filename"
     

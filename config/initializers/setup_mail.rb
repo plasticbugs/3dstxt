@@ -3,8 +3,8 @@ ActionMailer::Base.smtp_settings =
   :address              => "smtp.gmail.com",
   :port                 => 587,
   :domain               => 'gmail.com',
-  :user_name            => APP_CONFIG['gmail_from_address_for_password_reset_and_email_alerts'],
-  :password             => APP_CONFIG['gmail_from_address_password'],
+  :user_name            => GMAIL_FROM_ADDRESS,
+  :password             => GMAIL_PASSWORD,
   :authentication       => 'plain',
   :enable_starttls_auto => true 
   }
