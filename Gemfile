@@ -36,6 +36,7 @@ group :test do
   gem 'factory_girl_rails'
   gem 'capybara'
   gem 'foreman'
+  gem 'guard-rspec'
 end
 
 group :assets do

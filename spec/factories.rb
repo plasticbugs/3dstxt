@@ -17,6 +17,7 @@ FactoryGirl.define do
   factory :game do
   asin                  "B0053BCO00"
   user_id               1
+  id                    1
   end
 
   

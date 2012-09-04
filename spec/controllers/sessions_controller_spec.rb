@@ -12,7 +12,7 @@ describe SessionsController do
   
   it "should have the right title" do
     visit signin_path
-    page.should have_content('Sign in here')
+    page.should have_content('Sign in')
   end
   
   
@@ -31,7 +31,7 @@ describe SessionsController do
     
     it "should have the right title" do
       post :create, :session => @attr
-      response.body.should include("Sign in here")
+      response.body.should include("Sign in")
     end
     
     it "should have a flash.now message" do
