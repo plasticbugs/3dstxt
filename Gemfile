@@ -16,6 +16,8 @@ gem 'aws-s3', :require => 'aws/s3'
 gem 'aws-sdk'
 gem 'amazon_product'
 gem 'escape_utils'
+gem 'thin'
+
 
 #gem 'mongrel'
 
@@ -25,7 +27,6 @@ group :development do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'capybara'
-  gem 'thin'
   gem 'mongrel', '>=1.2.0.pre2'
   gem 'foreman'
   gem 'taps'
