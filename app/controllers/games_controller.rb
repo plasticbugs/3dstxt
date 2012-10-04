@@ -26,7 +26,7 @@ class GamesController < ApplicationController
     end
   
     req << { :operation => 'ItemSearch',
-            :search_index => 'VideoGames',
+             :search_index => 'VideoGames',
             :response_group => %w{ItemAttributes Images},
             :keywords => params[:query] + ' 3DS'}
 
@@ -38,7 +38,7 @@ class GamesController < ApplicationController
               @asin = nil
             end
 
-            if !@asin.nil?
+            if !@asin.nil? && !@response['Items']['Item'].first['MediumImage'].nil?
               @game = Game.new(:asin => @asin)
               @game.user_id = @user.id
               @game.save
@@ -47,7 +47,7 @@ class GamesController < ApplicationController
                 flash.now[:notice] = 'A game was successfully added.'
                 render :controller => "games", :action => "search"
               else
-                flash[:error] = 'There was an error adding that game. Please try again.'
+                flash[:error] = 'There was an error adding that game. Please try using the exact title of the game.'
                 @game.errors.full_messages.each do |error|
                   flash[:error] << error
                 end
@@ -56,8 +56,22 @@ class GamesController < ApplicationController
               end
               
             else
-              flash[:error] = 'There was an error adding that game. Please try again.'
-              redirect_to :action => "search"
+                if !@response['Items']['Item'][1]['MediumImage'].nil?
+                  @asin = @response['Items']['Item'][1]['ASIN']
+                  @game = Game.new(:asin => @asin)
+                  @game.user_id = @user.id
+                  @game.save
+                  
+                  if @game.valid?
+                    flash.now[:notice] = 'A game was successfully added.'
+                    render :controller => "games", :action => "search"
+                else
+
+                  flash[:error] = 'There was an error adding that game. Please try using the exact title of the game.'
+                  redirect_to :action => "search"
+                end
+              end
+              
             end
    
 

@@ -29,6 +29,8 @@ group :development do
   gem 'thin'
   gem 'mongrel', '>=1.2.0.pre2'
   gem 'foreman'
+  gem 'taps'
+  gem 'heroku'
 end
 
 group :test do
