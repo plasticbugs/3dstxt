@@ -8,7 +8,6 @@ gem 'coffee-script'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3', :require => 'sqlite3'
 gem 'sanitize'
 gem 'rake'
 gem 'paperclip'
@@ -31,6 +30,7 @@ group :development do
   gem 'foreman'
   gem 'taps'
   gem 'heroku'
+  gem 'sqlite3', :require => 'sqlite3'
 end
 
 group :test do
