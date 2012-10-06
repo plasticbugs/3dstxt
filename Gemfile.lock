@@ -249,6 +249,7 @@ DEPENDENCIES
   sanitize
   sqlite3
   taps
+  therubyracer
   thin
   twitter-bootstrap-rails
   uglifier (>= 1.0.3)
