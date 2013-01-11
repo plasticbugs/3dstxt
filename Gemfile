@@ -5,6 +5,8 @@ gem 'jquery-rails'
 gem 'coffee-script'
 #gem 'mongrel', '>= 1.2.0.pre2'
 
+gem "recaptcha", :require => "recaptcha/rails"
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
