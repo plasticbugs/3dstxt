@@ -87,7 +87,7 @@ end
     
 def message_show_succeeded 
   @banner_text = "3DStxt.com/#{@message.pickUpCode}"
-  @comments = @message.comments
+  @comments = @message.comments.sort_by { |x| x.id }
   @comment = Comment.new
   impressionist(@message)
   
