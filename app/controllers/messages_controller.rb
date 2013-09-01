@@ -95,6 +95,7 @@ def message_show_succeeded
     @owner = @message.user
     
     display_friend_code
+    display_network_id
     display_user_games
   end
 end
@@ -147,6 +148,13 @@ end
    if !@owner.friend_code.nil? && @message.display_fc? && @owner.friend_code.length == 12
      @friendcode = format_friend_code(@message.user.friend_code)
      return @friendcode
+   end
+  end
+
+  def display_network_id
+   if !@owner.network_id.nil? && @message.display_network_id? && @owner.network_id.length > 0
+     @network_id = @message.user.network_id
+     return @network_id
    end
   end
   

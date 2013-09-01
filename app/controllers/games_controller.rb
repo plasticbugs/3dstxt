@@ -28,7 +28,7 @@ class GamesController < ApplicationController
     req << { :operation => 'ItemSearch',
              :search_index => 'VideoGames',
             :response_group => %w{ItemAttributes Images},
-            :keywords => params[:query] + ' 3DS'}
+            :keywords => params[:query] + " #{params[:gametype]}"}
 
             @response = req.get.to_hash
             begin

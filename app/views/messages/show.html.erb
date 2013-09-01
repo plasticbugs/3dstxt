@@ -20,9 +20,14 @@
 
 	<% if @friendcode %>
 		<div class="page-header">
-			<h2>My Friend Code <small><%= @friendcode %></small></h2>
+			<h2 style="color:#61aeed;">My 3DS Friend Code <small style="color:#69bbff;"><%= @friendcode %></small></h2>
 		</div>
-		<% end %>
+	<% end %>
+	<% if @network_id %>
+		<div class="page-header">
+			<h2 style="color:#24d32a;">My Nintendo Network ID <small style="color:#28ed30;"><%= @network_id %></small></h2>
+		</div>
+	<% end %>
 			
 			<% if @response && !@games.nil? %>
 

@@ -17,7 +17,15 @@
 
 <h2>Add games to your collection</h2>
 <%= form_tag({:controller => "games", :action => "search"}, :method => "get", :class => "form-horizontal") do %>
-	<%= label_tag 'Game Title' %><div class="input-append"><%= text_field_tag :query, params[:query], :class => "span2", :id => "appendedPrependedInput", :type => "text" %><button type="submit" class="btn">Add Game</button></div><% end %>
+	<fieldset><%= label_tag 'Game Title' %><div class="input-append"><%= text_field_tag :query, params[:query], :class => "span2", :id => "appendedPrependedInput", :type => "text" %><button type="submit" class="btn">Add Game</button></div></fieldset>
+<div style="margin-top:14px;">	<fieldset><label>Nintendo System:</label>
+	<label class="radio">
+	  		<input type="radio" name="gametype" id="3dstype" value="3ds" checked>Nintendo 3DS
+		</label>
+		<label class="radio">
+	  	<input type="radio" name="gametype" id="dstype" value="ds">Nintendo DS
+		</label></fieldset></div>
+<% end %>
 	
 	<% unless @user.games.nil? %>
 		<h5><%= "You have #{@user.games.count} games in your collection." %></h5>
