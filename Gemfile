@@ -34,6 +34,7 @@ group :development do
   gem 'taps'
   gem 'heroku'
   gem 'sqlite3', :require => 'sqlite3'
+  gem 'pg'
 end
 
 group :test do
@@ -42,6 +43,7 @@ group :test do
   gem 'capybara'
   gem 'foreman'
   gem 'guard-rspec'
+  gem 'rb-fsevent', '~> 0.9.1'
 end
 
 group :assets do
