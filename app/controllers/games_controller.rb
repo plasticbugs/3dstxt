@@ -9,73 +9,128 @@ class GamesController < ApplicationController
   end
 
   def search
-  if signed_in?
-    @banner_text = "Add games"
-    @user = current_user
-    #User.find(params[:id])
-  end
-  
-  if params[:query]
-    
-   req = AmazonProduct["us"]
-
-    req.configure do |c|
-      c.key    = ENV['AMAZON_KEY']
-      c.secret = ENV['AMAZON_SECRET']
-      c.tag    = ENV['AMAZON_ASSOCIATE_TAG']
+    if signed_in?
+      @banner_text = "Add games"
+      @user = current_user
+      #User.find(params[:id])
     end
   
-    req << { :operation => 'ItemSearch',
-             :search_index => 'VideoGames',
-            :response_group => %w{ItemAttributes Images},
-            :keywords => params[:query] + " #{params[:gametype]}"}
-
-            @response = req.get.to_hash
-            begin
-              @asin = @response['Items']['Item'].first['ASIN']
-            rescue
-              @response = nil
-              @asin = nil
-            end
-
-            if !@asin.nil? && !@response['Items']['Item'].first['MediumImage'].nil?
-              @game = Game.new(:asin => @asin)
-              @game.user_id = @user.id
-              @game.save
-              
-              if @game.valid?
-                flash.now[:notice] = 'A game was successfully added.'
-                render :controller => "games", :action => "search"
+    if params[:query]
+      
+     req = AmazonProduct["us"]
+  
+      req.configure do |c|
+        c.key    = ENV['AMAZON_KEY']
+        c.secret = ENV['AMAZON_SECRET']
+        c.tag    = ENV['AMAZON_ASSOCIATE_TAG']
+      end
+    
+      req << { :operation => 'ItemSearch',
+               :search_index => 'VideoGames',
+              :response_group => %w{ItemAttributes Images},
+              :keywords => params[:query] + " #{params[:gametype]}"}
+  
+              @response = req.get.to_hash
+  
+              @response_type = ""
+              if @response['Items']['Item'].class == Array
+                @asin = @response['Items']['Item'].first['ASIN']
+                @response_type = "Array"
+              elsif @response['Items']['Item'].class == Hash
+                @asin = @response['Items']['Item']['ASIN']
+                @response_type = "Hash"
               else
-                flash[:error] = 'There was an error adding that game. Please try using the exact title of the game.'
-                @game.errors.full_messages.each do |error|
-                  flash[:error] << error
-                end
-                  
-                redirect_to :action => "search"
+                @response_type = nil
+                @response = nil
+                @asin = nil
               end
-              
-            else
+  
+              # begin
+              #   @asin = @response['Items']['Item'].first['ASIN']
+              # rescue
+              #   @asin = @response['Items']['Item'].first[1]
+              # rescue
+              #   @response = nil
+              #   @asin = nil
+              # end
+  
+            if @response_type == "Array"
+              if !@asin.nil? && !@response['Items']['Item'].first['MediumImage'].nil?
+                @game = Game.new(:asin => @asin)
+                @game.user_id = @user.id
+                @game.save
+                
+                if @game.valid?
+                  flash.now[:notice] = 'A game was successfully added.'
+                  render :controller => "games", :action => "search"
+                else
+                  flash[:error] = 'There was an error adding that game. Please try using the exact title of the game.'
+                  @game.errors.full_messages.each do |error|
+                    flash[:error] << error
+                  end
+                  redirect_to :action => "search"
+                end
+                
+              else
                 if !@response['Items']['Item'][1]['MediumImage'].nil?
                   @asin = @response['Items']['Item'][1]['ASIN']
                   @game = Game.new(:asin => @asin)
                   @game.user_id = @user.id
                   @game.save
-                  
+                    
                   if @game.valid?
                     flash.now[:notice] = 'A game was successfully added.'
                     render :controller => "games", :action => "search"
+                  else
+                    flash[:error] = 'There was an error adding that game. Please try using the exact title of the game.'
+                    redirect_to :action => "search"
+                  end
+                end
+                
+              end
+  
+            elsif @response_type == "Hash"
+              if !@asin.nil? && !@response['Items']['Item']['MediumImage'].nil?
+                @game = Game.new(:asin => @asin)
+                @game.user_id = @user.id
+                @game.save
+                
+                if @game.valid?
+                  flash.now[:notice] = 'A game was successfully added.'
+                  render :controller => "games", :action => "search"
                 else
-
                   flash[:error] = 'There was an error adding that game. Please try using the exact title of the game.'
+                  @game.errors.full_messages.each do |error|
+                    flash[:error] << error
+                  end
+                    
                   redirect_to :action => "search"
                 end
+                
+              else
+                if !@response['Items']['Item'][1]['MediumImage'].nil?
+                  @asin = @response['Items']['Item'][1]['ASIN']
+                  @game = Game.new(:asin => @asin)
+                  @game.user_id = @user.id
+                  @game.save
+                    
+                  if @game.valid?
+                    flash.now[:notice] = 'A game was successfully added.'
+                    render :controller => "games", :action => "search"
+                  else
+                    flash[:error] = 'There was an error adding that game. Please try using the exact title of the game.'
+                    redirect_to :action => "search"
+                  end
+                end
+                
               end
-              
+            else
+              flash[:error] = 'There was an error adding that game. Make sure you selected the correct console. Also, try using the exact title of the game.'
+              redirect_to :action => "search"
             end
-   
-
+  
     end
+
     if !flash[:error].nil?
       @error_messages = flash[:error].split('.')
     end

@@ -36,8 +36,15 @@
 	
 	<div class="row">
 		<div class="span5 well">
+			<% if @response['Items']['Item'].class == Array %>
 		<%= "You added #{@response['Items']['Item'].first['ItemAttributes']['Title']} to your collection."  %>
 		<br/>
-		<%= image_tag (@response['Items']['Item'].first['MediumImage']['URL']) %></div>
+		<%= image_tag (@response['Items']['Item'].first['MediumImage']['URL']) %>
+			<% else %>
+		<%= "You added #{@response['Items']['Item']['ItemAttributes']['Title']} to your collection."  %>
+		<br/>
+		<%= image_tag (@response['Items']['Item']['MediumImage']['URL']) %>
+		<% end %>
+		</div>
 	</div>
 	<% end %>
