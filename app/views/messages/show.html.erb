@@ -20,12 +20,12 @@
 
 	<% if @friendcode %>
 		<div class="page-header">
-			<h2 style="color:#61aeed;">My 3DS Friend Code <small style="color:#69bbff;"><%= @friendcode %></small></h2>
+			<h2 class="friend-code wow fadeInDown" data-wow-delay=".5s">My 3DS Friend Code <small style="color:#69bbff;"><%= @friendcode %></small></h2>
 		</div>
 	<% end %>
 	<% if @network_id %>
 		<div class="page-header">
-			<h2 style="color:#24d32a;">My Nintendo Network ID <a href="https://miiverse.nintendo.net/users/<%= @network_id %>"><small style="color:#28ed30;"><%= @network_id %></small></a></h2>
+			<h2 class="nnid wow fadeInDown" data-wow-delay="1s">My Nintendo Network ID <a href="https://miiverse.nintendo.net/users/<%= @network_id %>"><small style="color:#28ed30;"><%= @network_id %></small></a></h2>
 		</div>
 	<% end %>
 			
@@ -33,9 +33,11 @@
 
 			<div class="row">
 					<div class="span8"><h2 style="padding-bottom:10px;">What I'm Playing</h2>
+			<% @itemnumber = 0.0 %>
 			<% @response.each do |amazon, game| %>
+			<% @itemnumber+= 0.2 %>
 		<div class="game-container-small">
-		<div class="game-box-small">
+		<div class="game-box-small wow flipInY" data-wow-delay="<%= @itemnumber %>s">
 		<a href="<%= amazon['DetailPageURL'] %>" alt="Buy on Amazon"><%= image_tag(amazon['SmallImage']['URL']) %></a>
 		<p><%= image_tag('18px-fade.png') %>
 		<%= amazon['ItemAttributes']['Title'] %></p>
