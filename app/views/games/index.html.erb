@@ -15,7 +15,7 @@
 	<% @response.each do |amazon, game| %>
 	<% @itemcount+= 0.2 %>
 <div class="game_container">
-<div class="game_box wow flipInY" data-wow-delay="<%= @itemcount %>s">
+<div class="wow flipInY game_box" data-wow-delay="<%= @itemcount %>s">
 
 <a href="<%= amazon['DetailPageURL'] %>" alt="Buy on Amazon"><%= image_tag(amazon['MediumImage']['URL']) %></a>
 <p><%= image_tag('18px-fade.png') %>
