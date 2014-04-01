@@ -20,6 +20,7 @@ gem 'amazon_product'
 gem 'escape_utils'
 gem 'thin'
 gem 'nokogiri', '>=1.5.5'
+gem 'pg'
 
 
 #gem 'mongrel'
@@ -34,15 +35,14 @@ group :development do
   gem 'foreman'
   gem 'taps'
   gem 'heroku'
-  gem 'sqlite3', :require => 'sqlite3'
-  gem 'pg'
+  # gem 'sqlite3', :require => 'sqlite3'
 end
 
 group :test do
-  gem 'rspec-rails'
-  gem 'factory_girl_rails'
-  gem 'capybara'
-  gem 'foreman'
+  # gem 'rspec-rails'
+  # gem 'factory_girl_rails'
+  # gem 'capybara'
+  # gem 'foreman'
   gem 'guard-rspec'
   gem 'rb-fsevent', '~> 0.9.1'
 end
@@ -53,7 +53,6 @@ group :assets do
 end
 
 group :production do
-  gem 'pg'
   gem 'therubyracer'
 end
 
