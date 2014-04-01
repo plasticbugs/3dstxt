@@ -19,6 +19,7 @@ gem 'aws-sdk'
 gem 'amazon_product'
 gem 'escape_utils'
 gem 'thin'
+gem 'nokogiri', '>=1.5.5'
 
 
 #gem 'mongrel'

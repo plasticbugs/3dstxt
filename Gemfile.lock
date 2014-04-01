@@ -239,6 +239,7 @@ DEPENDENCIES
   impressionist
   jquery-rails
   mongrel (>= 1.2.0.pre2)
+  nokogiri (>= 1.5.5)
   paperclip
   pg
   rails (= 3.2.11)
