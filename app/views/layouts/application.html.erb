@@ -16,12 +16,10 @@
 		<%= javascript_include_tag "application" %>
   <%= javascript_include_tag '//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js', :defer	=> true, :async => true %>
 	<%= javascript_include_tag "bootstrap-alert" %>
+<%= stylesheet_link_tag "application", :media => "all" %>
 <script>
  new WOW().init();
 </script>
-
-<%= stylesheet_link_tag "application", :media => "all" %>
-
   <%= csrf_meta_tags %>
 <%= favicon_link_tag %>
 <meta name="viewport" content="width=650px, user-scalable=yes">
