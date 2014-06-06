@@ -17,7 +17,7 @@ Txtapp::Application.routes.draw do
   match '/users/:id/games/search/:query', :to => 'games#search'
   match '/users/:id/games/search/', :to => 'games#search'
   
-  resources :users, :only => [:new, :create, :destroy, :show, :edit, :update] do
+  resources :users, :only => [:destroy, :new, :create, :show, :edit, :update] do
      
       resources :games do
         get 'search', :on => :collection
@@ -34,7 +34,7 @@ Txtapp::Application.routes.draw do
   
   #match '/users/:id' => 'users#show', :via => :get
   
-  
+
   get "pages/about"
   
   

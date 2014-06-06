@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   attr_accessor :password
   attr_accessible :name, :email, :password, :password_confirmation, :comment_alert, :friend_code, :profile_pic, :network_id
     
-  has_many :messages
+  has_many :messages, :dependent => :destroy
   has_many :comments
   has_many :games
   

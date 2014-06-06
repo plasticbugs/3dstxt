@@ -2,6 +2,7 @@ class MessagesController < ApplicationController
   
   before_filter :authenticate, :only => [:edit, :destroy]
   before_filter :correct_user, :only => [:edit, :destroy]
+  
     
   def index
     redirect_to :root
@@ -268,7 +269,6 @@ end
       redirect_to root_url
     end
   end
-  
 
     
     
